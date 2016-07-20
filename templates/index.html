@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% load render_bundle from webpack_loader %}
+{% block title %}Grades{% endblock %}
+
+{% block content %}
+    <div id="container-main"></div>
+    {% render_bundle 'main' %}
+{% endblock %}
