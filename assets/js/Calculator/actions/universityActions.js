@@ -6,10 +6,10 @@ export const RECEIVE_UNIVERSITIES = 'RECEIVE_UNIVERSITIES';
 
 /// action creators
 
-export function selectUniversity(universityID) {
+export function selectUniversity(universityId) {
     return {
         type: SELECT_UNIVERSITY,
-        universityID: universityID
+        universityId: universityId
     }
 }
 

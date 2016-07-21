@@ -3,13 +3,13 @@ import {REQUEST_UNIVERSITIES, RECEIVE_UNIVERSITIES, SELECT_UNIVERSITY} from "../
 
 function universityReducer(state = {
     isFetching: false,
-    university: [],
-    selectedUniversityID: null
+    universities: [],
+    selectedUniversityId: null
 }, action) {
     switch (action.type) {
         case SELECT_UNIVERSITY:
             return Object.assign({}, state, {
-                selectedUniversityID: action.universityID
+                selectedUniversityId: action.universityId
             });
         case REQUEST_UNIVERSITIES:
             return Object.assign({}, state, {

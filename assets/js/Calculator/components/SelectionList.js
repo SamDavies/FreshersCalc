@@ -8,26 +8,33 @@ var FormControl = require('react-bootstrap/lib/FormControl');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var InputGroup = require('react-bootstrap/lib/InputGroup');
 
-class UniversityList extends Component {
-    onSelectUniversity(e) {
-        this.props.onSelectUniversity(e.target.value);
+class SelectionList extends Component {
+    constructor(props) {
+        super(props);
+        this.onSelectOption = this.onSelectOption.bind(this);
+    }
+
+    onSelectOption(e) {
+        this.props.onSelectOption(e.target.value);
     }
 
     render() {
-        if (this.props.universities) {
+        if (this.props.options) {
             var self = this;
-            var options = this.props.universities.map(function (university) {
-                return <option key={university.id} value={university.id}>{university.name}</option>
+            var options = this.props.options.map(function (option) {
+                return <option key={option.id} value={option.id}>{option.name}</option>
             })
         }
         return <Col xs={12}>
             <Row>
-                <FormGroup controlId="year">
+                <FormGroup controlId="select">
                     <FormControl
                         componentClass="select"
-                        value={this.props.selectedUniversity}
-                        onChange={this.onSelectUniversity}
+                        value={this.props.selectedOption}
+                        onChange={this.onSelectOption}
+                        placeholder="..."
                     >
+                        <option>...</option>
                         {options}
                     </FormControl>
                 </FormGroup>
@@ -36,4 +43,4 @@ class UniversityList extends Component {
     }
 }
 
-export default UniversityList
+export default SelectionList
