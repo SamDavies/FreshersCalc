@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from "react";
-import {RadioGroup, Radio} from "react-radio-group";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
@@ -9,38 +8,42 @@ var FormControl = require('react-bootstrap/lib/FormControl');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var InputGroup = require('react-bootstrap/lib/InputGroup');
 
-
 /*
  * This component allows multiple option to be selected
  */
-class RadioGroupList extends Component {
+class CheckBoxList extends Component {
     constructor(props) {
         super(props);
         this.onSelectOption = this.onSelectOption.bind(this);
     }
 
-    onSelectOption(value) {
-        this.props.onSelectOption(value);
+    onSelectOption(optionId, checked, e) {
+        if (checked) {
+            this.props.onDeselectOption(optionId);
+            console.log("deselecting")
+        } else {
+            this.props.onSelectOption(optionId);
+            console.log("selecting")
+        }
     }
 
     render() {
         if (this.props.options) {
             var self = this;
             var options = this.props.options.map(function (option) {
-                return <label key={option.id}>
-                    <Radio value={option.id}/>{option.name}
+                let checked = (self.props.selectedOptions.filter(id => (id == option.id)).length != 0);
+                return <label className="checkbox-inline" key={option.id}>
+                    <input type="checkbox"
+                           checked={checked}
+                           onChange={self.onSelectOption.bind(self, option.id, checked)}
+                    /> {option.name}
                 </label>;
             })
         }
         return <Col xs={12}>
-            <Row>
-                <RadioGroup name={this.props.name} selectedValue={this.props.selectedOption}
-                            onChange={this.onSelectOption}>
-                    {options}
-                </RadioGroup>
-            </Row>
+            {options}
         </Col>;
     }
 }
 
-export default RadioGroupList
+export default CheckBoxList

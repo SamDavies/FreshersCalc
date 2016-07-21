@@ -12,7 +12,7 @@ class Calculator extends Component {
 
     getCost(collection, instanceId) {
         let instance = collection.filter(t => (t.id == instanceId))[0];
-        if(instance){
+        if (instance) {
             return instance.value;
         }
         return 0;
@@ -25,8 +25,18 @@ class Calculator extends Component {
     render() {
         var balance = this.props.budget;
 
+        // budget
         balance -= this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
         balance -= Calculator.weekToMonth(this.getCost(this.props.catering, this.props.selectedCateringId));
+
+        // expenses
+        for (var i = 0; i < this.props.items.length; i++) {
+            balance -= this.getCost(this.props.items, this.props.selectedItemIds[i]);
+        }
+        balance -= this.getCost(this.props.homeTrips, this.props.selectedHomeTripId);
+        balance -= this.getCost(this.props.gyms, this.props.selectedGymId);
+        balance -= this.getCost(this.props.haircuts, this.props.selectedHaircutId);
+        balance -= this.getCost(this.props.shoppings, this.props.selectedShoppingId);
 
         return <div>
             {balance}
@@ -37,6 +47,8 @@ class Calculator extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        // budget
+
         universities: state.universityReducer.universities,
         selectedUniversityId: state.universityReducer.selectedUniversityId,
 
@@ -46,7 +58,24 @@ const mapStateToProps = (state) => {
         selectedAccommodationId: state.accommodationReducer.selectedAccommodationId,
 
         catering: state.cateringReducer.catering,
-        selectedCateringId: state.cateringReducer.selectedCateringId
+        selectedCateringId: state.cateringReducer.selectedCateringId,
+
+        // expenses
+
+        items: state.itemReducer.items,
+        selectedItemIds: state.itemReducer.selectedItemIds,
+
+        homeTrips: state.homeTripReducer.homeTrips,
+        selectedHomeTripId: state.homeTripReducer.selectedHomeTripId,
+
+        gyms: state.gymReducer.gyms,
+        selectedGymId: state.gymReducer.selectedGymId,
+
+        haircuts: state.haircutReducer.haircuts,
+        selectedHaircutId: state.haircutReducer.selectedHaircutId,
+
+        shoppings: state.shoppingReducer.shoppings,
+        selectedShoppingId: state.shoppingReducer.selectedShoppingId
     }
 };
 
