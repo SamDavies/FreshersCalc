@@ -61320,13 +61320,18 @@
 	            var balance = this.props.budget;
 
 	            balance -= this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
-	            balance -= 4.0 * this.getCost(this.props.catering, this.props.selectedCateringId);
+	            balance -= Calculator.weekToMonth(this.getCost(this.props.catering, this.props.selectedCateringId));
 
 	            return _react2.default.createElement(
 	                "div",
 	                null,
 	                balance
 	            );
+	        }
+	    }], [{
+	        key: "weekToMonth",
+	        value: function weekToMonth(weekly) {
+	            return weekly * 52.0 / 12.0;
 	        }
 	    }]);
 

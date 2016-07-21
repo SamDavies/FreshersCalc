@@ -18,11 +18,15 @@ class Calculator extends Component {
         return 0;
     }
 
+    static weekToMonth(weekly) {
+        return (weekly * 52.0) / 12.0
+    }
+
     render() {
         var balance = this.props.budget;
 
         balance -= this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
-        balance -= 4.0 * this.getCost(this.props.catering, this.props.selectedCateringId);
+        balance -= Calculator.weekToMonth(this.getCost(this.props.catering, this.props.selectedCateringId));
 
         return <div>
             {balance}
