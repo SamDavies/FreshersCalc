@@ -8,6 +8,7 @@ import SelectionList from "../components/SelectionList";
 import RadioGroupList from "../components/RadioGroupList";
 import MoneyInput from "../components/MoneyInput";
 import Calculator from "../containers/Calculator";
+import BreadcrumbBar from "../components/BreadcrumbBar";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
@@ -48,36 +49,41 @@ class BudgetPage extends Component {
 
     render() {
         return <div>
-            <Calculator/>
-
             <div className="container">
-                <Col xs={12}>
-                    <SelectionList
-                        options={this.props.universities}
-                        selectedOption={this.props.selectedUniversity}
-                        onSelectOption={this.onSelectUniversity}
-                    />
+                <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
 
-                    <MoneyInput
-                        controlId="budget"
-                        value={this.props.budget}
-                        onChange={this.onSetBudget}
-                        placeholder="£ per semester"
-                    />
+                    <BreadcrumbBar activeName="university"/>
 
-                    <RadioGroupList
-                        name="accommodation"
-                        options={this.props.accommodation}
-                        selectedOption={this.props.selectedAccommodation}
-                        onSelectOption={this.onSelectAccommodation}
-                    />
+                    <Col xs={12}>
+                        <SelectionList
+                            options={this.props.universities}
+                            selectedOption={this.props.selectedUniversity}
+                            onSelectOption={this.onSelectUniversity}
+                        />
 
-                    <RadioGroupList
-                        name="catering"
-                        options={this.props.catering}
-                        selectedOption={this.props.selectedCatering}
-                        onSelectOption={this.onSelectCatering}
-                    />
+                        <MoneyInput
+                            controlId="budget"
+                            value={this.props.budget}
+                            onChange={this.onSetBudget}
+                            placeholder="£ per semester"
+                        />
+
+                        <RadioGroupList
+                            name="accommodation"
+                            options={this.props.accommodation}
+                            selectedOption={this.props.selectedAccommodation}
+                            onSelectOption={this.onSelectAccommodation}
+                        />
+
+                        <RadioGroupList
+                            name="catering"
+                            options={this.props.catering}
+                            selectedOption={this.props.selectedCatering}
+                            onSelectOption={this.onSelectCatering}
+                        />
+                    </Col>
+
+                    <Calculator/>
                 </Col>
             </div>
         </div>;

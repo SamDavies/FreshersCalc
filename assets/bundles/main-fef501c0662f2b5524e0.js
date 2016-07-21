@@ -58316,7 +58316,7 @@
 	if (document.location.hostname != "127.0.0.1") {
 	    module.exports = __webpack_require__(894);
 	} else {
-	    module.exports = __webpack_require__(954);
+	    module.exports = __webpack_require__(957);
 	}
 
 /***/ },
@@ -58482,6 +58482,10 @@
 
 	var _Calculator2 = _interopRequireDefault(_Calculator);
 
+	var _BreadcrumbBar = __webpack_require__(954);
+
+	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58543,36 +58547,41 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement(_Calculator2.default, null),
 	                _react2.default.createElement(
 	                    "div",
 	                    { className: "container" },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12 },
-	                        _react2.default.createElement(_SelectionList2.default, {
-	                            options: this.props.universities,
-	                            selectedOption: this.props.selectedUniversity,
-	                            onSelectOption: this.onSelectUniversity
-	                        }),
-	                        _react2.default.createElement(_MoneyInput2.default, {
-	                            controlId: "budget",
-	                            value: this.props.budget,
-	                            onChange: this.onSetBudget,
-	                            placeholder: "£ per semester"
-	                        }),
-	                        _react2.default.createElement(_RadioGroupList2.default, {
-	                            name: "accommodation",
-	                            options: this.props.accommodation,
-	                            selectedOption: this.props.selectedAccommodation,
-	                            onSelectOption: this.onSelectAccommodation
-	                        }),
-	                        _react2.default.createElement(_RadioGroupList2.default, {
-	                            name: "catering",
-	                            options: this.props.catering,
-	                            selectedOption: this.props.selectedCatering,
-	                            onSelectOption: this.onSelectCatering
-	                        })
+	                        { xs: 12, sm: 8, smOffset: 2, md: 6, mdOffset: 3 },
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "university" }),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12 },
+	                            _react2.default.createElement(_SelectionList2.default, {
+	                                options: this.props.universities,
+	                                selectedOption: this.props.selectedUniversity,
+	                                onSelectOption: this.onSelectUniversity
+	                            }),
+	                            _react2.default.createElement(_MoneyInput2.default, {
+	                                controlId: "budget",
+	                                value: this.props.budget,
+	                                onChange: this.onSetBudget,
+	                                placeholder: "£ per semester"
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                name: "accommodation",
+	                                options: this.props.accommodation,
+	                                selectedOption: this.props.selectedAccommodation,
+	                                onSelectOption: this.onSelectAccommodation
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                name: "catering",
+	                                options: this.props.catering,
+	                                selectedOption: this.props.selectedCatering,
+	                                onSelectOption: this.onSelectCatering
+	                            })
+	                        ),
+	                        _react2.default.createElement(_Calculator2.default, null)
 	                    )
 	                )
 	            );
@@ -61343,6 +61352,261 @@
 
 /***/ },
 /* 954 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Bootstrap Imports
+	var Col = __webpack_require__(899);
+	var Row = __webpack_require__(927);
+	var Breadcrumb = __webpack_require__(955);
+
+	var BreadcrumbBar = function (_Component) {
+	    _inherits(BreadcrumbBar, _Component);
+
+	    function BreadcrumbBar(props) {
+	        _classCallCheck(this, BreadcrumbBar);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BreadcrumbBar).call(this, props));
+
+	        _this.getActive = _this.getActive.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(BreadcrumbBar, [{
+	        key: 'getActive',
+	        value: function getActive(name) {
+	            return name == this.props.activeName;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                Breadcrumb,
+	                null,
+	                _react2.default.createElement(
+	                    Breadcrumb.Item,
+	                    { active: this.getActive("university"), href: '#' },
+	                    'Your University'
+	                ),
+	                _react2.default.createElement(
+	                    Breadcrumb.Item,
+	                    { active: this.getActive("expenses"), href: '#' },
+	                    'Personal Expenses'
+	                ),
+	                _react2.default.createElement(
+	                    Breadcrumb.Item,
+	                    { active: this.getActive("going-out"), href: '#' },
+	                    'Going Out'
+	                ),
+	                _react2.default.createElement(
+	                    Breadcrumb.Item,
+	                    { active: this.getActive("results"), href: '#' },
+	                    'Results'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return BreadcrumbBar;
+	}(_react.Component);
+
+	exports.default = BreadcrumbBar;
+
+/***/ },
+/* 955 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _objectWithoutProperties = __webpack_require__(939)['default'];
+
+	var _extends = __webpack_require__(900)['default'];
+
+	var _interopRequireDefault = __webpack_require__(920)['default'];
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(921);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _utilsValidComponentChildren = __webpack_require__(946);
+
+	var _utilsValidComponentChildren2 = _interopRequireDefault(_utilsValidComponentChildren);
+
+	var _BreadcrumbItem = __webpack_require__(956);
+
+	var _BreadcrumbItem2 = _interopRequireDefault(_BreadcrumbItem);
+
+	var Breadcrumb = _react2['default'].createClass({
+	  displayName: 'Breadcrumb',
+
+	  propTypes: {
+	    /**
+	     * bootstrap className
+	     * @private
+	     */
+	    bsClass: _react2['default'].PropTypes.string
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      bsClass: 'breadcrumb'
+	    };
+	  },
+
+	  render: function render() {
+	    var _props = this.props;
+	    var className = _props.className;
+
+	    var props = _objectWithoutProperties(_props, ['className']);
+
+	    return _react2['default'].createElement(
+	      'ol',
+	      _extends({}, props, {
+	        role: 'navigation',
+	        'aria-label': 'breadcrumbs',
+	        className: _classnames2['default'](className, this.props.bsClass) }),
+	      _utilsValidComponentChildren2['default'].map(this.props.children, this.renderBreadcrumbItem)
+	    );
+	  },
+
+	  renderBreadcrumbItem: function renderBreadcrumbItem(child, index) {
+	    return _react.cloneElement(child, { key: child.key || index });
+	  }
+	});
+
+	Breadcrumb.Item = _BreadcrumbItem2['default'];
+
+	exports['default'] = Breadcrumb;
+	module.exports = exports['default'];
+
+/***/ },
+/* 956 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _objectWithoutProperties = __webpack_require__(939)['default'];
+
+	var _extends = __webpack_require__(900)['default'];
+
+	var _interopRequireDefault = __webpack_require__(920)['default'];
+
+	exports.__esModule = true;
+
+	var _classnames = __webpack_require__(921);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _SafeAnchor = __webpack_require__(938);
+
+	var _SafeAnchor2 = _interopRequireDefault(_SafeAnchor);
+
+	var BreadcrumbItem = _react2['default'].createClass({
+	  displayName: 'BreadcrumbItem',
+
+	  propTypes: {
+	    /**
+	     * If set to true, renders `span` instead of `a`
+	     */
+	    active: _react2['default'].PropTypes.bool,
+	    /**
+	     * HTML id for the wrapper `li` element
+	     */
+	    id: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+	    /**
+	     * HTML id for the inner `a` element
+	     */
+	    linkId: _react2['default'].PropTypes.oneOfType([_react2['default'].PropTypes.string, _react2['default'].PropTypes.number]),
+	    /**
+	     * `href` attribute for the inner `a` element
+	     */
+	    href: _react2['default'].PropTypes.string,
+	    /**
+	     * `title` attribute for the inner `a` element
+	     */
+	    title: _react2['default'].PropTypes.node,
+	    /**
+	     * `target` attribute for the inner `a` element
+	     */
+	    target: _react2['default'].PropTypes.string
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      active: false
+	    };
+	  },
+
+	  render: function render() {
+	    var _props = this.props;
+	    var active = _props.active;
+	    var className = _props.className;
+	    var id = _props.id;
+	    var linkId = _props.linkId;
+	    var children = _props.children;
+	    var href = _props.href;
+	    var title = _props.title;
+	    var target = _props.target;
+
+	    var props = _objectWithoutProperties(_props, ['active', 'className', 'id', 'linkId', 'children', 'href', 'title', 'target']);
+
+	    var linkProps = {
+	      href: href,
+	      title: title,
+	      target: target,
+	      id: linkId
+	    };
+
+	    return _react2['default'].createElement(
+	      'li',
+	      { id: id, className: _classnames2['default'](className, { active: active }) },
+	      active ? _react2['default'].createElement(
+	        'span',
+	        props,
+	        children
+	      ) : _react2['default'].createElement(
+	        _SafeAnchor2['default'],
+	        _extends({}, props, linkProps),
+	        children
+	      )
+	    );
+	  }
+	});
+
+	exports['default'] = BreadcrumbItem;
+	module.exports = exports['default'];
+
+/***/ },
+/* 957 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
