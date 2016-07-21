@@ -55,14 +55,11 @@ INSTALLED_APPS = (
     'webpack_loader',
     'rest_framework',
     'bdd',
-    'custom_user',
     'mod_auth',
-    'mod_course',
-    'mod_paper',
-    'mod_uni',
+    'mod_choice',
 )
 
-AUTH_USER_MODEL = 'mod_auth.GradesUser'
+# AUTH_USER_MODEL = 'mod_auth.GradesUser'
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=365),
 }
@@ -105,7 +102,7 @@ MESSAGE_TAGS = {
     50: 'critical',
 }
 
-WSGI_APPLICATION = 'Grades.wsgi.application'
+WSGI_APPLICATION = 'FreshersCalc.wsgi.application'
 
 # Parse database configuration from $DATABASE_URL
 # example environmental variable = postgres://stuff_sam:PASSWORD@localhost/pying_django
@@ -116,7 +113,7 @@ DATABASES = {
 }
 
 # Enable Connection Pooling
-# DATABASES['default']['ENGINE'] = 'django_postgrespool'
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

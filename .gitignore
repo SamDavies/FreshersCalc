@@ -35,6 +35,7 @@ build
 Pying/.idea
 *.toc
 .idea
+staticfiles/
 
 ghostdriver.log
 

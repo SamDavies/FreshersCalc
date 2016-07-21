@@ -4,7 +4,7 @@ const App = React.createClass({
     render() {
         return (
             <div>
-                {this.props.children || <p>You are {!this.state.loggedIn && 'not'} logged in.</p>}
+                {this.props.children}
             </div>
         )
     }

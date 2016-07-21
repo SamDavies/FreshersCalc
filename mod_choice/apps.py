@@ -4,4 +4,4 @@ from django.apps import AppConfig
 
 
 class PaperConfig(AppConfig):
-    name = 'mod_choices'
+    name = 'mod_choice'

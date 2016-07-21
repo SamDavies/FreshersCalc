@@ -2,7 +2,7 @@ import os
 
 from django.core import management
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'Grades.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'FreshersCalc.settings'
 import django
 django.setup()
 
