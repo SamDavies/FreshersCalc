@@ -30,15 +30,15 @@ Feature: Calculate the budget for a student
     And I select option "Self Catered" for the question "Are you catered or self-catered?"
     Then I have "1370" left
 
-#  Scenario: Calculate spending on the Expenses Page
-#    When I visit the "expenses" page
-#    And I select option "Pans" for the question "Do you need the following items?"
-#    And I select option "Plates" for the question "Do you need the following items?"
-#    And I select option "Once a month" for the question "How regularly do you plan on going home?"
-#    And I select option "Yes" for the question "Are you going to get a haircut?"
-#    And I select option "Twice a semester" for the question "How regularly do you get your hair cut?"
-#    And I select option "£200 - £300" for the question "How much do you spend shopping online per month?"
-#    Then I have "1380" left
+  Scenario: Calculate spending on the Expenses Page
+    When I visit the "expenses" page
+    And I select option "Pans" for the question "Do you need the following items?"
+    And I select option "Plates" for the question "Do you need the following items?"
+    And I select option "Once a month" for the question "How regularly do you plan on going home?"
+    And I select option "Yes" for the question "Are you going to get a gym membership?"
+    And I select option "Twice a semester" for the question "How regularly do you get your hair cut?"
+    And I select option "£200 - £300" for the question "How much do you spend shopping online per month?"
+    Then I have "-568" left
 
 #  Scenario: Calculate spending for overspend
 #    When I visit the budget page
