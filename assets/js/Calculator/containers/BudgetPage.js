@@ -74,6 +74,8 @@ class BudgetPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={4}
+                                outerCols={12}
                                 header="What type of accommodation are you living on?"
                                 name="accommodation"
                                 options={this.props.accommodation}
@@ -82,6 +84,8 @@ class BudgetPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={12}
+                                outerCols={12}
                                 header="Are you catered or self-catered?"
                                 name="catering"
                                 options={this.props.catering}

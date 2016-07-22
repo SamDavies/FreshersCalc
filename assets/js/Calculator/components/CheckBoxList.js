@@ -31,10 +31,12 @@ class CheckBoxList extends Component {
             var options = this.props.options.map(function (option) {
                 let checked = (self.props.selectedOptions.filter(id => (id == option.id)).length != 0);
                 return <label className="checkbox-inline" key={option.id}>
-                    <input type="checkbox"
-                           checked={checked}
-                           onChange={self.onSelectOption.bind(self, option.id, checked)}
-                    /> {option.name}
+                    <Col xs={self.props.innerCols}>
+                        <input type="checkbox"
+                               checked={checked}
+                               onChange={self.onSelectOption.bind(self, option.id, checked)}
+                        /> {option.name}
+                    </Col>
                 </label>;
             })
         }
@@ -45,7 +47,7 @@ class CheckBoxList extends Component {
                 </Col>
             </Row>
             <Row className="question-choices">
-                <Col xs={12}>
+                <Col xs={this.props.outerCols} style={{padding: "0"}}>
                     {options}
                 </Col>
             </Row>

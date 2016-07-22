@@ -104,6 +104,8 @@ class GoingOutPage extends Component {
 
                         <Col xs={12}>
                             <CheckBoxList
+                                innerCols={4}
+                                outerCols={9}
                                 header="Which nights do you plan on going out?"
                                 name="catering"
                                 options={this.props.days}
@@ -123,6 +125,8 @@ class GoingOutPage extends Component {
                             {drinkSelectionLists}
 
                             <RadioGroupList
+                                innerCols={6}
+                                outerCols={9}
                                 header="Do you buy rounds for friends?"
                                 name="rounds"
                                 options={this.props.rounds}
@@ -131,6 +135,8 @@ class GoingOutPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={3}
+                                outerCols={12}
                                 header="How many post-night snack do you have?"
                                 name="meals"
                                 options={this.props.meals}
@@ -139,6 +145,8 @@ class GoingOutPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={2}
+                                outerCols={12}
                                 header="Do you get a taxi back after a night out?"
                                 name="taxis"
                                 options={this.props.taxis}

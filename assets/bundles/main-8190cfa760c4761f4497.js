@@ -59633,6 +59633,8 @@
 	                                    placeholder: "£ per semester"
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 4,
+	                                    outerCols: 12,
 	                                    header: "What type of accommodation are you living on?",
 	                                    name: "accommodation",
 	                                    options: this.props.accommodation,
@@ -59640,6 +59642,8 @@
 	                                    onSelectOption: this.onSelectAccommodation
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 12,
+	                                    outerCols: 12,
 	                                    header: "Are you catered or self-catered?",
 	                                    name: "catering",
 	                                    options: this.props.catering,
@@ -62154,10 +62158,14 @@
 	                var self = this;
 	                var options = this.props.options.map(function (option) {
 	                    return _react2.default.createElement(
-	                        "label",
-	                        { key: option.id },
-	                        _react2.default.createElement(_reactRadioGroup.Radio, { value: option.id }),
-	                        option.name
+	                        Col,
+	                        { xs: self.props.innerCols },
+	                        _react2.default.createElement(
+	                            "label",
+	                            { key: option.id },
+	                            _react2.default.createElement(_reactRadioGroup.Radio, { value: option.id }),
+	                            option.name
+	                        )
 	                    );
 	                });
 	            }
@@ -62182,7 +62190,7 @@
 	                    { className: "question-choices" },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12 },
+	                        { xs: this.props.outerCols, style: { padding: "0" } },
 	                        _react2.default.createElement(
 	                            _reactRadioGroup.RadioGroup,
 	                            { name: this.props.name, selectedValue: this.props.selectedOption,
@@ -64017,6 +64025,8 @@
 	                                Col,
 	                                { xs: 12 },
 	                                _react2.default.createElement(_CheckBoxList2.default, {
+	                                    innerCols: 6,
+	                                    outerCols: 6,
 	                                    header: "Do you need the following items?",
 	                                    name: "catering",
 	                                    options: this.props.items,
@@ -64025,6 +64035,8 @@
 	                                    onDeselectOption: this.onDeselectItem
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 6,
+	                                    outerCols: 8,
 	                                    header: "How regularly do you plan on going home?",
 	                                    name: "homeTrips",
 	                                    options: this.props.homeTrips,
@@ -64032,6 +64044,8 @@
 	                                    onSelectOption: this.onSelectHomeTrip
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 2,
+	                                    outerCols: 12,
 	                                    header: "Are you going to get a gym membership?",
 	                                    name: "gyms",
 	                                    options: this.props.gyms,
@@ -64039,6 +64053,8 @@
 	                                    onSelectOption: this.onSelectGym
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 6,
+	                                    outerCols: 6,
 	                                    header: "How regularly do you get your haircut?",
 	                                    name: "haircuts",
 	                                    options: this.props.haircuts,
@@ -64046,6 +64062,8 @@
 	                                    onSelectOption: this.onSelectHaircut
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 4,
+	                                    outerCols: 12,
 	                                    header: "How much do you spend shopping online per month?",
 	                                    name: "shopping",
 	                                    options: this.props.shoppings,
@@ -64153,12 +64171,16 @@
 	                    return _react2.default.createElement(
 	                        'label',
 	                        { className: 'checkbox-inline', key: option.id },
-	                        _react2.default.createElement('input', { type: 'checkbox',
-	                            checked: checked,
-	                            onChange: self.onSelectOption.bind(self, option.id, checked)
-	                        }),
-	                        ' ',
-	                        option.name
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: self.props.innerCols },
+	                            _react2.default.createElement('input', { type: 'checkbox',
+	                                checked: checked,
+	                                onChange: self.onSelectOption.bind(self, option.id, checked)
+	                            }),
+	                            ' ',
+	                            option.name
+	                        )
 	                    );
 	                });
 	            }
@@ -64183,7 +64205,7 @@
 	                    { className: 'question-choices' },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12 },
+	                        { xs: this.props.outerCols, style: { padding: "0" } },
 	                        options
 	                    )
 	                )
@@ -64367,6 +64389,8 @@
 	                                Col,
 	                                { xs: 12 },
 	                                _react2.default.createElement(_CheckBoxList2.default, {
+	                                    innerCols: 4,
+	                                    outerCols: 9,
 	                                    header: "Which nights do you plan on going out?",
 	                                    name: "catering",
 	                                    options: this.props.days,
@@ -64389,6 +64413,8 @@
 	                                ),
 	                                drinkSelectionLists,
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 6,
+	                                    outerCols: 9,
 	                                    header: "Do you buy rounds for friends?",
 	                                    name: "rounds",
 	                                    options: this.props.rounds,
@@ -64396,6 +64422,8 @@
 	                                    onSelectOption: this.onSelectRound
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 3,
+	                                    outerCols: 12,
 	                                    header: "How many post-night snack do you have?",
 	                                    name: "meals",
 	                                    options: this.props.meals,
@@ -64403,6 +64431,8 @@
 	                                    onSelectOption: this.onSelectMeal
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
+	                                    innerCols: 2,
+	                                    outerCols: 12,
 	                                    header: "Do you get a taxi back after a night out?",
 	                                    name: "taxis",
 	                                    options: this.props.taxis,
@@ -64623,11 +64653,6 @@
 	                null,
 	                balance
 	            );
-	        }
-	    }], [{
-	        key: "weekToMonth",
-	        value: function weekToMonth(weekly) {
-	            return weekly * 52.0 / 12.0;
 	        }
 	    }]);
 

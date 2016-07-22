@@ -70,6 +70,8 @@ class BudgetPage extends Component {
 
                         <Col xs={12}>
                             <CheckBoxList
+                                innerCols={6}
+                                outerCols={6}
                                 header="Do you need the following items?"
                                 name="catering"
                                 options={this.props.items}
@@ -79,6 +81,8 @@ class BudgetPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={6}
+                                outerCols={8}
                                 header="How regularly do you plan on going home?"
                                 name="homeTrips"
                                 options={this.props.homeTrips}
@@ -87,6 +91,8 @@ class BudgetPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={2}
+                                outerCols={12}
                                 header="Are you going to get a gym membership?"
                                 name="gyms"
                                 options={this.props.gyms}
@@ -95,6 +101,8 @@ class BudgetPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={6}
+                                outerCols={6}
                                 header="How regularly do you get your haircut?"
                                 name="haircuts"
                                 options={this.props.haircuts}
@@ -103,6 +111,8 @@ class BudgetPage extends Component {
                             />
 
                             <RadioGroupList
+                                innerCols={4}
+                                outerCols={12}
                                 header="How much do you spend shopping online per month?"
                                 name="shopping"
                                 options={this.props.shoppings}
