@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
+import {Link, browserHistory} from "react-router";
 import {getUniversities, selectUniversity} from "../actions/universityActions";
 import {getAccommodation, selectAccommodation} from "../actions/accommodationActions";
 import {getCatering, selectCatering} from "../actions/cateringActions";
@@ -7,12 +8,13 @@ import {setBudget} from "../actions/budgetActions";
 import SelectionList from "../components/SelectionList";
 import RadioGroupList from "../components/RadioGroupList";
 import MoneyInput from "../components/MoneyInput";
-import Calculator from "../containers/Calculator";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
+var Panel = require('react-bootstrap/lib/Panel');
+var Button = require('react-bootstrap/lib/Button');
 
 
 class BudgetPage extends Component {
@@ -50,43 +52,51 @@ class BudgetPage extends Component {
     render() {
         return <div>
             <div className="container">
-                <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
+                <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
+                    <Panel>
+                        <BreadcrumbBar activeName="budget"/>
 
-                    <BreadcrumbBar activeName="budget"/>
+                        <Col xs={12}>
+                            <SelectionList
+                                header="What university do you go to?"
+                                placeholder="University"
+                                options={this.props.universities}
+                                selectedOption={this.props.selectedUniversityId}
+                                onSelectOption={this.onSelectUniversity}
+                            />
 
-                    <Col xs={12}>
-                        <SelectionList
-                            header="What university do you go to?"
-                            placeholder="University"
-                            options={this.props.universities}
-                            selectedOption={this.props.selectedUniversityId}
-                            onSelectOption={this.onSelectUniversity}
-                        />
+                            <MoneyInput
+                                header="What’s your total maintenance loan?"
+                                controlId="budget"
+                                value={this.props.budget}
+                                onChange={this.onSetBudget}
+                                placeholder="£ per semester"
+                            />
 
-                        <MoneyInput
-                            header="What’s your total maintenance loan?"
-                            controlId="budget"
-                            value={this.props.budget}
-                            onChange={this.onSetBudget}
-                            placeholder="£ per semester"
-                        />
+                            <RadioGroupList
+                                header="What type of accommodation are you living on?"
+                                name="accommodation"
+                                options={this.props.accommodation}
+                                selectedOption={this.props.selectedAccommodationId}
+                                onSelectOption={this.onSelectAccommodation}
+                            />
 
-                        <RadioGroupList
-                            header="What type of accommodation are you living on?"
-                            name="accommodation"
-                            options={this.props.accommodation}
-                            selectedOption={this.props.selectedAccommodationId}
-                            onSelectOption={this.onSelectAccommodation}
-                        />
+                            <RadioGroupList
+                                header="Are you catered or self-catered?"
+                                name="catering"
+                                options={this.props.catering}
+                                selectedOption={this.props.selectedCateringId}
+                                onSelectOption={this.onSelectCatering}
+                            />
+                        </Col>
 
-                        <RadioGroupList
-                            header="Are you catered or self-catered?"
-                            name="catering"
-                            options={this.props.catering}
-                            selectedOption={this.props.selectedCateringId}
-                            onSelectOption={this.onSelectCatering}
-                        />
-                    </Col>
+                        <Col xs={12}>
+                            <Button bsStyle="link" onClick={() => browserHistory.push('/web/expenses/')}>
+                                Continue to your expenses »
+                            </Button>
+                        </Col>
+
+                    </Panel>
                 </Col>
             </div>
         </div>;

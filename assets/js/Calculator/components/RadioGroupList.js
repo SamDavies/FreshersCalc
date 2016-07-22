@@ -35,10 +35,10 @@ class RadioGroupList extends Component {
         return <div>
             <Row>
                 <Col xs={12}>
-                    <h3 className="question">{this.props.header}</h3>
+                    <div className="question">{this.props.header}</div>
                 </Col>
             </Row>
-            <Row>
+            <Row className="question-choices">
                 <Col xs={12}>
                     <RadioGroup name={this.props.name} selectedValue={this.props.selectedOption}
                                 onChange={this.onSelectOption}>

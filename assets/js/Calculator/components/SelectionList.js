@@ -33,7 +33,7 @@ class SelectionList extends Component {
                     <h3 className="question">{this.props.header}</h3>
                 </Col>
             </Row>
-            <Row>
+            <Row className="question-choices">
                 <Col xs={12}>
                     <FormGroup controlId="select">
                         <FormControl

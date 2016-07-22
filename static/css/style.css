@@ -1,5 +1,5 @@
 body {
-    font-family: Lato;
+    font-family: Lato, serif;
     font-size: 17px;
     font-weight: bold;
     line-height: 1;
@@ -12,7 +12,6 @@ body {
     margin-top: 0
 }
 
-​
 .question {
     font-family: Lato;
     font-size: 24px;
@@ -20,9 +19,17 @@ body {
     line-height: 1.25;
     letter-spacing: -0.2px;
     color: #333333;
+    margin-bottom: 0.5em;
 }
 
-​
+.question-choices {
+    font-family: Lato;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    color: #333333;
+    margin-bottom: 1em;
+}
+
 .btn-link {
     display: inline-block;
     padding: 10px 25px;
@@ -39,4 +46,36 @@ body {
     text-decoration: none;
     -webkit-appearance: button;
     cursor: pointer;
+}
+
+.panel {
+    margin-top: 1.5em;
+}
+
+.breadcrumb {
+    margin-bottom: 0.3em;
+}
+
+.breadcrumb > li {
+    display: inline-block;
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    color: rgba(18, 18, 18, .9);
+}
+
+.breadcrumb > li + li:before {
+    color: #fe4a4b;
+    content: "\00a0>\00a0";
+}
+
+.breadcrumb > .active {
+    color: rgba(18, 18, 18, .9);
+}
+
+.breadcrumb a {
+    color: rgba(18, 18, 18, .9);
+    font-weight: lighter;
 }

@@ -13,6 +13,8 @@ import RadioGroupList from "../components/RadioGroupList";
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
+var Panel = require('react-bootstrap/lib/Panel');
+var Button = require('react-bootstrap/lib/Button');
 
 
 class GoingOutPage extends Component {
@@ -95,54 +97,56 @@ class GoingOutPage extends Component {
 
         return <div>
             <div className="container">
-                <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
+                <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
+                    <Panel>
 
-                    <BreadcrumbBar activeName="going-out"/>
+                        <BreadcrumbBar activeName="going-out"/>
 
-                    <Col xs={12}>
-                        <CheckBoxList
-                            header="Which nights do you plan on going out?"
-                            name="catering"
-                            options={this.props.days}
-                            selectedOptions={this.props.selectedNightIds}
-                            onSelectOption={this.onIncreaseNightCount}
-                            onDeselectOption={this.onDecreaseNightCount}
-                        />
+                        <Col xs={12}>
+                            <CheckBoxList
+                                header="Which nights do you plan on going out?"
+                                name="catering"
+                                options={this.props.days}
+                                selectedOptions={this.props.selectedNightIds}
+                                onSelectOption={this.onIncreaseNightCount}
+                                onDeselectOption={this.onDecreaseNightCount}
+                            />
 
-                        <Row>
-                            <Col xs={12}>
-                                <h3 className="question">
-                                    How man drinks do you plan on having on an average night out?
-                                </h3>
-                            </Col>
-                        </Row>
+                            <Row>
+                                <Col xs={12}>
+                                    <h3 className="question">
+                                        How man drinks do you plan on having on an average night out?
+                                    </h3>
+                                </Col>
+                            </Row>
 
-                        {drinkSelectionLists}
+                            {drinkSelectionLists}
 
-                        <RadioGroupList
-                            header="Do you buy rounds for friends?"
-                            name="rounds"
-                            options={this.props.rounds}
-                            selectedOption={this.props.selectedRoundId}
-                            onSelectOption={this.onSelectRound}
-                        />
+                            <RadioGroupList
+                                header="Do you buy rounds for friends?"
+                                name="rounds"
+                                options={this.props.rounds}
+                                selectedOption={this.props.selectedRoundId}
+                                onSelectOption={this.onSelectRound}
+                            />
 
-                        <RadioGroupList
-                            header="How many post-night snack do you have?"
-                            name="meals"
-                            options={this.props.meals}
-                            selectedOption={this.props.selectedMealId}
-                            onSelectOption={this.onSelectMeal}
-                        />
+                            <RadioGroupList
+                                header="How many post-night snack do you have?"
+                                name="meals"
+                                options={this.props.meals}
+                                selectedOption={this.props.selectedMealId}
+                                onSelectOption={this.onSelectMeal}
+                            />
 
-                        <RadioGroupList
-                            header="Do you get a taxi back after a night out?"
-                            name="taxis"
-                            options={this.props.taxis}
-                            selectedOption={this.props.selectedTaxiId}
-                            onSelectOption={this.onSelectTaxi}
-                        />
-                    </Col>
+                            <RadioGroupList
+                                header="Do you get a taxi back after a night out?"
+                                name="taxis"
+                                options={this.props.taxis}
+                                selectedOption={this.props.selectedTaxiId}
+                                onSelectOption={this.onSelectTaxi}
+                            />
+                        </Col>
+                    </Panel>
                 </Col>
             </div>
         </div>;
