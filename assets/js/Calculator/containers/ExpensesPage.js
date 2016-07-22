@@ -7,12 +7,13 @@ import {getHaircuts, selectHaircut} from "../actions/haircutActions";
 import {getShoppings, selectShopping} from "../actions/shoppingActions";
 import RadioGroupList from "../components/RadioGroupList";
 import CheckBoxList from "../components/CheckBoxList";
-import Calculator from "../containers/Calculator";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
+var Panel = require('react-bootstrap/lib/Panel');
+var Button = require('react-bootstrap/lib/Button');
 
 
 class BudgetPage extends Component {
@@ -62,49 +63,54 @@ class BudgetPage extends Component {
     render() {
         return <div>
             <div className="container">
-                <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
+                <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
+                    <Panel>
 
-                    <BreadcrumbBar activeName="expenses"/>
+                        <BreadcrumbBar activeName="expenses"/>
 
-                    <Col xs={12}>
-                        <CheckBoxList
-                            name="catering"
-                            options={this.props.items}
-                            selectedOptions={this.props.selectedItemIds}
-                            onSelectOption={this.onSelectItem}
-                            onDeselectOption={this.onDeselectItem}
-                        />
-                        
-                        <RadioGroupList
-                            name="homeTrips"
-                            options={this.props.homeTrips}
-                            selectedOption={this.props.selectedHomeTripId}
-                            onSelectOption={this.onSelectHomeTrip}
-                        />
+                        <Col xs={12}>
+                            <CheckBoxList
+                                header="Do you need the following items?"
+                                name="catering"
+                                options={this.props.items}
+                                selectedOptions={this.props.selectedItemIds}
+                                onSelectOption={this.onSelectItem}
+                                onDeselectOption={this.onDeselectItem}
+                            />
 
-                        <RadioGroupList
-                            name="gyms"
-                            options={this.props.gyms}
-                            selectedOption={this.props.selectedGymId}
-                            onSelectOption={this.onSelectGym}
-                        />
+                            <RadioGroupList
+                                header="How regularly do you plan on going home?"
+                                name="homeTrips"
+                                options={this.props.homeTrips}
+                                selectedOption={this.props.selectedHomeTripId}
+                                onSelectOption={this.onSelectHomeTrip}
+                            />
 
-                        <RadioGroupList
-                            name="haircuts"
-                            options={this.props.haircuts}
-                            selectedOption={this.props.selectedHaircutId}
-                            onSelectOption={this.onSelectHaircut}
-                        />
+                            <RadioGroupList
+                                header="Are you going to get a gym membership?"
+                                name="gyms"
+                                options={this.props.gyms}
+                                selectedOption={this.props.selectedGymId}
+                                onSelectOption={this.onSelectGym}
+                            />
 
-                        <RadioGroupList
-                            name="shopping"
-                            options={this.props.shoppings}
-                            selectedOption={this.props.selectedShoppingId}
-                            onSelectOption={this.onSelectShopping}
-                        />
-                    </Col>
+                            <RadioGroupList
+                                header="How regularly do you get your haircut?"
+                                name="haircuts"
+                                options={this.props.haircuts}
+                                selectedOption={this.props.selectedHaircutId}
+                                onSelectOption={this.onSelectHaircut}
+                            />
 
-                    <Calculator/>
+                            <RadioGroupList
+                                header="How much do you spend shopping online per month?"
+                                name="shopping"
+                                options={this.props.shoppings}
+                                selectedOption={this.props.selectedShoppingId}
+                                onSelectOption={this.onSelectShopping}
+                            />
+                        </Col>
+                    </Panel>
                 </Col>
             </div>
         </div>;

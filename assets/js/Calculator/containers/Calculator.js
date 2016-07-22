@@ -38,6 +38,21 @@ class Calculator extends Component {
         balance -= this.getCost(this.props.haircuts, this.props.selectedHaircutId);
         balance -= this.getCost(this.props.shoppings, this.props.selectedShoppingId);
 
+        //going out
+        var goingOut = 0;
+        let selectedDrinkCountLength = this.props.selectedDrinkCounts.length;
+        for (var j = 0; j < selectedDrinkCountLength; j++) {
+            let drinkCount = this.props.selectedDrinkCounts[j];
+            let drink = this.props.drinks.filter(t => (t.id == drinkCount.id));
+            goingOut += drink[0].value * drinkCount.count;
+        }
+        goingOut += this.getCost(this.props.rounds, this.props.selectedRoundId);
+        goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
+        goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
+        goingOut *= this.props.selectedNightIds.length;
+
+        balance -= goingOut;
+
         return <div>
             {balance}
         </div>;
@@ -75,7 +90,24 @@ const mapStateToProps = (state) => {
         selectedHaircutId: state.haircutReducer.selectedHaircutId,
 
         shoppings: state.shoppingReducer.shoppings,
-        selectedShoppingId: state.shoppingReducer.selectedShoppingId
+        selectedShoppingId: state.shoppingReducer.selectedShoppingId,
+
+        // going out
+
+        days: state.nightCountReducer.days,
+        selectedNightIds: state.nightCountReducer.selectedNightIds,
+
+        drinks: state.drinkReducer.drinks,
+        selectedDrinkCounts: state.drinkReducer.selectedDrinkCounts,
+
+        rounds: state.roundReducer.rounds,
+        selectedRoundId: state.roundReducer.selectedRoundId,
+
+        meals: state.mealReducer.meals,
+        selectedMealId: state.mealReducer.selectedMealId,
+
+        taxis: state.taxiReducer.taxis,
+        selectedTaxiId: state.taxiReducer.selectedTaxiId
     }
 };
 

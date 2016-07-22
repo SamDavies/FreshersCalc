@@ -22,24 +22,33 @@ class SelectionList extends Component {
         if (this.props.options) {
             var self = this;
             var options = this.props.options.map(function (option) {
-                return <option key={option.id} value={option.id}>{option.name}</option>
+                return <option key={option.id} value={option.id}>{option.name}{self.props.appendName}</option>
             })
         }
-        return <Col xs={12}>
+
+        let selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
+        return <div>
             <Row>
-                <FormGroup controlId="select">
-                    <FormControl
-                        componentClass="select"
-                        value={this.props.selectedOption}
-                        onChange={this.onSelectOption}
-                        placeholder="..."
-                    >
-                        <option>...</option>
-                        {options}
-                    </FormControl>
-                </FormGroup>
+                <Col xs={12}>
+                    <h3 className="question">{this.props.header}</h3>
+                </Col>
             </Row>
-        </Col>;
+            <Row className="question-choices">
+                <Col xs={12}>
+                    <FormGroup controlId="select">
+                        <FormControl
+                            componentClass="select"
+                            value={selectedOption}
+                            onChange={this.onSelectOption}
+                        >
+                            <option disabled>{this.props.placeholder}</option>
+                            {options}
+                        </FormControl>
+                    </FormGroup>
+                </Col>
+            </Row>
+        </div>
+            ;
     }
 }
 

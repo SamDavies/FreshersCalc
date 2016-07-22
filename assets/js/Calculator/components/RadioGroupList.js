@@ -32,14 +32,21 @@ class RadioGroupList extends Component {
                 </label>;
             })
         }
-        return <Col xs={12}>
+        return <div>
             <Row>
-                <RadioGroup name={this.props.name} selectedValue={this.props.selectedOption}
-                            onChange={this.onSelectOption}>
-                    {options}
-                </RadioGroup>
+                <Col xs={12}>
+                    <div className="question">{this.props.header}</div>
+                </Col>
             </Row>
-        </Col>;
+            <Row className="question-choices">
+                <Col xs={12}>
+                    <RadioGroup name={this.props.name} selectedValue={this.props.selectedOption}
+                                onChange={this.onSelectOption}>
+                        {options}
+                    </RadioGroup>
+                </Col>
+            </Row>
+        </div>;
     }
 }
 

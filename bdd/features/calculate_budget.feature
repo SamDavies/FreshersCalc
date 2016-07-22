@@ -20,7 +20,7 @@ Feature: Calculate the budget for a student
       | Drinks           | wine              | 3     |
       | RoundsForFriends | 1 round per night | 20    |
       | PostNightMeal    | Yes               | 6     |
-      | Taxi             | Yes               | 15    |
+      | Taxi             | Yes Taxi          | 15    |
 
   Scenario: Calculate spending on the Budget Page
     When I visit the "budget" page
@@ -28,6 +28,7 @@ Feature: Calculate the budget for a student
     And I enter "budget" "2000" for the question "What’s your total maintenance loan"
     And I select option "Halls" for the question "What type of accommodation are you living in"
     And I select option "Self Catered" for the question "Are you catered or self-catered?"
+    And I click the "Results" link
     Then I have "1370" left
 
   Scenario: Calculate spending on the Expenses Page
@@ -38,27 +39,42 @@ Feature: Calculate the budget for a student
     And I select option "Yes" for the question "Are you going to get a gym membership?"
     And I select option "Twice a semester" for the question "How regularly do you get your hair cut?"
     And I select option "£200 - £300" for the question "How much do you spend shopping online per month?"
+    And I click the "Results" link
     Then I have "-568" left
 
+  Scenario: Calculate spending on the Going Out Page
+    When I visit the "going-out" page
+    And I select option "Monday" for the question "How many drinks you plan on having on an average night out?"
+    And I select option "Tuesday" for the question "How many drinks you plan on having on an average night out?"
+    And I select option "2 beer" for the question "How many drinks do you plan on having on an average night out?"
+    And I select option "1 wine" for the question "How many drinks do you plan on having on an average night out?"
+    And I select option "1 round per night" for the question "Do you buy rounds for friends?"
+    And I select option "Yes" for the question "After a night out, do you get a post night out snack?"
+    And I select option "Yes Taxi" for the question "Do you get a taxi back after a night out?"
+    And I click the "Results" link
+    Then I have "-100.8" left
+
 #  Scenario: Calculate spending for overspend
-#    When I visit the budget page
+#    When I visit the "budget" page
 #    And I select "Aberdeen" for the question "What university do you go to?"
 #    And I enter "budget" "2000" for the question "What’s your total maintenance loan"
 #    And I select option "Halls" for the question "What type of accommodation are you living in"
 #    And I select option "Self Catered" for the question "Are you catered or self-catered?"
 #    And I click "Continue to your expenses >"
-#    And I select "Pans" for the question "Do you need the following items?"
-#    And I select "Plates" for the question "Do you need the following items?"
-#    And I select "Once a month" for the question "How regularly do you plan on going home?"
-#    And I select "Yes" for the question "Are you going to get a haircut?"
-#    And I select "Twice a semester" for the question "How regularly do you get your hair cut?"
-#    And I select "£200 - £300" for the question "How much do you spend shopping online per month?"
-#    And I select "Tuesday" for the question "How many drinks you plan on having on an average night out?"
-#    And I select "2" "beers" for the question "How many drinks do you plan on having on an average night out?"
-#    And I select "1" "wine" for the question "How many drinks do you plan on having on an average night out?"
-#    And I select "1 round per night" for the question "Do you buy rounds for friends?"
-#    And I select "Yes" for the question "After a night out, do you get a post night out snack?"
-#    And I select "Yes" for the question "Do you get a taxi back after a night out?"
+#    And I select option "Pans" for the question "Do you need the following items?"
+#    And I select option "Plates" for the question "Do you need the following items?"
+#    And I select option "Once a month" for the question "How regularly do you plan on going home?"
+#    And I select option "Yes" for the question "Are you going to get a gym membership?"
+#    And I select option "Twice a semester" for the question "How regularly do you get your hair cut?"
+#    And I select option "£200 - £300" for the question "How much do you spend shopping online per month?"
+#    And I click "Continue to going out >"
+#    And I select option "Monday" for the question "How many drinks you plan on having on an average night out?"
+#    And I select option "Tuesday" for the question "How many drinks you plan on having on an average night out?"
+#    And I select option "2 beer" for the question "How many drinks do you plan on having on an average night out?"
+#    And I select option "1 wine" for the question "How many drinks do you plan on having on an average night out?"
+#    And I select option "1 round per night" for the question "Do you buy rounds for friends?"
+#    And I select option "Yes" for the question "After a night out, do you get a post night out snack?"
+#    And I select option "Yes" for the question "Do you get a taxi back after a night out?"
 #    And I click "Show me the results!"
 #    Then the headline should show "You have overspent by £TBC over freshers"
 #    And the summary should show "Fair enough, you plan..."
