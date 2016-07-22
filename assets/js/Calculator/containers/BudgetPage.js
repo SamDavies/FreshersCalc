@@ -52,10 +52,11 @@ class BudgetPage extends Component {
             <div className="container">
                 <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
 
-                    <BreadcrumbBar activeName="university"/>
+                    <BreadcrumbBar activeName="budget"/>
 
                     <Col xs={12}>
                         <SelectionList
+                            header="What university do you go to?"
                             placeholder="University"
                             options={this.props.universities}
                             selectedOption={this.props.selectedUniversityId}
@@ -63,6 +64,7 @@ class BudgetPage extends Component {
                         />
 
                         <MoneyInput
+                            header="What’s your total maintenance loan?"
                             controlId="budget"
                             value={this.props.budget}
                             onChange={this.onSetBudget}
@@ -70,6 +72,7 @@ class BudgetPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="What type of accommodation are you living on?"
                             name="accommodation"
                             options={this.props.accommodation}
                             selectedOption={this.props.selectedAccommodationId}
@@ -77,14 +80,13 @@ class BudgetPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="Are you catered or self-catered?"
                             name="catering"
                             options={this.props.catering}
                             selectedOption={this.props.selectedCateringId}
                             onSelectOption={this.onSelectCatering}
                         />
                     </Col>
-
-                    <Calculator/>
                 </Col>
             </div>
         </div>;

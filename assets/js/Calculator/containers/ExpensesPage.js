@@ -68,6 +68,7 @@ class BudgetPage extends Component {
 
                     <Col xs={12}>
                         <CheckBoxList
+                            header="Do you need the following items?"
                             name="catering"
                             options={this.props.items}
                             selectedOptions={this.props.selectedItemIds}
@@ -76,6 +77,7 @@ class BudgetPage extends Component {
                         />
                         
                         <RadioGroupList
+                            header="How regularly do you plan on going home?"
                             name="homeTrips"
                             options={this.props.homeTrips}
                             selectedOption={this.props.selectedHomeTripId}
@@ -83,6 +85,7 @@ class BudgetPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="Are you going to get a gym membership?"
                             name="gyms"
                             options={this.props.gyms}
                             selectedOption={this.props.selectedGymId}
@@ -90,6 +93,7 @@ class BudgetPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="How regularly do you get your haircut?"
                             name="haircuts"
                             options={this.props.haircuts}
                             selectedOption={this.props.selectedHaircutId}
@@ -97,14 +101,13 @@ class BudgetPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="How much do you spend shopping online per month?"
                             name="shopping"
                             options={this.props.shoppings}
                             selectedOption={this.props.selectedShoppingId}
                             onSelectOption={this.onSelectShopping}
                         />
                     </Col>
-
-                    <Calculator/>
                 </Col>
             </div>
         </div>;

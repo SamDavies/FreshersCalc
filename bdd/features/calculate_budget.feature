@@ -28,6 +28,7 @@ Feature: Calculate the budget for a student
     And I enter "budget" "2000" for the question "What’s your total maintenance loan"
     And I select option "Halls" for the question "What type of accommodation are you living in"
     And I select option "Self Catered" for the question "Are you catered or self-catered?"
+    And I click the "Results" link
     Then I have "1370" left
 
   Scenario: Calculate spending on the Expenses Page
@@ -38,6 +39,7 @@ Feature: Calculate the budget for a student
     And I select option "Yes" for the question "Are you going to get a gym membership?"
     And I select option "Twice a semester" for the question "How regularly do you get your hair cut?"
     And I select option "£200 - £300" for the question "How much do you spend shopping online per month?"
+    And I click the "Results" link
     Then I have "-568" left
 
   Scenario: Calculate spending on the Going Out Page
@@ -49,6 +51,7 @@ Feature: Calculate the budget for a student
     And I select option "1 round per night" for the question "Do you buy rounds for friends?"
     And I select option "Yes" for the question "After a night out, do you get a post night out snack?"
     And I select option "Yes Taxi" for the question "Do you get a taxi back after a night out?"
+    And I click the "Results" link
     Then I have "-100.8" left
 
 #  Scenario: Calculate spending for overspend

@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from "react";
+import {Link, browserHistory} from "react-router";
+import {connect} from "react-redux";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
@@ -16,21 +18,36 @@ class BreadcrumbBar extends Component {
     }
 
     render() {
-        return <Breadcrumb>
-            <Breadcrumb.Item active={this.getActive("university")} href="#">
-                Your University
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active={this.getActive("expenses")} href="#">
-                Personal Expenses
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active={this.getActive("going-out")} href="#">
-                Going Out
-            </Breadcrumb.Item>
-            <Breadcrumb.Item active={this.getActive("results")} href="#">
-                Results
-            </Breadcrumb.Item>
-        </Breadcrumb>;
+        return <div>
+            <Breadcrumb>
+                <Breadcrumb.Item id="budget-link" active={this.getActive("budget")}
+                                 onClick={() => browserHistory.push('/web/budget/')}>
+                    Your University
+                </Breadcrumb.Item>
+                <Breadcrumb.Item id="expenses-link" active={this.getActive("expenses")}
+                                 onClick={() => browserHistory.push('/web/expenses/')}>
+                    Personal Expenses
+                </Breadcrumb.Item>
+                <Breadcrumb.Item id="going-out-link" active={this.getActive("going-out")}
+                                 onClick={() => browserHistory.push('/web/going-out/')}>
+                    Going Out
+                </Breadcrumb.Item>
+                <Breadcrumb.Item id="results-link" active={this.getActive("results")}
+                                 onClick={() => browserHistory.push('/web/results/')}>
+                    Results
+                </Breadcrumb.Item>
+            </Breadcrumb>
+            <Col xs={12}>
+                <hr className="breadcrumb-hr"/>
+            </Col>
+        </div>;
     }
 }
 
-export default BreadcrumbBar
+const mapStateToProps = (state) => {
+    return {}
+};
+
+export default connect(
+    mapStateToProps
+)(BreadcrumbBar);

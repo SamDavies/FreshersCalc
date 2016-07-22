@@ -6,7 +6,6 @@ import {selectRound, getRounds} from "../actions/roundActions";
 import {selectMeal, getMeals} from "../actions/mealActions";
 import {selectTaxi, getTaxis} from "../actions/taxiActions";
 import CheckBoxList from "../components/CheckBoxList";
-import Calculator from "../containers/Calculator";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import SelectionList from "../components/SelectionList";
 import RadioGroupList from "../components/RadioGroupList";
@@ -71,25 +70,27 @@ class GoingOutPage extends Component {
             if (selectedDrinkCounts.length != 0) {
                 count = selectedDrinkCounts[0].count
             }
-            drinkSelectionLists.push(<SelectionList
-                key={drink.id}
-                appendName={" " + drink.name}
-                placeholder={drink.name}
-                options={[
-                    {id: 1, name: "1", value: 0},
-                    {id: 2, name: "2", value: 0},
-                    {id: 3, name: "3", value: 0},
-                    {id: 4, name: "4", value: 0},
-                    {id: 5, name: "5", value: 0},
-                    {id: 6, name: "6", value: 0},
-                    {id: 7, name: "7", value: 0},
-                    {id: 8, name: "8", value: 0},
-                    {id: 9, name: "9", value: 0},
-                    {id: 10, name: "10", value: 0}
-                ]}
-                selectedOption={count}
-                onSelectOption={this.onSelectDrinkCount.bind(this, drink.id)}
-            />);
+            drinkSelectionLists.push(<Col xs={3}>
+                <SelectionList
+                    key={drink.id}
+                    appendName={" " + drink.name}
+                    placeholder={drink.name}
+                    options={[
+                        {id: 1, name: "1", value: 0},
+                        {id: 2, name: "2", value: 0},
+                        {id: 3, name: "3", value: 0},
+                        {id: 4, name: "4", value: 0},
+                        {id: 5, name: "5", value: 0},
+                        {id: 6, name: "6", value: 0},
+                        {id: 7, name: "7", value: 0},
+                        {id: 8, name: "8", value: 0},
+                        {id: 9, name: "9", value: 0},
+                        {id: 10, name: "10", value: 0}
+                    ]}
+                    selectedOption={count}
+                    onSelectOption={this.onSelectDrinkCount.bind(this, drink.id)}
+                />
+            </Col>);
         }
 
         return <div>
@@ -100,6 +101,7 @@ class GoingOutPage extends Component {
 
                     <Col xs={12}>
                         <CheckBoxList
+                            header="Which nights do you plan on going out?"
                             name="catering"
                             options={this.props.days}
                             selectedOptions={this.props.selectedNightIds}
@@ -107,9 +109,18 @@ class GoingOutPage extends Component {
                             onDeselectOption={this.onDecreaseNightCount}
                         />
 
+                        <Row>
+                            <Col xs={12}>
+                                <h3 className="question">
+                                    How man drinks do you plan on having on an average night out?
+                                </h3>
+                            </Col>
+                        </Row>
+
                         {drinkSelectionLists}
 
                         <RadioGroupList
+                            header="Do you buy rounds for friends?"
                             name="rounds"
                             options={this.props.rounds}
                             selectedOption={this.props.selectedRoundId}
@@ -117,6 +128,7 @@ class GoingOutPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="How many post-night snack do you have?"
                             name="meals"
                             options={this.props.meals}
                             selectedOption={this.props.selectedMealId}
@@ -124,14 +136,13 @@ class GoingOutPage extends Component {
                         />
 
                         <RadioGroupList
+                            header="Do you get a taxi back after a night out?"
                             name="taxis"
                             options={this.props.taxis}
                             selectedOption={this.props.selectedTaxiId}
                             onSelectOption={this.onSelectTaxi}
                         />
                     </Col>
-
-                    <Calculator/>
                 </Col>
             </div>
         </div>;
@@ -149,7 +160,7 @@ const mapStateToProps = (state) => {
 
         rounds: state.roundReducer.rounds,
         selectedRoundId: state.roundReducer.selectedRoundId,
-        
+
         meals: state.mealReducer.meals,
         selectedMealId: state.mealReducer.selectedMealId,
 

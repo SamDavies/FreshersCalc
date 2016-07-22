@@ -51,3 +51,8 @@ def step_impl(context, amount):
 @step('I click "(?P<text>.+)"')
 def step_impl(context, text):
     context.browser.find_by_text(text).first.click()
+
+
+@step('I click the "(?P<text>.+)" link')
+def step_impl(context, text):
+    context.browser.find_by_text(text).first.click()

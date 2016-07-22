@@ -27,20 +27,28 @@ class SelectionList extends Component {
         }
 
         let selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
-        return <Col xs={12}>
+        return <div>
             <Row>
-                <FormGroup controlId="select">
-                    <FormControl
-                        componentClass="select"
-                        value={selectedOption}
-                        onChange={this.onSelectOption}
-                    >
-                        <option disabled>{this.props.placeholder}</option>
-                        {options}
-                    </FormControl>
-                </FormGroup>
+                <Col xs={12}>
+                    <h3 className="question">{this.props.header}</h3>
+                </Col>
             </Row>
-        </Col>;
+            <Row>
+                <Col xs={12}>
+                    <FormGroup controlId="select">
+                        <FormControl
+                            componentClass="select"
+                            value={selectedOption}
+                            onChange={this.onSelectOption}
+                        >
+                            <option disabled>{this.props.placeholder}</option>
+                            {options}
+                        </FormControl>
+                    </FormGroup>
+                </Col>
+            </Row>
+        </div>
+            ;
     }
 }
 

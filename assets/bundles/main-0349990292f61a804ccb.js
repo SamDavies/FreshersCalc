@@ -59359,7 +59359,7 @@
 	if (document.location.hostname != "127.0.0.1") {
 	    module.exports = __webpack_require__(914);
 	} else {
-	    module.exports = __webpack_require__(980);
+	    module.exports = __webpack_require__(981);
 	}
 
 /***/ },
@@ -59461,6 +59461,10 @@
 
 	var _GoingOutPage2 = _interopRequireDefault(_GoingOutPage);
 
+	var _ResultsPage = __webpack_require__(980);
+
+	var _ResultsPage2 = _interopRequireDefault(_ResultsPage);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
@@ -59469,7 +59473,8 @@
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _BudgetPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: "web/budget/", component: _BudgetPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: "web/expenses/", component: _ExpensesPage2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: "web/going-out/", component: _GoingOutPage2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: "web/going-out/", component: _GoingOutPage2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: "web/results/", component: _ResultsPage2.default })
 	);
 
 /***/ },
@@ -59606,36 +59611,39 @@
 	                    _react2.default.createElement(
 	                        Col,
 	                        { xs: 12, sm: 8, smOffset: 2, md: 6, mdOffset: 3 },
-	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "university" }),
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "budget" }),
 	                        _react2.default.createElement(
 	                            Col,
 	                            { xs: 12 },
 	                            _react2.default.createElement(_SelectionList2.default, {
+	                                header: "What university do you go to?",
 	                                placeholder: "University",
 	                                options: this.props.universities,
 	                                selectedOption: this.props.selectedUniversityId,
 	                                onSelectOption: this.onSelectUniversity
 	                            }),
 	                            _react2.default.createElement(_MoneyInput2.default, {
+	                                header: "What’s your total maintenance loan?",
 	                                controlId: "budget",
 	                                value: this.props.budget,
 	                                onChange: this.onSetBudget,
 	                                placeholder: "£ per semester"
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "What type of accommodation are you living on?",
 	                                name: "accommodation",
 	                                options: this.props.accommodation,
 	                                selectedOption: this.props.selectedAccommodationId,
 	                                onSelectOption: this.onSelectAccommodation
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "Are you catered or self-catered?",
 	                                name: "catering",
 	                                options: this.props.catering,
 	                                selectedOption: this.props.selectedCateringId,
 	                                onSelectOption: this.onSelectCatering
 	                            })
-	                        ),
-	                        _react2.default.createElement(_Calculator2.default, null)
+	                        )
 	                    )
 	                )
 	            );
@@ -59728,27 +59736,44 @@
 
 	            var selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
 	            return _react2.default.createElement(
-	                Col,
-	                { xs: 12 },
+	                'div',
+	                null,
 	                _react2.default.createElement(
 	                    Row,
 	                    null,
 	                    _react2.default.createElement(
-	                        FormGroup,
-	                        { controlId: 'select' },
+	                        Col,
+	                        { xs: 12 },
 	                        _react2.default.createElement(
-	                            FormControl,
-	                            {
-	                                componentClass: 'select',
-	                                value: selectedOption,
-	                                onChange: this.onSelectOption
-	                            },
+	                            'h3',
+	                            { className: 'question' },
+	                            this.props.header
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    Row,
+	                    null,
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            FormGroup,
+	                            { controlId: 'select' },
 	                            _react2.default.createElement(
-	                                'option',
-	                                { disabled: true },
-	                                this.props.placeholder
-	                            ),
-	                            options
+	                                FormControl,
+	                                {
+	                                    componentClass: 'select',
+	                                    value: selectedOption,
+	                                    onChange: this.onSelectOption
+	                                },
+	                                _react2.default.createElement(
+	                                    'option',
+	                                    { disabled: true },
+	                                    this.props.placeholder
+	                                ),
+	                                options
+	                            )
 	                        )
 	                    )
 	                )
@@ -62122,16 +62147,33 @@
 	                });
 	            }
 	            return _react2.default.createElement(
-	                Col,
-	                { xs: 12 },
+	                "div",
+	                null,
 	                _react2.default.createElement(
 	                    Row,
 	                    null,
 	                    _react2.default.createElement(
-	                        _reactRadioGroup.RadioGroup,
-	                        { name: this.props.name, selectedValue: this.props.selectedOption,
-	                            onChange: this.onSelectOption },
-	                        options
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            "h3",
+	                            { className: "question" },
+	                            this.props.header
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    Row,
+	                    null,
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            _reactRadioGroup.RadioGroup,
+	                            { name: this.props.name, selectedValue: this.props.selectedOption,
+	                                onChange: this.onSelectOption },
+	                            options
+	                        )
 	                    )
 	                )
 	            );
@@ -62298,20 +62340,37 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                Col,
-	                { xs: 12 },
+	                'div',
+	                null,
 	                _react2.default.createElement(
 	                    Row,
 	                    null,
 	                    _react2.default.createElement(
-	                        FormGroup,
-	                        { controlId: this.props.controlId },
-	                        _react2.default.createElement(FormControl, {
-	                            type: 'text',
-	                            value: this.props.value,
-	                            placeholder: this.props.placeholder,
-	                            onChange: this.onChange
-	                        })
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            'h3',
+	                            { className: 'question' },
+	                            this.props.header
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    Row,
+	                    null,
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            FormGroup,
+	                            { controlId: this.props.controlId },
+	                            _react2.default.createElement(FormControl, {
+	                                type: 'text',
+	                                value: this.props.value,
+	                                placeholder: this.props.placeholder,
+	                                onChange: this.onChange
+	                            })
+	                        )
 	                    )
 	                )
 	            );
@@ -62490,7 +62549,7 @@
 /* 974 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -62501,6 +62560,10 @@
 	var _react = __webpack_require__(298);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(455);
+
+	var _reactRedux = __webpack_require__(698);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -62528,35 +62591,56 @@
 	    }
 
 	    _createClass(BreadcrumbBar, [{
-	        key: 'getActive',
+	        key: "getActive",
 	        value: function getActive(name) {
 	            return name == this.props.activeName;
 	        }
 	    }, {
-	        key: 'render',
+	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
-	                Breadcrumb,
+	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    Breadcrumb.Item,
-	                    { active: this.getActive("university"), href: '#' },
-	                    'Your University'
+	                    Breadcrumb,
+	                    null,
+	                    _react2.default.createElement(
+	                        Breadcrumb.Item,
+	                        { id: "budget-link", active: this.getActive("budget"),
+	                            onClick: function onClick() {
+	                                return _reactRouter.browserHistory.push('/web/budget/');
+	                            } },
+	                        "Your University"
+	                    ),
+	                    _react2.default.createElement(
+	                        Breadcrumb.Item,
+	                        { id: "expenses-link", active: this.getActive("expenses"),
+	                            onClick: function onClick() {
+	                                return _reactRouter.browserHistory.push('/web/expenses/');
+	                            } },
+	                        "Personal Expenses"
+	                    ),
+	                    _react2.default.createElement(
+	                        Breadcrumb.Item,
+	                        { id: "going-out-link", active: this.getActive("going-out"),
+	                            onClick: function onClick() {
+	                                return _reactRouter.browserHistory.push('/web/going-out/');
+	                            } },
+	                        "Going Out"
+	                    ),
+	                    _react2.default.createElement(
+	                        Breadcrumb.Item,
+	                        { id: "results-link", active: this.getActive("results"),
+	                            onClick: function onClick() {
+	                                return _reactRouter.browserHistory.push('/web/results/');
+	                            } },
+	                        "Results"
+	                    )
 	                ),
 	                _react2.default.createElement(
-	                    Breadcrumb.Item,
-	                    { active: this.getActive("expenses"), href: '#' },
-	                    'Personal Expenses'
-	                ),
-	                _react2.default.createElement(
-	                    Breadcrumb.Item,
-	                    { active: this.getActive("going-out"), href: '#' },
-	                    'Going Out'
-	                ),
-	                _react2.default.createElement(
-	                    Breadcrumb.Item,
-	                    { active: this.getActive("results"), href: '#' },
-	                    'Results'
+	                    Col,
+	                    { xs: 12 },
+	                    _react2.default.createElement("hr", { className: "breadcrumb-hr" })
 	                )
 	            );
 	        }
@@ -62565,7 +62649,11 @@
 	    return BreadcrumbBar;
 	}(_react.Component);
 
-	exports.default = BreadcrumbBar;
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {};
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(BreadcrumbBar);
 
 /***/ },
 /* 975 */
@@ -62871,6 +62959,7 @@
 	                            Col,
 	                            { xs: 12 },
 	                            _react2.default.createElement(_CheckBoxList2.default, {
+	                                header: "Do you need the following items?",
 	                                name: "catering",
 	                                options: this.props.items,
 	                                selectedOptions: this.props.selectedItemIds,
@@ -62878,31 +62967,34 @@
 	                                onDeselectOption: this.onDeselectItem
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "How regularly do you plan on going home?",
 	                                name: "homeTrips",
 	                                options: this.props.homeTrips,
 	                                selectedOption: this.props.selectedHomeTripId,
 	                                onSelectOption: this.onSelectHomeTrip
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "Are you going to get a gym membership?",
 	                                name: "gyms",
 	                                options: this.props.gyms,
 	                                selectedOption: this.props.selectedGymId,
 	                                onSelectOption: this.onSelectGym
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "How regularly do you get your haircut?",
 	                                name: "haircuts",
 	                                options: this.props.haircuts,
 	                                selectedOption: this.props.selectedHaircutId,
 	                                onSelectOption: this.onSelectHaircut
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "How much do you spend shopping online per month?",
 	                                name: "shopping",
 	                                options: this.props.shoppings,
 	                                selectedOption: this.props.selectedShoppingId,
 	                                onSelectOption: this.onSelectShopping
 	                            })
-	                        ),
-	                        _react2.default.createElement(_Calculator2.default, null)
+	                        )
 	                    )
 	                )
 	            );
@@ -63012,9 +63104,30 @@
 	                });
 	            }
 	            return _react2.default.createElement(
-	                Col,
-	                { xs: 12 },
-	                options
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    Row,
+	                    null,
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            'h3',
+	                            { className: 'question' },
+	                            this.props.header
+	                        )
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    Row,
+	                    null,
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        options
+	                    )
+	                )
 	            );
 	        }
 	    }]);
@@ -63055,10 +63168,6 @@
 	var _CheckBoxList = __webpack_require__(978);
 
 	var _CheckBoxList2 = _interopRequireDefault(_CheckBoxList);
-
-	var _Calculator = __webpack_require__(973);
-
-	var _Calculator2 = _interopRequireDefault(_Calculator);
 
 	var _BreadcrumbBar = __webpack_require__(974);
 
@@ -63160,14 +63269,18 @@
 	                if (selectedDrinkCounts.length != 0) {
 	                    count = selectedDrinkCounts[0].count;
 	                }
-	                drinkSelectionLists.push(_react2.default.createElement(_SelectionList2.default, {
-	                    key: drink.id,
-	                    appendName: " " + drink.name,
-	                    placeholder: drink.name,
-	                    options: [{ id: 1, name: "1", value: 0 }, { id: 2, name: "2", value: 0 }, { id: 3, name: "3", value: 0 }, { id: 4, name: "4", value: 0 }, { id: 5, name: "5", value: 0 }, { id: 6, name: "6", value: 0 }, { id: 7, name: "7", value: 0 }, { id: 8, name: "8", value: 0 }, { id: 9, name: "9", value: 0 }, { id: 10, name: "10", value: 0 }],
-	                    selectedOption: count,
-	                    onSelectOption: _this2.onSelectDrinkCount.bind(_this2, drink.id)
-	                }));
+	                drinkSelectionLists.push(_react2.default.createElement(
+	                    Col,
+	                    { xs: 3 },
+	                    _react2.default.createElement(_SelectionList2.default, {
+	                        key: drink.id,
+	                        appendName: " " + drink.name,
+	                        placeholder: drink.name,
+	                        options: [{ id: 1, name: "1", value: 0 }, { id: 2, name: "2", value: 0 }, { id: 3, name: "3", value: 0 }, { id: 4, name: "4", value: 0 }, { id: 5, name: "5", value: 0 }, { id: 6, name: "6", value: 0 }, { id: 7, name: "7", value: 0 }, { id: 8, name: "8", value: 0 }, { id: 9, name: "9", value: 0 }, { id: 10, name: "10", value: 0 }],
+	                        selectedOption: count,
+	                        onSelectOption: _this2.onSelectDrinkCount.bind(_this2, drink.id)
+	                    })
+	                ));
 	            };
 
 	            for (var i = 0; i < drinkCount; i++) {
@@ -63190,33 +63303,49 @@
 	                            Col,
 	                            { xs: 12 },
 	                            _react2.default.createElement(_CheckBoxList2.default, {
+	                                header: "Which nights do you plan on going out?",
 	                                name: "catering",
 	                                options: this.props.days,
 	                                selectedOptions: this.props.selectedNightIds,
 	                                onSelectOption: this.onIncreaseNightCount,
 	                                onDeselectOption: this.onDecreaseNightCount
 	                            }),
+	                            _react2.default.createElement(
+	                                Row,
+	                                null,
+	                                _react2.default.createElement(
+	                                    Col,
+	                                    { xs: 12 },
+	                                    _react2.default.createElement(
+	                                        "h3",
+	                                        { className: "question" },
+	                                        "How man drinks do you plan on having on an average night out?"
+	                                    )
+	                                )
+	                            ),
 	                            drinkSelectionLists,
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "Do you buy rounds for friends?",
 	                                name: "rounds",
 	                                options: this.props.rounds,
 	                                selectedOption: this.props.selectedRoundId,
 	                                onSelectOption: this.onSelectRound
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "How many post-night snack do you have?",
 	                                name: "meals",
 	                                options: this.props.meals,
 	                                selectedOption: this.props.selectedMealId,
 	                                onSelectOption: this.onSelectMeal
 	                            }),
 	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                header: "Do you get a taxi back after a night out?",
 	                                name: "taxis",
 	                                options: this.props.taxis,
 	                                selectedOption: this.props.selectedTaxiId,
 	                                onSelectOption: this.onSelectTaxi
 	                            })
-	                        ),
-	                        _react2.default.createElement(_Calculator2.default, null)
+	                        )
 	                    )
 	                )
 	            );
@@ -63249,6 +63378,83 @@
 
 /***/ },
 /* 980 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(698);
+
+	var _Calculator = __webpack_require__(973);
+
+	var _Calculator2 = _interopRequireDefault(_Calculator);
+
+	var _BreadcrumbBar = __webpack_require__(974);
+
+	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Bootstrap Imports
+	var Col = __webpack_require__(919);
+	var Row = __webpack_require__(947);
+
+	var ResultsPage = function (_Component) {
+	    _inherits(ResultsPage, _Component);
+
+	    function ResultsPage(props) {
+	        _classCallCheck(this, ResultsPage);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ResultsPage).call(this, props));
+	        // this.componentDidMount = this.componentDidMount.bind(this);
+	    }
+
+	    _createClass(ResultsPage, [{
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "container" },
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, sm: 8, smOffset: 2, md: 6, mdOffset: 3 },
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
+	                        _react2.default.createElement(_Calculator2.default, null)
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ResultsPage;
+	}(_react.Component);
+
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {};
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ResultsPage);
+
+/***/ },
+/* 981 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

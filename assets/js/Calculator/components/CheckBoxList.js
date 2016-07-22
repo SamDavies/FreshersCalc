@@ -38,9 +38,18 @@ class CheckBoxList extends Component {
                 </label>;
             })
         }
-        return <Col xs={12}>
-            {options}
-        </Col>;
+        return <div>
+            <Row>
+                <Col xs={12}>
+                    <h3 className="question">{this.props.header}</h3>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={12}>
+                    {options}
+                </Col>
+            </Row>
+        </div>;
     }
 }
 

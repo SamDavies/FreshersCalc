@@ -19,18 +19,25 @@ class MoneyInput extends Component {
     }
 
     render() {
-        return <Col xs={12}>
+        return <div>
             <Row>
-                <FormGroup controlId={this.props.controlId}>
-                    <FormControl
-                        type="text"
-                        value={this.props.value}
-                        placeholder={this.props.placeholder}
-                        onChange={this.onChange}
-                    />
-                </FormGroup>
+                <Col xs={12}>
+                    <h3 className="question">{this.props.header}</h3>
+                </Col>
             </Row>
-        </Col>;
+            <Row>
+                <Col xs={12}>
+                    <FormGroup controlId={this.props.controlId}>
+                        <FormControl
+                            type="text"
+                            value={this.props.value}
+                            placeholder={this.props.placeholder}
+                            onChange={this.onChange}
+                        />
+                    </FormGroup>
+                </Col>
+            </Row>
+        </div>;
     }
 }
 
