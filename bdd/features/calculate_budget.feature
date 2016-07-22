@@ -7,20 +7,20 @@ Feature: Calculate the budget for a student
   Background:
     Given the university "Aberdeen" exists
     Given this set of options
-      | Model            | Instance Name     | Value |
-      | Accommodation    | Halls             | 500   |
-      | Catering         | Self Catered      | 30    |
-      | Item             | Pans              | 6     |
-      | Item             | Plates            | 2     |
-      | HomeTrips        | Once a month      | 40    |
-      | GymMembership    | Yes               | 150   |
-      | Haircut          | Twice a semester  | 120   |
-      | Shopping         | £200 - £300       | 250   |
-      | Drinks           | beer              | 3.2   |
-      | Drinks           | wine              | 3     |
-      | RoundsForFriends | 1 round per night | 20    |
-      | PostNightMeal    | Yes               | 6     |
-      | Taxi             | Yes Taxi          | 15    |
+      | Model           | Instance Name     | Value |
+      | Accommodation   | Halls             | 500   |
+      | Catering        | Self Catered      | 30    |
+      | Item            | Pans              | 6     |
+      | Item            | Plates            | 2     |
+      | HomeTrip        | Once a month      | 40    |
+      | GymMembership   | Yes               | 150   |
+      | Haircut         | Twice a semester  | 120   |
+      | Shopping        | £200 - £300       | 250   |
+      | Drink           | beer              | 3.2   |
+      | Drink           | wine              | 3     |
+      | RoundsForFriend | 1 round per night | 20    |
+      | PostNightMeal   | Yes               | 6     |
+      | Taxi            | Yes Taxi          | 15    |
 
   Scenario: Calculate spending on the Budget Page
     When I visit the "budget" page
@@ -29,7 +29,7 @@ Feature: Calculate the budget for a student
     And I select option "Halls" for the question "What type of accommodation are you living in"
     And I select option "Self Catered" for the question "Are you catered or self-catered?"
     And I click the "Results" link
-    Then I have "1370" left
+    Then I have "1470" left
 
   Scenario: Calculate spending on the Expenses Page
     When I visit the "expenses" page
