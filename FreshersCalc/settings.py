@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '111.222.333.444',
     'www.gradehub.io',
-    'gradehub.herokuapp.com',
+    'freshers-calc.herokuapp.com',
 ]
 
 INTERNAL_IPS = (
