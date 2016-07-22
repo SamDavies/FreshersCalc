@@ -11,8 +11,8 @@ urlpatterns = [
     url(r'^gym_membership/$', api.GymMembershipList.as_view(), name='gym_membership'),
     url(r'^haircut/$', api.HaircutList.as_view(), name='haircut'),
     url(r'^shopping/$', api.ShoppingList.as_view(), name='shopping'),
-    url(r'^drinks/$', api.DrinksList.as_view(), name='drinks'),
-    url(r'^rounds_for_friends/$', api.RoundsForFriendsList.as_view(), name='rounds_for_friends'),
-    url(r'^post_night_meal/$', api.PostNightMealList.as_view(), name='post_night_meal'),
+    url(r'^drink/$', api.DrinksList.as_view(), name='drinks'),
+    url(r'^round/$', api.RoundsForFriendsList.as_view(), name='rounds_for_friends'),
+    url(r'^meal/$', api.PostNightMealList.as_view(), name='post_night_meal'),
     url(r'^taxi/$', api.TaxiList.as_view(), name='taxi'),
 ]

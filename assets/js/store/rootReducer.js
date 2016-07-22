@@ -9,6 +9,11 @@ import homeTripReducer from "../Calculator/reducers/homeTripReducer";
 import gymReducer from "../Calculator/reducers/gymReducer";
 import haircutReducer from "../Calculator/reducers/haircutReducer";
 import shoppingReducer from "../Calculator/reducers/shoppingReducer";
+import nightCountReducer from "../Calculator/reducers/nightCountReducer";
+import drinkReducer from "../Calculator/reducers/drinkReducer";
+import roundReducer from "../Calculator/reducers/roundReducer";
+import mealReducer from "../Calculator/reducers/mealReducer";
+import taxiReducer from "../Calculator/reducers/taxiReducer";
 
 const rootReducer = combineReducers({
     universityReducer,
@@ -20,6 +25,11 @@ const rootReducer = combineReducers({
     gymReducer,
     haircutReducer,
     shoppingReducer,
+    nightCountReducer,
+    drinkReducer,
+    roundReducer,
+    mealReducer,
+    taxiReducer,
     routing
 });
 

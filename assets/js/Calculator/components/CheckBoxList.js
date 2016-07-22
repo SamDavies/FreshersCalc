@@ -20,10 +20,8 @@ class CheckBoxList extends Component {
     onSelectOption(optionId, checked, e) {
         if (checked) {
             this.props.onDeselectOption(optionId);
-            console.log("deselecting")
         } else {
             this.props.onSelectOption(optionId);
-            console.log("selecting")
         }
     }
 

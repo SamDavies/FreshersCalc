@@ -56,8 +56,9 @@ class BudgetPage extends Component {
 
                     <Col xs={12}>
                         <SelectionList
+                            placeholder="University"
                             options={this.props.universities}
-                            selectedOption={this.props.selectedUniversity}
+                            selectedOption={this.props.selectedUniversityId}
                             onSelectOption={this.onSelectUniversity}
                         />
 
@@ -71,14 +72,14 @@ class BudgetPage extends Component {
                         <RadioGroupList
                             name="accommodation"
                             options={this.props.accommodation}
-                            selectedOption={this.props.selectedAccommodation}
+                            selectedOption={this.props.selectedAccommodationId}
                             onSelectOption={this.onSelectAccommodation}
                         />
 
                         <RadioGroupList
                             name="catering"
                             options={this.props.catering}
-                            selectedOption={this.props.selectedCatering}
+                            selectedOption={this.props.selectedCateringId}
                             onSelectOption={this.onSelectCatering}
                         />
                     </Col>
