@@ -30,7 +30,7 @@ class Item(AbstractChoice):
     pass
 
 
-class HomeTrips(AbstractChoice):
+class HomeTrip(AbstractChoice):
     pass
 
 
@@ -46,11 +46,11 @@ class Shopping(AbstractChoice):
     pass
 
 
-class Drinks(AbstractChoice):
+class Drink(AbstractChoice):
     pass
 
 
-class RoundsForFriends(AbstractChoice):
+class RoundsForFriend(AbstractChoice):
     pass
 
 

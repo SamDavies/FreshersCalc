@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from mod_choice.models import University, Accommodation, Catering, Item, HomeTrips, GymMembership, Haircut, Shopping, \
-    Drinks, RoundsForFriends, PostNightMeal, Taxi
+from mod_choice.models import University, Accommodation, Catering, Item, HomeTrip, GymMembership, Haircut, Shopping, \
+    Drink, RoundsForFriend, PostNightMeal, Taxi
 from mod_choice.serialisers import UniversitySerializer, AccommodationSerializer, CateringSerializer, ItemSerializer, \
     HomeTripsSerializer, GymMembershipSerializer, HaircutSerializer, ShoppingSerializer, DrinksSerializer, \
     RoundsForFriendsSerializer, PostNightMealSerializer, TaxiSerializer
@@ -28,7 +28,7 @@ class ItemList(generics.ListAPIView):
 
 
 class HomeTripsList(generics.ListAPIView):
-    queryset = HomeTrips.objects.all()
+    queryset = HomeTrip.objects.all()
     serializer_class = HomeTripsSerializer
 
 
@@ -48,12 +48,12 @@ class ShoppingList(generics.ListAPIView):
 
 
 class DrinksList(generics.ListAPIView):
-    queryset = Drinks.objects.all()
+    queryset = Drink.objects.all()
     serializer_class = DrinksSerializer
 
 
 class RoundsForFriendsList(generics.ListAPIView):
-    queryset = RoundsForFriends.objects.all()
+    queryset = RoundsForFriend.objects.all()
     serializer_class = RoundsForFriendsSerializer
 
 

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from mod_choice.models import University, Accommodation, Catering, Item, HomeTrips, GymMembership, Haircut, Shopping, \
-    Drinks, RoundsForFriends, PostNightMeal, Taxi
+from mod_choice.models import University, Accommodation, Catering, Item, HomeTrip, GymMembership, Haircut, Shopping, \
+    Drink, RoundsForFriend, PostNightMeal, Taxi
 
 
 class UniversitySerializer(serializers.ModelSerializer):
@@ -26,7 +26,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
 class HomeTripsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = HomeTrips
+        model = HomeTrip
 
 
 class GymMembershipSerializer(serializers.ModelSerializer):
@@ -46,12 +46,12 @@ class ShoppingSerializer(serializers.ModelSerializer):
 
 class DrinksSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Drinks
+        model = Drink
 
 
 class RoundsForFriendsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = RoundsForFriends
+        model = RoundsForFriend
 
 
 class PostNightMealSerializer(serializers.ModelSerializer):
