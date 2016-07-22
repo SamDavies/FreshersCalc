@@ -40,12 +40,14 @@ def step_impl(context, css_id, budget, question):
 
 @step('I select "(?P<count>.+)" "(?P<choice>.+)" for the question "(?P<question>.+)"')
 def step_impl(context, count, choice, question):
-    """
-    :type context: behave.runner.Context
-    """
-    pass
+    context.browser.find_by_id(choice).first.find_by_text(count).first.click()
 
 
 @then('I have "(?P<amount>.+)" left')
 def step_impl(context, amount):
     context.test.assertTrue(context.browser.is_element_present_by_text(amount))
+
+
+@step('I click "(?P<text>.+)"')
+def step_impl(context, text):
+    context.browser.find_by_text(text).first.click()
