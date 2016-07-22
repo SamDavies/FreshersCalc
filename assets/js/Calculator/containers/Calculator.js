@@ -27,7 +27,7 @@ class Calculator extends Component {
 
         // budget
         balance -= this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
-        balance -= Calculator.weekToMonth(this.getCost(this.props.catering, this.props.selectedCateringId));
+        balance -= this.getCost(this.props.catering, this.props.selectedCateringId);
 
         // expenses
         for (var i = 0; i < this.props.items.length; i++) {
