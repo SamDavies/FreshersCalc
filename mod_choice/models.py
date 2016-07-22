@@ -11,6 +11,9 @@ class AbstractChoice(Model):
     name = CharField(max_length=2048)
     value = FloatField()
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         abstract = True
 
