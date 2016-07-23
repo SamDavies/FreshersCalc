@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
+import {Link, browserHistory} from "react-router";
 import {getItems, selectItem, deselectItem} from "../actions/itemActions";
 import {getHomeTrips, selectHomeTrip} from "../actions/homeTripActions";
 import {getGyms, selectGym} from "../actions/gymActions";
@@ -119,6 +120,12 @@ class BudgetPage extends Component {
                                 selectedOption={this.props.selectedShoppingId}
                                 onSelectOption={this.onSelectShopping}
                             />
+                        </Col>
+
+                        <Col xs={12}>
+                            <Button bsStyle="link" onClick={() => browserHistory.push('/web/going-out/')}>
+                                Continue to your going out's »
+                            </Button>
                         </Col>
                     </Panel>
                 </Col>

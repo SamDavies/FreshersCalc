@@ -29,17 +29,18 @@ class ResultsPage extends Component {
         return <div>
             <div className="container">
                 <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
-                    <Panel>
-
-                        <BreadcrumbBar activeName="results"/>
-
-                        <Calculator/>
-
+                    <Panel footer={
+                        <Row>
                         <Col xs={12}>
                             <Button bsStyle="link" onClick={this.openFacebookShare}>
                                 Share with your facebook friends
                             </Button>
                         </Col>
+                        </Row>
+                    }>
+                        <BreadcrumbBar activeName="results"/>
+
+                        <Calculator/>
                     </Panel>
                 </Col>
             </div>

@@ -63912,6 +63912,8 @@
 
 	var _reactRedux = __webpack_require__(698);
 
+	var _reactRouter = __webpack_require__(455);
+
 	var _itemActions = __webpack_require__(550);
 
 	var _homeTripActions = __webpack_require__(552);
@@ -64070,6 +64072,17 @@
 	                                    selectedOption: this.props.selectedShoppingId,
 	                                    onSelectOption: this.onSelectShopping
 	                                })
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12 },
+	                                _react2.default.createElement(
+	                                    Button,
+	                                    { bsStyle: "link", onClick: function onClick() {
+	                                            return _reactRouter.browserHistory.push('/web/going-out/');
+	                                        } },
+	                                    "Continue to your going out's »"
+	                                )
 	                            )
 	                        )
 	                    )
@@ -64235,6 +64248,8 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRedux = __webpack_require__(698);
+
+	var _reactRouter = __webpack_require__(455);
 
 	var _nightCountActions = __webpack_require__(560);
 
@@ -64439,6 +64454,17 @@
 	                                    selectedOption: this.props.selectedTaxiId,
 	                                    onSelectOption: this.onSelectTaxi
 	                                })
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12 },
+	                                _react2.default.createElement(
+	                                    Button,
+	                                    { bsStyle: "link", onClick: function onClick() {
+	                                            return _reactRouter.browserHistory.push('/web/results/');
+	                                        } },
+	                                    "Show me the results!"
+	                                )
 	                            )
 	                        )
 	                    )
@@ -64544,18 +64570,21 @@
 	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
 	                        _react2.default.createElement(
 	                            Panel,
-	                            null,
+	                            { footer: _react2.default.createElement(
+	                                    Row,
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        Col,
+	                                        { xs: 12 },
+	                                        _react2.default.createElement(
+	                                            Button,
+	                                            { bsStyle: "link", onClick: this.openFacebookShare },
+	                                            "Share with your facebook friends"
+	                                        )
+	                                    )
+	                                ) },
 	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
-	                            _react2.default.createElement(_Calculator2.default, null),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(
-	                                    Button,
-	                                    { bsStyle: "link", onClick: this.openFacebookShare },
-	                                    "Share with your facebook friends"
-	                                )
-	                            )
+	                            _react2.default.createElement(_Calculator2.default, null)
 	                        )
 	                    )
 	                )

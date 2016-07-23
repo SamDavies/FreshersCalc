@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
+import {Link, browserHistory} from "react-router";
 import {increaseNightCount, decreaseNightCount} from "../actions/nightCountActions";
 import {selectDrinkCount, getDrinks} from "../actions/drinkActions";
 import {selectRound, getRounds} from "../actions/roundActions";
@@ -153,6 +154,12 @@ class GoingOutPage extends Component {
                                 selectedOption={this.props.selectedTaxiId}
                                 onSelectOption={this.onSelectTaxi}
                             />
+                        </Col>
+
+                        <Col xs={12}>
+                            <Button bsStyle="link" onClick={() => browserHistory.push('/web/results/')}>
+                                Show me the results!
+                            </Button>
                         </Col>
                     </Panel>
                 </Col>
