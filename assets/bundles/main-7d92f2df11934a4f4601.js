@@ -62159,10 +62159,10 @@
 	                var options = this.props.options.map(function (option) {
 	                    return _react2.default.createElement(
 	                        Col,
-	                        { xs: self.props.innerCols },
+	                        { xs: self.props.innerCols, key: option.id },
 	                        _react2.default.createElement(
 	                            "label",
-	                            { key: option.id },
+	                            null,
 	                            _react2.default.createElement(_reactRadioGroup.Radio, { value: option.id }),
 	                            option.name
 	                        )
@@ -64169,11 +64169,11 @@
 	                        return id == option.id;
 	                    }).length != 0;
 	                    return _react2.default.createElement(
-	                        'label',
-	                        { className: 'checkbox-inline', key: option.id },
+	                        Col,
+	                        { xs: self.props.innerCols },
 	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: self.props.innerCols },
+	                            'label',
+	                            { className: 'checkbox-inline', key: option.id },
 	                            _react2.default.createElement('input', { type: 'checkbox',
 	                                checked: checked,
 	                                onChange: self.onSelectOption.bind(self, option.id, checked)
@@ -64497,6 +64497,8 @@
 
 	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
 
+	var _reactRouter = __webpack_require__(455);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64517,11 +64519,18 @@
 	    function ResultsPage(props) {
 	        _classCallCheck(this, ResultsPage);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ResultsPage).call(this, props));
-	        // this.componentDidMount = this.componentDidMount.bind(this);
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ResultsPage).call(this, props));
+
+	        _this.openFacebookShare = _this.openFacebookShare.bind(_this);
+	        return _this;
 	    }
 
 	    _createClass(ResultsPage, [{
+	        key: "openFacebookShare",
+	        value: function openFacebookShare() {
+	            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspent%20by%20%C2%A3200%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" + ".facebook.com%2F");
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -64537,7 +64546,16 @@
 	                            Panel,
 	                            null,
 	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
-	                            _react2.default.createElement(_Calculator2.default, null)
+	                            _react2.default.createElement(_Calculator2.default, null),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12 },
+	                                _react2.default.createElement(
+	                                    Button,
+	                                    { bsStyle: "link", onClick: this.openFacebookShare },
+	                                    "Share with your facebook friends"
+	                                )
+	                            )
 	                        )
 	                    )
 	                )
