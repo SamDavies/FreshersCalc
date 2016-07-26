@@ -96,7 +96,7 @@ class ResultsPage extends Component {
                 with <span className="natwest-text">NatWest</span> student bank account.
             </div>,
             part4: <div>
-                <div className="text-light">You could have</div>
+                <div className="text-light">You could afford</div>
                 <div className="text-large">1 round the world trip</div>
                 <div className="text-large">33 pints of nice ale</div>
                 <div className="text-large">24 Wetherspoon's English breakfast</div>
@@ -146,7 +146,7 @@ class ResultsPage extends Component {
 
                         <Col xs={8} className="text">
                             <Button bsStyle="link" onClick={this.openNatWest}>
-                                Apply for student bank account
+                                Apply for a student bank account
                             </Button>
                         </Col>
 

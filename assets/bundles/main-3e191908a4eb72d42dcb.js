@@ -64060,7 +64060,7 @@
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
 	                                    innerCols: 6,
-	                                    outerCols: 8,
+	                                    outerCols: 12,
 	                                    header: "How regularly do you get your haircut?",
 	                                    name: "haircuts",
 	                                    options: this.props.haircuts,
@@ -64085,7 +64085,7 @@
 	                                    { bsStyle: "link", onClick: function onClick() {
 	                                            return _reactRouter.browserHistory.push('/web/going-out/');
 	                                        } },
-	                                    "Continue to your going out's »"
+	                                    "Continue to your nightlife »"
 	                                )
 	                            )
 	                        )
@@ -64686,7 +64686,7 @@
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "text-light" },
-	                        "You could have"
+	                        "You could afford"
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
@@ -64776,7 +64776,7 @@
 	                                _react2.default.createElement(
 	                                    Button,
 	                                    { bsStyle: "link", onClick: this.openNatWest },
-	                                    "Apply for student bank account"
+	                                    "Apply for a student bank account"
 	                                )
 	                            ),
 	                            _react2.default.createElement(

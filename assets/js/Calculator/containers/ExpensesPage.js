@@ -103,7 +103,7 @@ class BudgetPage extends Component {
 
                             <RadioGroupList
                                 innerCols={6}
-                                outerCols={8}
+                                outerCols={12}
                                 header="How regularly do you get your haircut?"
                                 name="haircuts"
                                 options={this.props.haircuts}
@@ -124,7 +124,7 @@ class BudgetPage extends Component {
 
                         <Col xs={12}>
                             <Button bsStyle="link" onClick={() => browserHistory.push('/web/going-out/')}>
-                                Continue to your going out's »
+                                Continue to your nightlife »
                             </Button>
                         </Col>
                     </Panel>
