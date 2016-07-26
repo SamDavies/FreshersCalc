@@ -27,6 +27,10 @@ class ResultsPage extends Component {
             ".facebook.com%2F")
     }
 
+    openNatWest() {
+        window.open("http://personal.natwest.com")
+    }
+
     getCost(collection, instanceId) {
         let instance = collection.filter(t => (t.id == instanceId))[0];
         if (instance) {
@@ -70,17 +74,52 @@ class ResultsPage extends Component {
     }
 
     render() {
+
+        var spending = this.getSpending();
+
+        var overspend = {
+            part1: <div>You have overspent by <span className="text-cost">£{-spending}</span> over freshers</div>,
+            part2: "Fair enough, you plan on letting loose when you get to uni.",
+            part3: <div>
+                Make sure you've got a safety net for freshers with an interest
+                free overdraft when signing up for a <span className="natwest-text">NatWest</span> student bank account.
+            </div>,
+            part4: "Sadly, your overspending means you can't really afford to treat yourself. " +
+            "It might be worth taking it easy for a couple of weeks to control your spending."
+        };
+
+        var underspend = {
+            part1: <div>You have <span className="text-cost">£{spending}</span> left in your account</div>,
+            part2: "You are watching your money carefully over freshers.",
+            part3: <div>
+                Apply for a student bank account with an interest-free arranged overdraft
+                with <span className="natwest-text">NatWest</span> student bank account.
+            </div>,
+            part4: <div>
+                <div className="text-light">You could have</div>
+                <div className="text-large">1 round the world trip</div>
+                <div className="text-large">33 pints of nice ale</div>
+                <div className="text-large">24 Wetherspoon's Engish breakfast</div>
+                <div className="text-large">100's of 1p sweets</div>
+                <div className="text-light">Lucky you!</div>
+            </div>
+        };
+        var content = underspend;
+        if (spending < 0) {
+            content = overspend
+        }
+
         return <div>
             <div className="container">
                 <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
                     <Panel footer={
                         <Row>
                             <Col xs={6}>
-                                <Button bsStyle="link" onClick={this.openFacebookShare}>
+                                <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare}>
                                     Share with facebook
                                 </Button>
                             </Col>
-                            <Col xs={6} className="text">
+                            <Col xs={6} className="text col-no-pad-left">
                                 and see who is going to spend the most this freshers
                             </Col>
                         </Row>
@@ -89,28 +128,22 @@ class ResultsPage extends Component {
 
 
                         <Col xs={12} className="question">
-                            <p>
-                                You have overspent by £{this.getSpending()} over freshers
-                            </p>
+                            {content.part1}
+                            <p/>
                         </Col>
 
                         <Col xs={12} className="text">
-                            <p>
-                                Fair enough, you plan on letting loose when you get to uni.
-                            </p>
+                            {content.part2}
+                            <p/>
                         </Col>
 
                         <Col xs={12} className="text">
-                            <p>
-                                Make sure you've got a safety net for freshers with an interest free overdraft when
-                                signing
-                                up
-                                for a NatWest student bank account.
-                            </p>
+                            {content.part3}
+                            <p/>
                         </Col>
 
                         <Col xs={8} className="text">
-                            <Button bsStyle="link" onClick={this.openFacebookShare}>
+                            <Button bsStyle="link" onClick={this.openNatWest}>
                                 Apply for student bank account
                             </Button>
                         </Col>
@@ -125,8 +158,7 @@ class ResultsPage extends Component {
                         </Col>
 
                         <Col xs={12} className="text">
-                            Sadly, your overspending means you can't really afford to treat yourself. It might be worth
-                            taking it easy for a couple of weeks to control your spending.
+                            {content.part4}
                         </Col>
 
                     </Panel>

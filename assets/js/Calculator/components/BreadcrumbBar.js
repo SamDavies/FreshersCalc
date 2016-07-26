@@ -22,15 +22,15 @@ class BreadcrumbBar extends Component {
             <Breadcrumb>
                 <Breadcrumb.Item id="budget-link" active={this.getActive("budget")}
                                  onClick={() => browserHistory.push('/web/budget/')}>
-                    Your University
+                    Your university
                 </Breadcrumb.Item>
                 <Breadcrumb.Item id="expenses-link" active={this.getActive("expenses")}
                                  onClick={() => browserHistory.push('/web/expenses/')}>
-                    Personal Expenses
+                    Personal expenses
                 </Breadcrumb.Item>
                 <Breadcrumb.Item id="going-out-link" active={this.getActive("going-out")}
                                  onClick={() => browserHistory.push('/web/going-out/')}>
-                    Going Out
+                    Going out
                 </Breadcrumb.Item>
                 <Breadcrumb.Item id="results-link" active={this.getActive("results")}
                                  onClick={() => browserHistory.push('/web/results/')}>

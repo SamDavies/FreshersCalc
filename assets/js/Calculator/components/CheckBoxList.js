@@ -30,7 +30,7 @@ class CheckBoxList extends Component {
             var self = this;
             var options = this.props.options.map(function (option) {
                 let checked = (self.props.selectedOptions.filter(id => (id == option.id)).length != 0);
-                return <Col xs={self.props.innerCols} key={option.id}>
+                return <Col xs={self.props.xsInnerCols} sm={self.props.innerCols} key={option.id}>
                     <label className="checkbox-inline" >
                         <input type="checkbox"
                                checked={checked}

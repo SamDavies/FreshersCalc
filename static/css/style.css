@@ -31,6 +31,15 @@ body {
     margin-bottom: 0.5em;
 }
 
+.choice-text {
+    font-family: Lato;
+    font-weight: normal;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    color: #333333;
+    margin-left: 0.5em;
+}
+
 .question-choices {
     font-family: Lato;
     line-height: 1.25;
@@ -45,6 +54,30 @@ body {
 
 .col-no-pad-left {
     padding-left: 0
+}
+
+.col-footer {
+    padding-left: 30px;
+    padding-right: 30px
+}
+
+.natwest-text {
+    color: #fe4a4b;
+}
+
+.text-cost {
+    color: #fe4a4b;
+}
+
+.text-light {
+    color: #7d7d7d;
+    line-height: 1.50;
+}
+
+.text-large {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.50;
 }
 
 .btn-link {
@@ -63,6 +96,10 @@ body {
     text-decoration: none;
     -webkit-appearance: button;
     cursor: pointer;
+}
+
+.btn-facebook {
+    background-color: #3c599d;
 }
 
 .panel {

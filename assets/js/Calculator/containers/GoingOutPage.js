@@ -73,9 +73,8 @@ class GoingOutPage extends Component {
             if (selectedDrinkCounts.length != 0) {
                 count = selectedDrinkCounts[0].count
             }
-            drinkSelectionLists.push(<Col xs={3}>
+            drinkSelectionLists.push(<Col xs={12} sm={4} key={drink.id}>
                 <SelectionList
-                    key={drink.id}
                     appendName={" " + drink.name}
                     placeholder={drink.name}
                     options={[
@@ -138,7 +137,7 @@ class GoingOutPage extends Component {
                             <RadioGroupList
                                 innerCols={3}
                                 outerCols={12}
-                                header="DO you have a post-night snack?"
+                                header="Do you have a post-night snack?"
                                 name="meals"
                                 options={this.props.meals}
                                 selectedOption={this.props.selectedMealId}

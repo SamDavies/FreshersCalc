@@ -59,7 +59,7 @@ class BudgetPage extends Component {
                         <Col xs={12}>
                             <SelectionList
                                 header="What university do you go to?"
-                                placeholder="University"
+                                placeholder="university"
                                 options={this.props.universities}
                                 selectedOption={this.props.selectedUniversityId}
                                 onSelectOption={this.onSelectUniversity}

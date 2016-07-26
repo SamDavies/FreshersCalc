@@ -59620,7 +59620,7 @@
 	                                { xs: 12 },
 	                                _react2.default.createElement(_SelectionList2.default, {
 	                                    header: "What university do you go to?",
-	                                    placeholder: "University",
+	                                    placeholder: "university",
 	                                    options: this.props.universities,
 	                                    selectedOption: this.props.selectedUniversityId,
 	                                    onSelectOption: this.onSelectUniversity
@@ -62159,12 +62159,16 @@
 	                var options = this.props.options.map(function (option) {
 	                    return _react2.default.createElement(
 	                        Col,
-	                        { xs: self.props.innerCols, key: option.id },
+	                        { xs: self.props.xsInnerCols, sm: self.props.innerCols, key: option.id },
 	                        _react2.default.createElement(
-	                            "label",
+	                            "div",
 	                            null,
 	                            _react2.default.createElement(_reactRadioGroup.Radio, { value: option.id }),
-	                            option.name
+	                            _react2.default.createElement(
+	                                "span",
+	                                { className: "choice-text" },
+	                                option.name
+	                            )
 	                        )
 	                    );
 	                });
@@ -62470,7 +62474,7 @@
 	                            onClick: function onClick() {
 	                                return _reactRouter.browserHistory.push('/web/budget/');
 	                            } },
-	                        "Your University"
+	                        "Your university"
 	                    ),
 	                    _react2.default.createElement(
 	                        Breadcrumb.Item,
@@ -62478,7 +62482,7 @@
 	                            onClick: function onClick() {
 	                                return _reactRouter.browserHistory.push('/web/expenses/');
 	                            } },
-	                        "Personal Expenses"
+	                        "Personal expenses"
 	                    ),
 	                    _react2.default.createElement(
 	                        Breadcrumb.Item,
@@ -62486,7 +62490,7 @@
 	                            onClick: function onClick() {
 	                                return _reactRouter.browserHistory.push('/web/going-out/');
 	                            } },
-	                        "Going Out"
+	                        "Going out"
 	                    ),
 	                    _react2.default.createElement(
 	                        Breadcrumb.Item,
@@ -64028,7 +64032,7 @@
 	                                { xs: 12 },
 	                                _react2.default.createElement(_CheckBoxList2.default, {
 	                                    innerCols: 6,
-	                                    outerCols: 6,
+	                                    outerCols: 8,
 	                                    header: "Do you need the following items?",
 	                                    name: "catering",
 	                                    options: this.props.items,
@@ -64038,7 +64042,7 @@
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
 	                                    innerCols: 6,
-	                                    outerCols: 8,
+	                                    outerCols: 12,
 	                                    header: "How regularly do you plan on going home?",
 	                                    name: "homeTrips",
 	                                    options: this.props.homeTrips,
@@ -64056,7 +64060,7 @@
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
 	                                    innerCols: 6,
-	                                    outerCols: 6,
+	                                    outerCols: 8,
 	                                    header: "How regularly do you get your haircut?",
 	                                    name: "haircuts",
 	                                    options: this.props.haircuts,
@@ -64183,7 +64187,7 @@
 	                    }).length != 0;
 	                    return _react2.default.createElement(
 	                        Col,
-	                        { xs: self.props.innerCols, key: option.id },
+	                        { xs: self.props.xsInnerCols, sm: self.props.innerCols, key: option.id },
 	                        _react2.default.createElement(
 	                            'label',
 	                            { className: 'checkbox-inline' },
@@ -64369,9 +64373,8 @@
 	                }
 	                drinkSelectionLists.push(_react2.default.createElement(
 	                    Col,
-	                    { xs: 3 },
+	                    { xs: 12, sm: 4, key: drink.id },
 	                    _react2.default.createElement(_SelectionList2.default, {
-	                        key: drink.id,
 	                        appendName: " " + drink.name,
 	                        placeholder: drink.name,
 	                        options: [{ id: 1, name: "1", value: 0 }, { id: 2, name: "2", value: 0 }, { id: 3, name: "3", value: 0 }, { id: 4, name: "4", value: 0 }, { id: 5, name: "5", value: 0 }, { id: 6, name: "6", value: 0 }, { id: 7, name: "7", value: 0 }, { id: 8, name: "8", value: 0 }, { id: 9, name: "9", value: 0 }, { id: 10, name: "10", value: 0 }],
@@ -64439,7 +64442,7 @@
 	                                _react2.default.createElement(_RadioGroupList2.default, {
 	                                    innerCols: 3,
 	                                    outerCols: 12,
-	                                    header: "DO you have a post-night snack?",
+	                                    header: "Do you have a post-night snack?",
 	                                    name: "meals",
 	                                    options: this.props.meals,
 	                                    selectedOption: this.props.selectedMealId,
@@ -64556,6 +64559,11 @@
 	            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspent%20by%20%C2%A3200%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" + ".facebook.com%2F");
 	        }
 	    }, {
+	        key: "openNatWest",
+	        value: function openNatWest() {
+	            window.open("http://personal.natwest.com");
+	        }
+	    }, {
 	        key: "getCost",
 	        value: function getCost(collection, instanceId) {
 	            var instance = collection.filter(function (t) {
@@ -64613,6 +64621,102 @@
 	    }, {
 	        key: "render",
 	        value: function render() {
+
+	            var spending = this.getSpending();
+
+	            var overspend = {
+	                part1: _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    "You have overspent by ",
+	                    _react2.default.createElement(
+	                        "span",
+	                        { className: "text-cost" },
+	                        "£",
+	                        -spending
+	                    ),
+	                    " over freshers"
+	                ),
+	                part2: "Fair enough, you plan on letting loose when you get to uni.",
+	                part3: _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    "Make sure you've got a safety net for freshers with an interest free overdraft when signing up for a ",
+	                    _react2.default.createElement(
+	                        "span",
+	                        { className: "natwest-text" },
+	                        "NatWest"
+	                    ),
+	                    " student bank account."
+	                ),
+	                part4: "Sadly, your overspending means you can't really afford to treat yourself. " + "It might be worth taking it easy for a couple of weeks to control your spending."
+	            };
+
+	            var underspend = {
+	                part1: _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    "You have ",
+	                    _react2.default.createElement(
+	                        "span",
+	                        { className: "text-cost" },
+	                        "£",
+	                        spending
+	                    ),
+	                    " left in your account"
+	                ),
+	                part2: "You are watching your money carefully over freshers.",
+	                part3: _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    "Apply for a student bank account with an interest-free arranged overdraft with ",
+	                    _react2.default.createElement(
+	                        "span",
+	                        { className: "natwest-text" },
+	                        "NatWest"
+	                    ),
+	                    " student bank account."
+	                ),
+	                part4: _react2.default.createElement(
+	                    "div",
+	                    null,
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-light" },
+	                        "You could have"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-large" },
+	                        "1 round the world trip"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-large" },
+	                        "33 pints of nice ale"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-large" },
+	                        "24 Wetherspoon's Engish breakfast"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-large" },
+	                        "100's of 1p sweets"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "text-light" },
+	                        "Lucky you!"
+	                    )
+	                )
+	            };
+	            var content = underspend;
+	            if (spending < 0) {
+	                content = overspend;
+	            }
+
 	            return _react2.default.createElement(
 	                "div",
 	                null,
@@ -64632,13 +64736,13 @@
 	                                        { xs: 6 },
 	                                        _react2.default.createElement(
 	                                            Button,
-	                                            { bsStyle: "link", onClick: this.openFacebookShare },
+	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare },
 	                                            "Share with facebook"
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        Col,
-	                                        { xs: 6, className: "text" },
+	                                        { xs: 6, className: "text col-no-pad-left" },
 	                                        "and see who is going to spend the most this freshers"
 	                                    )
 	                                ) },
@@ -64646,38 +64750,27 @@
 	                            _react2.default.createElement(
 	                                Col,
 	                                { xs: 12, className: "question" },
-	                                _react2.default.createElement(
-	                                    "p",
-	                                    null,
-	                                    "You have overspent by £",
-	                                    this.getSpending(),
-	                                    " over freshers"
-	                                )
+	                                content.part1,
+	                                _react2.default.createElement("p", null)
 	                            ),
 	                            _react2.default.createElement(
 	                                Col,
 	                                { xs: 12, className: "text" },
-	                                _react2.default.createElement(
-	                                    "p",
-	                                    null,
-	                                    "Fair enough, you plan on letting loose when you get to uni."
-	                                )
+	                                content.part2,
+	                                _react2.default.createElement("p", null)
 	                            ),
 	                            _react2.default.createElement(
 	                                Col,
 	                                { xs: 12, className: "text" },
-	                                _react2.default.createElement(
-	                                    "p",
-	                                    null,
-	                                    "Make sure you've got a safety net for freshers with an interest free overdraft when signing up for a NatWest student bank account."
-	                                )
+	                                content.part3,
+	                                _react2.default.createElement("p", null)
 	                            ),
 	                            _react2.default.createElement(
 	                                Col,
 	                                { xs: 8, className: "text" },
 	                                _react2.default.createElement(
 	                                    Button,
-	                                    { bsStyle: "link", onClick: this.openFacebookShare },
+	                                    { bsStyle: "link", onClick: this.openNatWest },
 	                                    "Apply for student bank account"
 	                                )
 	                            ),
@@ -64694,7 +64787,7 @@
 	                            _react2.default.createElement(
 	                                Col,
 	                                { xs: 12, className: "text" },
-	                                "Sadly, your overspending means you can't really afford to treat yourself. It might be worth taking it easy for a couple of weeks to control your spending."
+	                                content.part4
 	                            )
 	                        )
 	                    )
