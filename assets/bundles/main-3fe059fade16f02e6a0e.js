@@ -64551,7 +64551,6 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ResultsPage).call(this, props));
 
-	        _this.openFacebookShare = _this.openFacebookShare.bind(_this);
 	        _this.getCost = _this.getCost.bind(_this);
 	        _this.getSpending = _this.getSpending.bind(_this);
 	        return _this;
@@ -64559,8 +64558,8 @@
 
 	    _createClass(ResultsPage, [{
 	        key: "openFacebookShare",
-	        value: function openFacebookShare() {
-	            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspent%20by%20%C2%A3200%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" + ".facebook.com%2F");
+	        value: function openFacebookShare(spendingText, amount) {
+	            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20" + spendingText + "%20by%20%C2%A3" + amount + "%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" + ".facebook.com%2F");
 	        }
 	    }, {
 	        key: "openNatWest",
@@ -64717,8 +64716,10 @@
 	                )
 	            };
 	            var content = underspend;
+	            var facebook = "underspend";
 	            if (spending < 0) {
 	                content = overspend;
+	                facebook = "overspend";
 	            }
 
 	            return _react2.default.createElement(
@@ -64740,7 +64741,7 @@
 	                                        { xs: 6 },
 	                                        _react2.default.createElement(
 	                                            Button,
-	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare },
+	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, facebook, spending) },
 	                                            "Share with facebook"
 	                                        )
 	                                    ),

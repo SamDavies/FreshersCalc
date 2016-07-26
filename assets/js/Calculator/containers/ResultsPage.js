@@ -15,16 +15,15 @@ var Image = require('react-bootstrap/lib/Image');
 class ResultsPage extends Component {
     constructor(props) {
         super(props);
-        this.openFacebookShare = this.openFacebookShare.bind(this);
         this.getCost = this.getCost.bind(this);
         this.getSpending = this.getSpending.bind(this);
     }
 
-    openFacebookShare() {
+    openFacebookShare(spendingText, amount) {
         window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
             "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" +
             "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" +
-            "n=I%20will%20overspent%20by%20%C2%A3200%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" +
+            "n=I%20will%20"+ spendingText + "%20by%20%C2%A3"+ amount + "%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" +
             ".facebook.com%2F")
     }
 
@@ -106,8 +105,10 @@ class ResultsPage extends Component {
             </div>
         };
         var content = underspend;
+        var facebook = "underspend";
         if (spending < 0) {
-            content = overspend
+            content = overspend;
+            facebook = "overspend";
         }
 
         return <div>
@@ -116,7 +117,7 @@ class ResultsPage extends Component {
                     <Panel footer={
                         <Row>
                             <Col xs={6}>
-                                <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare}>
+                                <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare.bind(this, facebook, spending)}>
                                     Share with facebook
                                 </Button>
                             </Col>
