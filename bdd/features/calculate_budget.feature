@@ -46,7 +46,7 @@ Feature: Calculate the budget for a student
     When I visit the "going-out" page
     And I select option "Monday" for the question "How many drinks you plan on having on an average night out?"
     And I select option "Tuesday" for the question "How many drinks you plan on having on an average night out?"
-    And I select option "2 beer" for the question "How many drinks do you plan on having on an average night out?"
+    And I select option "2 beers" for the question "How many drinks do you plan on having on an average night out?"
     And I select option "1 wine" for the question "How many drinks do you plan on having on an average night out?"
     And I select option "1 round per night" for the question "Do you buy rounds for friends?"
     And I select option "Yes" for the question "After a night out, do you get a post night out snack?"

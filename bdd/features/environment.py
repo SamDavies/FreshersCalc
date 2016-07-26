@@ -29,8 +29,8 @@ def before_all(context):
     context.test = MockAPITestCase()
     context.auth = ClientAuth(context.test.client_class())
 
-    # context.browser = Browser('phantomjs')
-    context.browser = Browser('chrome')
+    context.browser = Browser('phantomjs')
+    # context.browser = Browser('chrome')
 
     # When we're running with PhantomJS we need to specify the window size.
     # This is a workaround for an issue where PhantomJS cannot find elements

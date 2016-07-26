@@ -59526,6 +59526,24 @@
 
 	var _budgetActions = __webpack_require__(544);
 
+	var _itemActions = __webpack_require__(550);
+
+	var _homeTripActions = __webpack_require__(552);
+
+	var _gymActions = __webpack_require__(554);
+
+	var _haircutActions = __webpack_require__(556);
+
+	var _shoppingActions = __webpack_require__(558);
+
+	var _drinkActions = __webpack_require__(562);
+
+	var _roundActions = __webpack_require__(564);
+
+	var _mealActions = __webpack_require__(566);
+
+	var _taxiActions = __webpack_require__(568);
+
 	var _SelectionList = __webpack_require__(918);
 
 	var _SelectionList2 = _interopRequireDefault(_SelectionList);
@@ -59578,6 +59596,15 @@
 	            this.props.dispatch((0, _universityActions.getUniversities)());
 	            this.props.dispatch((0, _accommodationActions.getAccommodation)());
 	            this.props.dispatch((0, _cateringActions.getCatering)());
+	            this.props.dispatch((0, _itemActions.getItems)());
+	            this.props.dispatch((0, _homeTripActions.getHomeTrips)());
+	            this.props.dispatch((0, _gymActions.getGyms)());
+	            this.props.dispatch((0, _haircutActions.getHaircuts)());
+	            this.props.dispatch((0, _shoppingActions.getShoppings)());
+	            this.props.dispatch((0, _drinkActions.getDrinks)());
+	            this.props.dispatch((0, _roundActions.getRounds)());
+	            this.props.dispatch((0, _mealActions.getMeals)());
+	            this.props.dispatch((0, _taxiActions.getTaxis)());
 	        }
 	    }, {
 	        key: "onSelectUniversity",
@@ -59746,7 +59773,7 @@
 	                var options = this.props.options.map(function (option) {
 	                    var appendName = "";
 	                    if (self.props.appendName) {
-	                        appendName = option.id < 2 ? " " + self.props.appendName : " " + self.props.appendName + "s";
+	                        appendName = option.id < 2 ? self.props.appendName : self.props.appendName + "s";
 	                    }
 	                    return _react2.default.createElement(
 	                        'option',

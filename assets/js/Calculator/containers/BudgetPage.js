@@ -5,6 +5,15 @@ import {getUniversities, selectUniversity} from "../actions/universityActions";
 import {getAccommodation, selectAccommodation} from "../actions/accommodationActions";
 import {getCatering, selectCatering} from "../actions/cateringActions";
 import {setBudget} from "../actions/budgetActions";
+import {getItems} from "../actions/itemActions";
+import {getHomeTrips} from "../actions/homeTripActions";
+import {getGyms} from "../actions/gymActions";
+import {getHaircuts} from "../actions/haircutActions";
+import {getShoppings} from "../actions/shoppingActions";
+import {getDrinks} from "../actions/drinkActions";
+import {getRounds} from "../actions/roundActions";
+import {getMeals} from "../actions/mealActions";
+import {getTaxis} from "../actions/taxiActions";
 import SelectionList from "../components/SelectionList";
 import RadioGroupList from "../components/RadioGroupList";
 import MoneyInput from "../components/MoneyInput";
@@ -31,6 +40,15 @@ class BudgetPage extends Component {
         this.props.dispatch(getUniversities());
         this.props.dispatch(getAccommodation());
         this.props.dispatch(getCatering());
+        this.props.dispatch(getItems());
+        this.props.dispatch(getHomeTrips());
+        this.props.dispatch(getGyms());
+        this.props.dispatch(getHaircuts());
+        this.props.dispatch(getShoppings());
+        this.props.dispatch(getDrinks());
+        this.props.dispatch(getRounds());
+        this.props.dispatch(getMeals());
+        this.props.dispatch(getTaxis());
     }
 
     onSelectUniversity(id) {
