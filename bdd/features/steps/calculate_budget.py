@@ -1,3 +1,5 @@
+from time import sleep
+
 from behave import *
 from factory.django import get_model
 

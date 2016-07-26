@@ -28,9 +28,9 @@ class RadioGroupList extends Component {
             var self = this;
             var options = this.props.options.map(function (option) {
                 return <Col xs={self.props.xsInnerCols} sm={self.props.innerCols} key={option.id}>
-                    <div>
+                    <label>
                         <Radio value={option.id}/><span className="choice-text">{option.name}</span>
-                    </div>
+                    </label>
                 </Col>;
             })
         }

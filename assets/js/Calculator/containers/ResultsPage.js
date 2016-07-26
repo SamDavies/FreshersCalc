@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import {Link, browserHistory} from "react-router";
+import Calculator from "./Calculator";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');

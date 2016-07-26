@@ -40,7 +40,7 @@ Feature: Calculate the budget for a student
     And I select option "Twice a semester" for the question "How regularly do you get your hair cut?"
     And I select option "£200 - £300" for the question "How much do you spend shopping online per month?"
     And I click the "Results" link
-    Then I have "-568" left
+    Then I have "568" left
 
   Scenario: Calculate spending on the Going Out Page
     When I visit the "going-out" page
@@ -52,7 +52,7 @@ Feature: Calculate the budget for a student
     And I select option "Yes" for the question "After a night out, do you get a post night out snack?"
     And I select option "Yes Taxi" for the question "Do you get a taxi back after a night out?"
     And I click the "Results" link
-    Then I have "-100.8" left
+    Then I have "100.8" left
 
 #  Scenario: Calculate spending for overspend
 #    When I visit the "budget" page
