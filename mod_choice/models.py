@@ -6,6 +6,9 @@ from django.db.models import Model, CharField, FloatField
 class University(Model):
     name = CharField(max_length=2048)
 
+    class Meta:
+        verbose_name_plural = 'universities'
+
 
 class AbstractChoice(Model):
     name = CharField(max_length=2048)
