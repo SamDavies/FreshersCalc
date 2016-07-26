@@ -59628,14 +59628,14 @@
 	                                _react2.default.createElement(_MoneyInput2.default, {
 	                                    header: "What’s your total maintenance loan?",
 	                                    controlId: "budget",
-	                                    value: this.props.budget,
+	                                    value: this.props.budget ? "£" + this.props.budget : null,
 	                                    onChange: this.onSetBudget,
 	                                    placeholder: "£ per semester"
 	                                }),
 	                                _react2.default.createElement(_RadioGroupList2.default, {
 	                                    innerCols: 4,
 	                                    outerCols: 12,
-	                                    header: "What type of accommodation are you living on?",
+	                                    header: "What type of accommodation are you living in?",
 	                                    name: "accommodation",
 	                                    options: this.props.accommodation,
 	                                    selectedOption: this.props.selectedAccommodationId,
@@ -59744,11 +59744,15 @@
 	            if (this.props.options) {
 	                var self = this;
 	                var options = this.props.options.map(function (option) {
+	                    var appendName = "";
+	                    if (self.props.appendName) {
+	                        appendName = option.id < 2 ? " " + self.props.appendName : " " + self.props.appendName + "s";
+	                    }
 	                    return _react2.default.createElement(
 	                        'option',
 	                        { key: option.id, value: option.id },
 	                        option.name,
-	                        self.props.appendName
+	                        appendName
 	                    );
 	                });
 	            }
@@ -64033,7 +64037,7 @@
 	                                _react2.default.createElement(_CheckBoxList2.default, {
 	                                    innerCols: 6,
 	                                    outerCols: 8,
-	                                    header: "Do you need the following items?",
+	                                    header: "Do you need any of the following items?",
 	                                    name: "catering",
 	                                    options: this.props.items,
 	                                    selectedOptions: this.props.selectedItemIds,
@@ -64466,7 +64470,7 @@
 	                                    { bsStyle: "link", onClick: function onClick() {
 	                                            return _reactRouter.browserHistory.push('/web/results/');
 	                                        } },
-	                                    "Show me the results!"
+	                                    "Show me my results!"
 	                                )
 	                            )
 	                        )
@@ -64738,7 +64742,7 @@
 	                                    null,
 	                                    _react2.default.createElement(
 	                                        Col,
-	                                        { xs: 6 },
+	                                        { xs: 12, sm: 5, className: "col-footer" },
 	                                        _react2.default.createElement(
 	                                            Button,
 	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, facebook, spending) },
@@ -64747,7 +64751,7 @@
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        Col,
-	                                        { xs: 6, className: "text col-no-pad-left" },
+	                                        { xs: 12, sm: 7, className: "text text-footer" },
 	                                        "and see who is going to spend the most this freshers"
 	                                    )
 	                                ) },

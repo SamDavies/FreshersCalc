@@ -157,7 +157,7 @@ class GoingOutPage extends Component {
 
                         <Col xs={12}>
                             <Button bsStyle="link" onClick={() => browserHistory.push('/web/results/')}>
-                                Show me the results!
+                                Show me my results!
                             </Button>
                         </Col>
                     </Panel>

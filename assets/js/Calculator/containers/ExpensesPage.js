@@ -73,7 +73,7 @@ class BudgetPage extends Component {
                             <CheckBoxList
                                 innerCols={6}
                                 outerCols={8}
-                                header="Do you need the following items?"
+                                header="Do you need any of the following items?"
                                 name="catering"
                                 options={this.props.items}
                                 selectedOptions={this.props.selectedItemIds}

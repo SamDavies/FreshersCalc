@@ -116,12 +116,12 @@ class ResultsPage extends Component {
                 <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
                     <Panel footer={
                         <Row>
-                            <Col xs={6}>
+                            <Col xs={12} sm={5}  className="col-footer">
                                 <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare.bind(this, facebook, spending)}>
                                     Share with facebook
                                 </Button>
                             </Col>
-                            <Col xs={6} className="text col-no-pad-left">
+                            <Col xs={12} sm={7} className="text text-footer">
                                 and see who is going to spend the most this freshers
                             </Col>
                         </Row>

@@ -22,7 +22,11 @@ class SelectionList extends Component {
         if (this.props.options) {
             var self = this;
             var options = this.props.options.map(function (option) {
-                return <option key={option.id} value={option.id}>{option.name}{self.props.appendName}</option>
+                var appendName = "";
+                if(self.props.appendName) {
+                    appendName = (option.id < 2) ? " " + self.props.appendName : " " + self.props.appendName + "s"
+                }
+                return <option key={option.id} value={option.id}>{option.name}{appendName}</option>
             })
         }
 

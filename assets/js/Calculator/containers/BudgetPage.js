@@ -68,7 +68,7 @@ class BudgetPage extends Component {
                             <MoneyInput
                                 header="What’s your total maintenance loan?"
                                 controlId="budget"
-                                value={this.props.budget}
+                                value={this.props.budget ? "£" + this.props.budget : null}
                                 onChange={this.onSetBudget}
                                 placeholder="£ per semester"
                             />
@@ -76,7 +76,7 @@ class BudgetPage extends Component {
                             <RadioGroupList
                                 innerCols={4}
                                 outerCols={12}
-                                header="What type of accommodation are you living on?"
+                                header="What type of accommodation are you living in?"
                                 name="accommodation"
                                 options={this.props.accommodation}
                                 selectedOption={this.props.selectedAccommodationId}
