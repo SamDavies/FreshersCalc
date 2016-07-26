@@ -64183,10 +64183,10 @@
 	                    }).length != 0;
 	                    return _react2.default.createElement(
 	                        Col,
-	                        { xs: self.props.innerCols },
+	                        { xs: self.props.innerCols, key: option.id },
 	                        _react2.default.createElement(
 	                            'label',
-	                            { className: 'checkbox-inline', key: option.id },
+	                            { className: 'checkbox-inline' },
 	                            _react2.default.createElement('input', { type: 'checkbox',
 	                                checked: checked,
 	                                onChange: self.onSelectOption.bind(self, option.id, checked)
@@ -64439,7 +64439,7 @@
 	                                _react2.default.createElement(_RadioGroupList2.default, {
 	                                    innerCols: 3,
 	                                    outerCols: 12,
-	                                    header: "How many post-night snack do you have?",
+	                                    header: "DO you have a post-night snack?",
 	                                    name: "meals",
 	                                    options: this.props.meals,
 	                                    selectedOption: this.props.selectedMealId,
@@ -64515,10 +64515,6 @@
 
 	var _reactRedux = __webpack_require__(698);
 
-	var _Calculator = __webpack_require__(995);
-
-	var _Calculator2 = _interopRequireDefault(_Calculator);
-
 	var _BreadcrumbBar = __webpack_require__(973);
 
 	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
@@ -64538,6 +64534,7 @@
 	var Row = __webpack_require__(947);
 	var Panel = __webpack_require__(976);
 	var Button = __webpack_require__(948);
+	var Image = __webpack_require__(995);
 
 	var ResultsPage = function (_Component) {
 	    _inherits(ResultsPage, _Component);
@@ -64548,6 +64545,8 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ResultsPage).call(this, props));
 
 	        _this.openFacebookShare = _this.openFacebookShare.bind(_this);
+	        _this.getCost = _this.getCost.bind(_this);
+	        _this.getSpending = _this.getSpending.bind(_this);
 	        return _this;
 	    }
 
@@ -64557,92 +64556,6 @@
 	            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspent%20by%20%C2%A3200%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" + ".facebook.com%2F");
 	        }
 	    }, {
-	        key: "render",
-	        value: function render() {
-	            return _react2.default.createElement(
-	                "div",
-	                null,
-	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
-	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
-	                        _react2.default.createElement(
-	                            Panel,
-	                            { footer: _react2.default.createElement(
-	                                    Row,
-	                                    null,
-	                                    _react2.default.createElement(
-	                                        Col,
-	                                        { xs: 12 },
-	                                        _react2.default.createElement(
-	                                            Button,
-	                                            { bsStyle: "link", onClick: this.openFacebookShare },
-	                                            "Share with your facebook friends"
-	                                        )
-	                                    )
-	                                ) },
-	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
-	                            _react2.default.createElement(_Calculator2.default, null)
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return ResultsPage;
-	}(_react.Component);
-
-	var mapStateToProps = function mapStateToProps(state) {
-	    return {};
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ResultsPage);
-
-/***/ },
-/* 995 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(298);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(698);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Bootstrap Imports
-
-
-	var Calculator = function (_Component) {
-	    _inherits(Calculator, _Component);
-
-	    function Calculator(props) {
-	        _classCallCheck(this, Calculator);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Calculator).call(this, props));
-
-	        _this.getCost = _this.getCost.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(Calculator, [{
 	        key: "getCost",
 	        value: function getCost(collection, instanceId) {
 	            var instance = collection.filter(function (t) {
@@ -64654,8 +64567,8 @@
 	            return 0;
 	        }
 	    }, {
-	        key: "render",
-	        value: function render() {
+	        key: "getSpending",
+	        value: function getSpending() {
 	            var _this2 = this;
 
 	            var balance = this.props.budget;
@@ -64695,15 +64608,102 @@
 
 	            balance -= goingOut;
 
+	            return balance;
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                balance
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "container" },
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
+	                        _react2.default.createElement(
+	                            Panel,
+	                            { footer: _react2.default.createElement(
+	                                    Row,
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        Col,
+	                                        { xs: 6 },
+	                                        _react2.default.createElement(
+	                                            Button,
+	                                            { bsStyle: "link", onClick: this.openFacebookShare },
+	                                            "Share with facebook"
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        Col,
+	                                        { xs: 6, className: "text" },
+	                                        "and see who is going to spend the most this freshers"
+	                                    )
+	                                ) },
+	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12, className: "question" },
+	                                _react2.default.createElement(
+	                                    "p",
+	                                    null,
+	                                    "You have overspent by £",
+	                                    this.getSpending(),
+	                                    " over freshers"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12, className: "text" },
+	                                _react2.default.createElement(
+	                                    "p",
+	                                    null,
+	                                    "Fair enough, you plan on letting loose when you get to uni."
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12, className: "text" },
+	                                _react2.default.createElement(
+	                                    "p",
+	                                    null,
+	                                    "Make sure you've got a safety net for freshers with an interest free overdraft when signing up for a NatWest student bank account."
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 8, className: "text" },
+	                                _react2.default.createElement(
+	                                    Button,
+	                                    { bsStyle: "link", onClick: this.openFacebookShare },
+	                                    "Apply for student bank account"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 4, className: "text col-no-pad-left" },
+	                                _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12 },
+	                                _react2.default.createElement("hr", { className: "breadcrumb-hr" })
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12, className: "text" },
+	                                "Sadly, your overspending means you can't really afford to treat yourself. It might be worth taking it easy for a couple of weeks to control your spending."
+	                            )
+	                        )
+	                    )
+	                )
 	            );
 	        }
 	    }]);
 
-	    return Calculator;
+	    return ResultsPage;
 	}(_react.Component);
 
 	var mapStateToProps = function mapStateToProps(state) {
@@ -64757,7 +64757,77 @@
 	    };
 	};
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Calculator);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ResultsPage);
+
+/***/ },
+/* 995 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = __webpack_require__(920)['default'];
+
+	var _interopRequireDefault = __webpack_require__(940)['default'];
+
+	exports.__esModule = true;
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _classnames = __webpack_require__(941);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
+	var Image = _react2['default'].createClass({
+	  displayName: 'Image',
+
+	  propTypes: {
+
+	    /**
+	     * Sets image as responsive image
+	     */
+	    responsive: _react2['default'].PropTypes.bool,
+
+	    /**
+	     * Sets image shape as rounded
+	     */
+	    rounded: _react2['default'].PropTypes.bool,
+
+	    /**
+	     * Sets image shape as circle
+	     */
+	    circle: _react2['default'].PropTypes.bool,
+
+	    /**
+	     * Sets image shape as thumbnail
+	     */
+	    thumbnail: _react2['default'].PropTypes.bool
+	  },
+
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      responsive: false,
+	      rounded: false,
+	      circle: false,
+	      thumbnail: false
+	    };
+	  },
+
+	  render: function render() {
+	    var classes = {
+	      'img-responsive': this.props.responsive,
+	      'img-rounded': this.props.rounded,
+	      'img-circle': this.props.circle,
+	      'img-thumbnail': this.props.thumbnail
+	    };
+
+	    return _react2['default'].createElement('img', _extends({}, this.props, { className: _classnames2['default'](this.props.className, classes) }));
+	  }
+	});
+
+	exports['default'] = Image;
+	module.exports = exports['default'];
 
 /***/ },
 /* 996 */

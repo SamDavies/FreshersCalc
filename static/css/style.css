@@ -22,12 +22,29 @@ body {
     margin-bottom: 0.5em;
 }
 
+.text {
+    font-family: Lato;
+    font-weight: normal;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+    color: #333333;
+    margin-bottom: 0.5em;
+}
+
 .question-choices {
     font-family: Lato;
     line-height: 1.25;
     letter-spacing: -0.2px;
     color: #333333;
     margin-bottom: 1em;
+}
+
+.natwest-logo {
+    margin-top: 22px;
+}
+
+.col-no-pad-left {
+    padding-left: 0
 }
 
 .btn-link {
