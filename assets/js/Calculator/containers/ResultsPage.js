@@ -78,7 +78,7 @@ class ResultsPage extends Component {
         var spending = this.getSpending();
 
         var overspend = {
-            part1: <div>You have overspent by <span className="text-cost">£{-spending}</span> over freshers</div>,
+            part1: <div>You have overspent by <span className="text-cost">£{-spending.toFixed()}</span> over freshers</div>,
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
                 Make sure you've got a safety net for freshers with an interest
@@ -89,7 +89,7 @@ class ResultsPage extends Component {
         };
 
         var underspend = {
-            part1: <div>You have <span className="text-cost">£{spending}</span> left in your account</div>,
+            part1: <div>You have <span className="text-cost">£{spending.toFixed()}</span> left in your account</div>,
             part2: "You are watching your money carefully over freshers.",
             part3: <div>
                 Apply for a student bank account with an interest-free arranged overdraft
@@ -99,7 +99,7 @@ class ResultsPage extends Component {
                 <div className="text-light">You could have</div>
                 <div className="text-large">1 round the world trip</div>
                 <div className="text-large">33 pints of nice ale</div>
-                <div className="text-large">24 Wetherspoon's Engish breakfast</div>
+                <div className="text-large">24 Wetherspoon's English breakfast</div>
                 <div className="text-large">100's of 1p sweets</div>
                 <div className="text-light">Lucky you!</div>
             </div>

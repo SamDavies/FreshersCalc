@@ -64636,7 +64636,7 @@
 	                        "span",
 	                        { className: "text-cost" },
 	                        "£",
-	                        -spending
+	                        -spending.toFixed()
 	                    ),
 	                    " over freshers"
 	                ),
@@ -64664,7 +64664,7 @@
 	                        "span",
 	                        { className: "text-cost" },
 	                        "£",
-	                        spending
+	                        spending.toFixed()
 	                    ),
 	                    " left in your account"
 	                ),
@@ -64701,7 +64701,7 @@
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "text-large" },
-	                        "24 Wetherspoon's Engish breakfast"
+	                        "24 Wetherspoon's English breakfast"
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
