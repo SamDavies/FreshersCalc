@@ -6,6 +6,9 @@ from django.db.models import Model, CharField, FloatField
 class University(Model):
     name = CharField(max_length=2048)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         verbose_name_plural = 'universities'
 
