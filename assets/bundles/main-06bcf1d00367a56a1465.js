@@ -59359,7 +59359,7 @@
 	if (document.location.hostname != "127.0.0.1") {
 	    module.exports = __webpack_require__(914);
 	} else {
-	    module.exports = __webpack_require__(997);
+	    module.exports = __webpack_require__(996);
 	}
 
 /***/ },
@@ -59647,7 +59647,7 @@
 	                                { xs: 12 },
 	                                _react2.default.createElement(_SelectionList2.default, {
 	                                    header: "What university do you go to?",
-	                                    placeholder: "university",
+	                                    placeholder: "Please choose...",
 	                                    options: this.props.universities,
 	                                    selectedOption: this.props.selectedUniversityId,
 	                                    onSelectOption: this.onSelectUniversity
@@ -64555,10 +64555,6 @@
 
 	var _reactRouter = __webpack_require__(455);
 
-	var _Calculator = __webpack_require__(995);
-
-	var _Calculator2 = _interopRequireDefault(_Calculator);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64572,7 +64568,7 @@
 	var Row = __webpack_require__(947);
 	var Panel = __webpack_require__(976);
 	var Button = __webpack_require__(948);
-	var Image = __webpack_require__(996);
+	var Image = __webpack_require__(995);
 
 	var ResultsPage = function (_Component) {
 	    _inherits(ResultsPage, _Component);
@@ -64589,8 +64585,12 @@
 
 	    _createClass(ResultsPage, [{
 	        key: "openFacebookShare",
-	        value: function openFacebookShare(spendingText, amount) {
-	            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20" + spendingText + "%20by%20%C2%A3" + amount + "%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" + ".facebook.com%2F");
+	        value: function openFacebookShare(amount) {
+	            if (amount < 0) {
+	                window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspend%20by%20%C2%A3" + this.numberWithCommas(-amount) + "%20at%20freshers." + "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
+	            } else {
+	                window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20have%20by%20%C2%A3" + this.numberWithCommas(amount) + "%20left%20in%20my%20" + "account%20after%20freshers.&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
+	            }
 	        }
 	    }, {
 	        key: "openNatWest",
@@ -64653,6 +64653,11 @@
 	            return balance;
 	        }
 	    }, {
+	        key: "numberWithCommas",
+	        value: function numberWithCommas(x) {
+	            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 
@@ -64665,9 +64670,10 @@
 	                    "You have overspent by ",
 	                    _react2.default.createElement(
 	                        "span",
-	                        { className: "text-cost" },
+	                        {
+	                            className: "text-cost" },
 	                        "£",
-	                        -spending.toFixed()
+	                        this.numberWithCommas(-spending.toFixed())
 	                    ),
 	                    " over freshers"
 	                ),
@@ -64695,7 +64701,7 @@
 	                        "span",
 	                        { className: "text-cost" },
 	                        "£",
-	                        spending.toFixed()
+	                        this.numberWithCommas(spending.toFixed())
 	                    ),
 	                    " left in your account"
 	                ),
@@ -64747,10 +64753,8 @@
 	                )
 	            };
 	            var content = underspend;
-	            var facebook = "underspend";
 	            if (spending < 0) {
 	                content = overspend;
-	                facebook = "overspend";
 	            }
 
 	            return _react2.default.createElement(
@@ -64772,7 +64776,7 @@
 	                                        { xs: 12, sm: 5, className: "col-footer" },
 	                                        _react2.default.createElement(
 	                                            Button,
-	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, facebook, spending) },
+	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
 	                                            "Share with facebook"
 	                                        )
 	                                    ),
@@ -64892,164 +64896,6 @@
 /* 995 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(298);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(698);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Bootstrap Imports
-
-
-	var Calculator = function (_Component) {
-	    _inherits(Calculator, _Component);
-
-	    function Calculator(props) {
-	        _classCallCheck(this, Calculator);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Calculator).call(this, props));
-
-	        _this.getCost = _this.getCost.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(Calculator, [{
-	        key: "getCost",
-	        value: function getCost(collection, instanceId) {
-	            var instance = collection.filter(function (t) {
-	                return t.id == instanceId;
-	            })[0];
-	            if (instance) {
-	                return instance.value;
-	            }
-	            return 0;
-	        }
-	    }, {
-	        key: "render",
-	        value: function render() {
-	            var _this2 = this;
-
-	            var balance = this.props.budget;
-
-	            // budget
-	            balance -= this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
-	            balance -= this.getCost(this.props.catering, this.props.selectedCateringId);
-
-	            // expenses
-	            for (var i = 0; i < this.props.items.length; i++) {
-	                balance -= this.getCost(this.props.items, this.props.selectedItemIds[i]);
-	            }
-	            balance -= this.getCost(this.props.homeTrips, this.props.selectedHomeTripId);
-	            balance -= this.getCost(this.props.gyms, this.props.selectedGymId);
-	            balance -= this.getCost(this.props.haircuts, this.props.selectedHaircutId);
-	            balance -= this.getCost(this.props.shoppings, this.props.selectedShoppingId);
-
-	            //going out
-	            var goingOut = 0;
-	            var selectedDrinkCountLength = this.props.selectedDrinkCounts.length;
-
-	            var _loop = function _loop() {
-	                var drinkCount = _this2.props.selectedDrinkCounts[j];
-	                var drink = _this2.props.drinks.filter(function (t) {
-	                    return t.id == drinkCount.id;
-	                });
-	                goingOut += drink[0].value * drinkCount.count;
-	            };
-
-	            for (var j = 0; j < selectedDrinkCountLength; j++) {
-	                _loop();
-	            }
-	            goingOut += this.getCost(this.props.rounds, this.props.selectedRoundId);
-	            goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
-	            goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
-	            goingOut *= this.props.selectedNightIds.length;
-
-	            balance -= goingOut;
-
-	            return _react2.default.createElement(
-	                "div",
-	                null,
-	                balance
-	            );
-	        }
-	    }]);
-
-	    return Calculator;
-	}(_react.Component);
-
-	var mapStateToProps = function mapStateToProps(state) {
-	    return {
-	        // budget
-
-	        universities: state.universityReducer.universities,
-	        selectedUniversityId: state.universityReducer.selectedUniversityId,
-
-	        budget: state.budgetReducer.budget,
-
-	        accommodation: state.accommodationReducer.accommodation,
-	        selectedAccommodationId: state.accommodationReducer.selectedAccommodationId,
-
-	        catering: state.cateringReducer.catering,
-	        selectedCateringId: state.cateringReducer.selectedCateringId,
-
-	        // expenses
-
-	        items: state.itemReducer.items,
-	        selectedItemIds: state.itemReducer.selectedItemIds,
-
-	        homeTrips: state.homeTripReducer.homeTrips,
-	        selectedHomeTripId: state.homeTripReducer.selectedHomeTripId,
-
-	        gyms: state.gymReducer.gyms,
-	        selectedGymId: state.gymReducer.selectedGymId,
-
-	        haircuts: state.haircutReducer.haircuts,
-	        selectedHaircutId: state.haircutReducer.selectedHaircutId,
-
-	        shoppings: state.shoppingReducer.shoppings,
-	        selectedShoppingId: state.shoppingReducer.selectedShoppingId,
-
-	        // going out
-
-	        days: state.nightCountReducer.days,
-	        selectedNightIds: state.nightCountReducer.selectedNightIds,
-
-	        drinks: state.drinkReducer.drinks,
-	        selectedDrinkCounts: state.drinkReducer.selectedDrinkCounts,
-
-	        rounds: state.roundReducer.rounds,
-	        selectedRoundId: state.roundReducer.selectedRoundId,
-
-	        meals: state.mealReducer.meals,
-	        selectedMealId: state.mealReducer.selectedMealId,
-
-	        taxis: state.taxiReducer.taxis,
-	        selectedTaxiId: state.taxiReducer.selectedTaxiId
-	    };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Calculator);
-
-/***/ },
-/* 996 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
 	var _extends = __webpack_require__(920)['default'];
@@ -65117,7 +64963,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 997 */
+/* 996 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";

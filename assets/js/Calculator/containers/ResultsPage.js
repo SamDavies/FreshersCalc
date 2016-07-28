@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import {Link, browserHistory} from "react-router";
-import Calculator from "./Calculator";
 
 // Bootstrap Imports
 var Col = require('react-bootstrap/lib/Col');
@@ -19,12 +18,20 @@ class ResultsPage extends Component {
         this.getSpending = this.getSpending.bind(this);
     }
 
-    openFacebookShare(spendingText, amount) {
-        window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
-            "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" +
-            "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" +
-            "n=I%20will%20"+ spendingText + "%20by%20%C2%A3"+ amount + "%20at%20Freshers.&redirect_uri=http%3A%2F%2Fwww" +
-            ".facebook.com%2F")
+    openFacebookShare(amount) {
+        if (amount < 0) {
+            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
+                "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" +
+                "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" +
+                "n=I%20will%20overspend%20by%20%C2%A3" + this.numberWithCommas(-amount) + "%20at%20freshers." +
+                "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F")
+        } else {
+            window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
+                "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" +
+                "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" +
+                "n=I%20will%20have%20by%20%C2%A3" + this.numberWithCommas(amount) + "%20left%20in%20my%20" +
+                "account%20after%20freshers.&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F")
+        }
     }
 
     openNatWest() {
@@ -73,12 +80,17 @@ class ResultsPage extends Component {
         return balance
     }
 
+    numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     render() {
 
         var spending = this.getSpending();
 
         var overspend = {
-            part1: <div>You have overspent by <span className="text-cost">£{-spending.toFixed()}</span> over freshers</div>,
+            part1: <div>You have overspent by <span
+                className="text-cost">£{this.numberWithCommas(-spending.toFixed())}</span> over freshers</div>,
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
                 Make sure you've got a safety net for freshers with an interest
@@ -89,7 +101,8 @@ class ResultsPage extends Component {
         };
 
         var underspend = {
-            part1: <div>You have <span className="text-cost">£{spending.toFixed()}</span> left in your account</div>,
+            part1: <div>You have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in
+                your account</div>,
             part2: "You are watching your money carefully over freshers.",
             part3: <div>
                 Apply for a student bank account with an interest-free arranged overdraft
@@ -105,10 +118,8 @@ class ResultsPage extends Component {
             </div>
         };
         var content = underspend;
-        var facebook = "underspend";
         if (spending < 0) {
             content = overspend;
-            facebook = "overspend";
         }
 
         return <div>
@@ -117,7 +128,7 @@ class ResultsPage extends Component {
                     <Panel footer={
                         <Row>
                             <Col xs={12} sm={5}  className="col-footer">
-                                <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare.bind(this, facebook, spending)}>
+                                <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
                                     Share with facebook
                                 </Button>
                             </Col>

@@ -29,7 +29,7 @@ Feature: Calculate the budget for a student
     And I select option "Halls" for the question "What type of accommodation are you living in"
     And I select option "Self Catered" for the question "Are you catered or self-catered?"
     And I click the "Results" link
-    Then I have "1470" left
+    Then I have "1,470" left
 
   Scenario: Calculate spending on the Expenses Page
     When I visit the "expenses" page
