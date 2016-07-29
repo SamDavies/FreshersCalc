@@ -23,34 +23,39 @@ class SelectionList extends Component {
             var self = this;
             var options = this.props.options.map(function (option) {
                 var appendName = "";
-                if(self.props.appendName) {
-                    appendName = (option.id < 2) ? self.props.appendName :  self.props.appendName + "s"
+                if (self.props.appendName) {
+                    appendName = (option.id < 2) ? self.props.appendName : self.props.appendName + "s"
                 }
                 return <option key={option.id} value={option.id}>{option.name}{appendName}</option>
             })
         }
 
         let selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
-        return <div>
-            <Row>
+
+        var header = "";
+        if (this.props.header) {
+            header = <Row>
                 <Col xs={12}>
                     <h3 className="question">{this.props.header}</h3>
                 </Col>
             </Row>
-            <Row className="question-choices">
-                <Col xs={12}>
-                    <FormGroup controlId="select">
-                        <FormControl
-                            componentClass="select"
-                            value={selectedOption}
-                            onChange={this.onSelectOption}
-                        >
-                            <option disabled>{this.props.placeholder}</option>
-                            {options}
-                        </FormControl>
-                    </FormGroup>
-                </Col>
-            </Row>
+        }
+
+        return <div>
+            {header}
+
+            <Col className="question-choices col-no-pad-left" xs={this.props.xsCols} sm={this.props.smCols}>
+                <FormGroup controlId="select">
+                    <FormControl
+                        componentClass="select"
+                        value={selectedOption}
+                        onChange={this.onSelectOption}
+                    >
+                        <option disabled>{this.props.placeholder}</option>
+                        {options}
+                    </FormControl>
+                </FormGroup>
+            </Col>
         </div>
             ;
     }

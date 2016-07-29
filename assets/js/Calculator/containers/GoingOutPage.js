@@ -73,8 +73,10 @@ class GoingOutPage extends Component {
             if (selectedDrinkCounts.length != 0) {
                 count = selectedDrinkCounts[0].count
             }
-            drinkSelectionLists.push(<Col xs={12} sm={4} key={drink.id}>
+            drinkSelectionLists.push(<div key={drink.id}>
                 <SelectionList
+                    xsCols={8}
+                    smCols={4}
                     appendName={" " + drink.name}
                     placeholder={drink.name}
                     options={[
@@ -92,7 +94,7 @@ class GoingOutPage extends Component {
                     selectedOption={count}
                     onSelectOption={this.onSelectDrinkCount.bind(this, drink.id)}
                 />
-            </Col>);
+            </div>);
         }
 
         return <div>

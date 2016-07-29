@@ -59646,6 +59646,7 @@
 	                                Col,
 	                                { xs: 12 },
 	                                _react2.default.createElement(_SelectionList2.default, {
+	                                    xsCols: 6,
 	                                    header: "What university do you go to?",
 	                                    placeholder: "Please choose...",
 	                                    options: this.props.universities,
@@ -59785,10 +59786,10 @@
 	            }
 
 	            var selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
+
+	            var header = "";
+	            if (this.props.header) {
+	                header = _react2.default.createElement(
 	                    Row,
 	                    null,
 	                    _react2.default.createElement(
@@ -59800,30 +59801,32 @@
 	                            this.props.header
 	                        )
 	                    )
-	                ),
+	                );
+	            }
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                header,
 	                _react2.default.createElement(
-	                    Row,
-	                    { className: 'question-choices' },
+	                    Col,
+	                    { className: 'question-choices col-no-pad-left', xs: this.props.xsCols, sm: this.props.smCols },
 	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12 },
+	                        FormGroup,
+	                        { controlId: 'select' },
 	                        _react2.default.createElement(
-	                            FormGroup,
-	                            { controlId: 'select' },
+	                            FormControl,
+	                            {
+	                                componentClass: 'select',
+	                                value: selectedOption,
+	                                onChange: this.onSelectOption
+	                            },
 	                            _react2.default.createElement(
-	                                FormControl,
-	                                {
-	                                    componentClass: 'select',
-	                                    value: selectedOption,
-	                                    onChange: this.onSelectOption
-	                                },
-	                                _react2.default.createElement(
-	                                    'option',
-	                                    { disabled: true },
-	                                    this.props.placeholder
-	                                ),
-	                                options
-	                            )
+	                                'option',
+	                                { disabled: true },
+	                                this.props.placeholder
+	                            ),
+	                            options
 	                        )
 	                    )
 	                )
@@ -64403,9 +64406,11 @@
 	                    count = selectedDrinkCounts[0].count;
 	                }
 	                drinkSelectionLists.push(_react2.default.createElement(
-	                    Col,
-	                    { xs: 12, sm: 4, key: drink.id },
+	                    "div",
+	                    { key: drink.id },
 	                    _react2.default.createElement(_SelectionList2.default, {
+	                        xsCols: 8,
+	                        smCols: 4,
 	                        appendName: " " + drink.name,
 	                        placeholder: drink.name,
 	                        options: [{ id: 1, name: "1", value: 0 }, { id: 2, name: "2", value: 0 }, { id: 3, name: "3", value: 0 }, { id: 4, name: "4", value: 0 }, { id: 5, name: "5", value: 0 }, { id: 6, name: "6", value: 0 }, { id: 7, name: "7", value: 0 }, { id: 8, name: "8", value: 0 }, { id: 9, name: "9", value: 0 }, { id: 10, name: "10", value: 0 }],
