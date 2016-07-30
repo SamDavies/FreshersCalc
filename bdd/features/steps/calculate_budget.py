@@ -8,7 +8,7 @@ from mod_choice.models import University
 use_step_matcher("re")
 
 
-@when('I visit the "(?P<page_name>.+)" page')
+@step('I visit the "(?P<page_name>.+)" page')
 def step_impl(context, page_name):
     context.browser.visit(context.test_case.live_server_url + '/web/' + page_name + '/')
 

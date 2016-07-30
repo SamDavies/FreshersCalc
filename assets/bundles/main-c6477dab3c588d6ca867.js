@@ -64663,6 +64663,20 @@
 	            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	        }
 	    }, {
+	        key: "affordCalculator",
+	        value: function affordCalculator(currentAmount, costPerItem, textSingular, textPlural) {
+	            if (currentAmount > costPerItem) {
+	                var itemCount = (currentAmount / costPerItem).toFixed();
+	                if (itemCount > 1) {
+	                    return itemCount + textPlural;
+	                } else {
+	                    return itemCount + textSingular;
+	                }
+	            } else {
+	                return "";
+	            }
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 
@@ -64696,6 +64710,14 @@
 	                ),
 	                part4: "Sadly, your overspending means you can't really afford to treat yourself. " + "It might be worth taking it easy for a couple of weeks to control your spending."
 	            };
+
+	            var worldTripsText = this.affordCalculator(spending, 2700, " round the world trip", " round the world trips");
+	            var aleText = this.affordCalculator(spending, 3.5, " pint of nice ale", " pints of nice ale");
+	            var breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
+
+	            // only allow 1000, 100 or 1 sweets
+	            var sweetSpending = spending > 1000 ? 1000 : spending > 100 ? 100 : 1;
+	            var sweetsText = this.affordCalculator(sweetSpending, 1, " piece of candy :(", "'s of 1p sweets");
 
 	            var underspend = {
 	                part1: _react2.default.createElement(
@@ -64733,22 +64755,22 @@
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "text-large" },
-	                        "1 round the world trip"
+	                        worldTripsText
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "text-large" },
-	                        "33 pints of nice ale"
+	                        aleText
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "text-large" },
-	                        "24 Wetherspoon's English breakfast"
+	                        breakfastText
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
 	                        { className: "text-large" },
-	                        "100's of 1p sweets"
+	                        sweetsText
 	                    ),
 	                    _react2.default.createElement(
 	                        "div",
@@ -64758,7 +64780,7 @@
 	                )
 	            };
 	            var content = underspend;
-	            if (spending < 0) {
+	            if (spending <= 0) {
 	                content = overspend;
 	            }
 

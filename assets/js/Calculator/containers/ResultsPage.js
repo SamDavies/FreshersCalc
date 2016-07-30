@@ -84,6 +84,20 @@ class ResultsPage extends Component {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
+    affordCalculator(currentAmount, costPerItem, textSingular, textPlural) {
+        if (currentAmount > costPerItem) {
+            let itemCount = (currentAmount / costPerItem).toFixed();
+            if (itemCount > 1) {
+                return itemCount + textPlural;
+            } else {
+                return itemCount + textSingular;
+            }
+
+        } else {
+            return ""
+        }
+    }
+
     render() {
 
         var spending = this.getSpending();
@@ -100,6 +114,14 @@ class ResultsPage extends Component {
             "It might be worth taking it easy for a couple of weeks to control your spending."
         };
 
+        let worldTripsText = this.affordCalculator(spending, 2700, " round the world trip", " round the world trips");
+        let aleText = this.affordCalculator(spending, 3.5, " pint of nice ale", " pints of nice ale");
+        let breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
+
+        // only allow 1000, 100 or 1 sweets
+        let sweetSpending = (spending > 1000) ? 1000 : (spending > 100) ? 100 : 1;
+        let sweetsText = this.affordCalculator(sweetSpending, 1, " piece of candy :(", "'s of 1p sweets");
+
         var underspend = {
             part1: <div>You have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in
                 your account</div>,
@@ -110,15 +132,15 @@ class ResultsPage extends Component {
             </div>,
             part4: <div>
                 <div className="text-light">You could afford</div>
-                <div className="text-large">1 round the world trip</div>
-                <div className="text-large">33 pints of nice ale</div>
-                <div className="text-large">24 Wetherspoon's English breakfast</div>
-                <div className="text-large">100's of 1p sweets</div>
+                <div className="text-large">{worldTripsText}</div>
+                <div className="text-large">{aleText}</div>
+                <div className="text-large">{breakfastText}</div>
+                <div className="text-large">{sweetsText}</div>
                 <div className="text-light">Lucky you!</div>
             </div>
         };
         var content = underspend;
-        if (spending < 0) {
+        if (spending <= 0) {
             content = overspend;
         }
 
