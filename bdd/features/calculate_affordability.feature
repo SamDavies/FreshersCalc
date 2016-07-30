@@ -27,3 +27,9 @@ Feature: Calculate the affordability of items for a student
     And I enter "budget" "999" for the question "What’s your total maintenance loan"
     When I click the "Results" link
     Then the page contains "100's of 1p sweets"
+
+  Scenario: Calculate 1p sweets with only 1 sweet
+    Given I visit the "budget" page
+    And I enter "budget" "50" for the question "What’s your total maintenance loan"
+    When I click the "Results" link
+    Then the page contains "1 piece of candy :("
