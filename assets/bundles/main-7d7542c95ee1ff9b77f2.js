@@ -64716,8 +64716,13 @@
 	            var breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
 	            // only allow 1000, 100 or 1 sweets
-	            var sweetSpending = spending > 1000 ? 1000 : spending > 100 ? 100 : 1.1;
-	            var sweetsText = this.affordCalculator(sweetSpending, 1, " piece of candy :(", "'s of 1p sweets");
+	            var sweetSpending = spending > 1000 ? 1000 : spending > 100 ? 100 : spending;
+	            var sweetsText;
+	            if (sweetSpending >= 100) {
+	                sweetsText = this.affordCalculator(sweetSpending, 1, "", "'s of 1p sweets");
+	            } else {
+	                sweetsText = this.affordCalculator(sweetSpending, 1, " sweet exactly!", " or so 1p sweets");
+	            }
 
 	            var underspend = {
 	                part1: _react2.default.createElement(

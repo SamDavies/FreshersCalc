@@ -119,8 +119,13 @@ class ResultsPage extends Component {
         let breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
         // only allow 1000, 100 or 1 sweets
-        let sweetSpending = (spending > 1000) ? 1000 : (spending > 100) ? 100 : 1.1;
-        let sweetsText = this.affordCalculator(sweetSpending, 1, " piece of candy :(", "'s of 1p sweets");
+        let sweetSpending = (spending > 1000) ? 1000 : (spending > 100) ? 100 : spending;
+        var sweetsText;
+        if (sweetSpending >= 100) {
+            sweetsText = this.affordCalculator(sweetSpending, 1, "", "'s of 1p sweets");
+        } else {
+            sweetsText = this.affordCalculator(sweetSpending, 1, " sweet exactly!", " or so 1p sweets");
+        }
 
         var underspend = {
             part1: <div>You have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in

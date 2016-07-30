@@ -30,6 +30,6 @@ Feature: Calculate the affordability of items for a student
 
   Scenario: Calculate 1p sweets with only 1 sweet
     Given I visit the "budget" page
-    And I enter "budget" "50" for the question "What’s your total maintenance loan"
+    And I enter "budget" "1.1" for the question "What’s your total maintenance loan"
     When I click the "Results" link
-    Then the page contains "1 piece of candy :("
+    Then the page contains "1 sweet exactly!"
