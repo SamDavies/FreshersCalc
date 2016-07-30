@@ -119,7 +119,7 @@ class ResultsPage extends Component {
         let breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
         // only allow 1000, 100 or 1 sweets
-        let sweetSpending = (spending > 1000) ? 1000 : (spending > 100) ? 100 : 1;
+        let sweetSpending = (spending > 1000) ? 1000 : (spending > 100) ? 100 : 1.1;
         let sweetsText = this.affordCalculator(sweetSpending, 1, " piece of candy :(", "'s of 1p sweets");
 
         var underspend = {

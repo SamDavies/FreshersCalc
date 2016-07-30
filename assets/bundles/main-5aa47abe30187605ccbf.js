@@ -64716,7 +64716,7 @@
 	            var breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
 	            // only allow 1000, 100 or 1 sweets
-	            var sweetSpending = spending > 1000 ? 1000 : spending > 100 ? 100 : 1;
+	            var sweetSpending = spending > 1000 ? 1000 : spending > 100 ? 100 : 1.1;
 	            var sweetsText = this.affordCalculator(sweetSpending, 1, " piece of candy :(", "'s of 1p sweets");
 
 	            var underspend = {
