@@ -64585,6 +64585,7 @@
 
 	        _this.getCost = _this.getCost.bind(_this);
 	        _this.getSpending = _this.getSpending.bind(_this);
+	        _this.affordCalculator = _this.affordCalculator.bind(_this);
 	        return _this;
 	    }
 
@@ -64668,9 +64669,9 @@
 	            if (currentAmount > costPerItem) {
 	                var itemCount = (currentAmount / costPerItem).toFixed();
 	                if (itemCount > 1) {
-	                    return itemCount + textPlural;
+	                    return this.numberWithCommas(itemCount) + textPlural;
 	                } else {
-	                    return itemCount + textSingular;
+	                    return this.numberWithCommas(itemCount) + textSingular;
 	                }
 	            } else {
 	                return "";
@@ -64716,7 +64717,7 @@
 	            var breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
 	            // only allow 1000, 100 or 1 sweets
-	            var sweetSpending = spending > 1000 ? 1000 : spending > 100 ? 100 : spending;
+	            var sweetSpending = spending > 10000 ? 1000000 : spending > 10 ? 1000 : spending > 1 ? 100 : spending * 100;
 	            var sweetsText;
 	            if (sweetSpending >= 100) {
 	                sweetsText = this.affordCalculator(sweetSpending, 1, "", "'s of 1p sweets");
