@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from "react";
+import ReactDom from "react-dom";
 import {connect} from "react-redux";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import {Link, browserHistory} from "react-router";
@@ -17,6 +18,10 @@ class ResultsPage extends Component {
         this.getCost = this.getCost.bind(this);
         this.getSpending = this.getSpending.bind(this);
         this.affordCalculator = this.affordCalculator.bind(this);
+    }
+
+    componentDidUpdate() {
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     openFacebookShare(amount) {

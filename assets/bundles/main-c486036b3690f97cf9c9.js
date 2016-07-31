@@ -59514,6 +59514,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(454);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _reactRedux = __webpack_require__(698);
 
 	var _reactRouter = __webpack_require__(455);
@@ -59605,6 +59609,11 @@
 	            this.props.dispatch((0, _roundActions.getRounds)());
 	            this.props.dispatch((0, _mealActions.getMeals)());
 	            this.props.dispatch((0, _taxiActions.getTaxis)());
+	        }
+	    }, {
+	        key: "componentDidUpdate",
+	        value: function componentDidUpdate() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onSelectUniversity",
@@ -63948,6 +63957,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(454);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _reactRedux = __webpack_require__(698);
 
 	var _reactRouter = __webpack_require__(455);
@@ -64014,6 +64027,11 @@
 	            this.props.dispatch((0, _gymActions.getGyms)());
 	            this.props.dispatch((0, _haircutActions.getHaircuts)());
 	            this.props.dispatch((0, _shoppingActions.getShoppings)());
+	        }
+	    }, {
+	        key: "componentDidUpdate",
+	        value: function componentDidUpdate() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onSelectItem",
@@ -64285,6 +64303,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(454);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _reactRedux = __webpack_require__(698);
 
 	var _reactRouter = __webpack_require__(455);
@@ -64353,6 +64375,11 @@
 	            this.props.dispatch((0, _roundActions.getRounds)());
 	            this.props.dispatch((0, _mealActions.getMeals)());
 	            this.props.dispatch((0, _taxiActions.getTaxis)());
+	        }
+	    }, {
+	        key: "componentDidUpdate",
+	        value: function componentDidUpdate() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onIncreaseNightCount",
@@ -64552,6 +64579,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(454);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _reactRedux = __webpack_require__(698);
 
 	var _BreadcrumbBar = __webpack_require__(973);
@@ -64590,6 +64621,11 @@
 	    }
 
 	    _createClass(ResultsPage, [{
+	        key: "componentDidUpdate",
+	        value: function componentDidUpdate() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	        }
+	    }, {
 	        key: "openFacebookShare",
 	        value: function openFacebookShare(amount) {
 	            if (amount < 0) {

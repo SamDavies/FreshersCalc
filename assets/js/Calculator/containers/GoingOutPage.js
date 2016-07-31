@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from "react";
+import ReactDom from "react-dom";
 import {connect} from "react-redux";
 import {Link, browserHistory} from "react-router";
 import {increaseNightCount, decreaseNightCount} from "../actions/nightCountActions";
@@ -34,6 +35,10 @@ class GoingOutPage extends Component {
         this.props.dispatch(getRounds());
         this.props.dispatch(getMeals());
         this.props.dispatch(getTaxis());
+    }
+
+    componentDidUpdate() {
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     onIncreaseNightCount(dayId) {

@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from "react";
+import ReactDom from "react-dom";
 import {connect} from "react-redux";
 import {Link, browserHistory} from "react-router";
 import {getUniversities, selectUniversity} from "../actions/universityActions";
@@ -49,6 +50,10 @@ class BudgetPage extends Component {
         this.props.dispatch(getRounds());
         this.props.dispatch(getMeals());
         this.props.dispatch(getTaxis());
+    }
+
+    componentDidUpdate() {
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     onSelectUniversity(id) {

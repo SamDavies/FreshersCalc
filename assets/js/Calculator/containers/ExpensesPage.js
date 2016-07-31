@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from "react";
+import ReactDom from "react-dom";
 import {connect} from "react-redux";
 import {Link, browserHistory} from "react-router";
 import {getItems, selectItem, deselectItem} from "../actions/itemActions";
@@ -35,6 +36,10 @@ class BudgetPage extends Component {
         this.props.dispatch(getGyms());
         this.props.dispatch(getHaircuts());
         this.props.dispatch(getShoppings());
+    }
+
+    componentDidUpdate() {
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     onSelectItem(itemId) {
