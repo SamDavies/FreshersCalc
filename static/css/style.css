@@ -56,6 +56,10 @@ body {
     padding-left: 0
 }
 
+.col-no-pad-right {
+    padding-right: 0
+}
+
 .col-footer {
     padding-left: 30px;
     padding-right: 30px;
@@ -109,7 +113,7 @@ body {
     background-color: #fe4a4b;
     color: #fff;
     border-bottom: none !important;
-    font-size: 17px;
+    font-size: calc(14px + 0.2vw);
     height: auto;
     text-decoration: none;
     -webkit-appearance: button;
@@ -152,4 +156,8 @@ body {
 .breadcrumb a {
     color: rgba(18, 18, 18, .9);
     font-weight: lighter;
+}
+
+.responsive-width {
+    font-size: 2vh;
 }

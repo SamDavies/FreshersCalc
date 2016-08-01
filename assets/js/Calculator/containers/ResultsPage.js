@@ -157,7 +157,7 @@ class ResultsPage extends Component {
 
         return <div>
             <div className="container">
-                <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
+                <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
                     <Panel footer={
                         <Row>
                             <Col xs={12} sm={5}  className="col-footer">
@@ -165,7 +165,10 @@ class ResultsPage extends Component {
                                     Share with facebook
                                 </Button>
                             </Col>
-                            <Col xs={12} sm={7} className="text text-footer">
+                            <Col sm={7} className="text text-footer hidden-xs">
+                                and see who is going to spend the most this freshers
+                            </Col>
+                            <Col xs={12} className="col-footer text text-footer visible-xs">
                                 and see who is going to spend the most this freshers
                             </Col>
                         </Row>
@@ -188,13 +191,19 @@ class ResultsPage extends Component {
                             <p/>
                         </Col>
 
-                        <Col xs={8} className="text">
+                        <Col sm={7} className="text hidden-xs">
                             <Button bsStyle="link" onClick={this.openNatWest}>
                                 Apply for a student bank account
                             </Button>
                         </Col>
 
-                        <Col xs={4} className="text col-no-pad-left">
+                        <Col xs={12} className="text visible-xs">
+                            <Button bsStyle="link" onClick={this.openNatWest}>
+                                Apply for student account
+                            </Button>
+                        </Col>
+
+                        <Col xs={6} sm={5} className="text">
                             <Image className="natwest-logo" src="/static/natwest-logo.png" responsive/>
                         </Col>
 

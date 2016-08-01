@@ -59646,7 +59646,7 @@
 	                    { className: "container" },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
+	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                        _react2.default.createElement(
 	                            Panel,
 	                            null,
@@ -59655,7 +59655,8 @@
 	                                Col,
 	                                { xs: 12 },
 	                                _react2.default.createElement(_SelectionList2.default, {
-	                                    xsCols: 6,
+	                                    xsCols: 12,
+	                                    smCols: 6,
 	                                    header: "What university do you go to?",
 	                                    placeholder: "Please choose...",
 	                                    options: this.props.universities,
@@ -64074,7 +64075,7 @@
 	                    { className: "container" },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
+	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                        _react2.default.createElement(
 	                            Panel,
 	                            null,
@@ -64461,7 +64462,7 @@
 	                    { className: "container" },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
+	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                        _react2.default.createElement(
 	                            Panel,
 	                            null,
@@ -64834,7 +64835,7 @@
 	                    { className: "container" },
 	                    _react2.default.createElement(
 	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 6, mdOffset: 3 },
+	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                        _react2.default.createElement(
 	                            Panel,
 	                            { footer: _react2.default.createElement(
@@ -64851,7 +64852,12 @@
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        Col,
-	                                        { xs: 12, sm: 7, className: "text text-footer" },
+	                                        { sm: 7, className: "text text-footer hidden-xs" },
+	                                        "and see who is going to spend the most this freshers"
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        Col,
+	                                        { xs: 12, className: "col-footer text text-footer visible-xs" },
 	                                        "and see who is going to spend the most this freshers"
 	                                    )
 	                                ) },
@@ -64876,7 +64882,7 @@
 	                            ),
 	                            _react2.default.createElement(
 	                                Col,
-	                                { xs: 8, className: "text" },
+	                                { sm: 7, className: "text hidden-xs" },
 	                                _react2.default.createElement(
 	                                    Button,
 	                                    { bsStyle: "link", onClick: this.openNatWest },
@@ -64885,7 +64891,16 @@
 	                            ),
 	                            _react2.default.createElement(
 	                                Col,
-	                                { xs: 4, className: "text col-no-pad-left" },
+	                                { xs: 12, className: "text visible-xs" },
+	                                _react2.default.createElement(
+	                                    Button,
+	                                    { bsStyle: "link", onClick: this.openNatWest },
+	                                    "Apply for student account"
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 6, sm: 5, className: "text" },
 	                                _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
 	                            ),
 	                            _react2.default.createElement(

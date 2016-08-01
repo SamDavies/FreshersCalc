@@ -75,13 +75,14 @@ class BudgetPage extends Component {
     render() {
         return <div>
             <div className="container">
-                <Col xs={12} sm={10} smOffset={1} md={6} mdOffset={3}>
+                <Col  xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
                     <Panel>
                         <BreadcrumbBar activeName="budget"/>
 
                         <Col xs={12}>
                             <SelectionList
-                                xsCols={6}
+                                xsCols={12}
+                                smCols={6}
                                 header="What university do you go to?"
                                 placeholder="Please choose..."
                                 options={this.props.universities}
