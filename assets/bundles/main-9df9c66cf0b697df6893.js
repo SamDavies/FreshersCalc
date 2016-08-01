@@ -59701,7 +59701,7 @@
 	                            { xs: 12 },
 	                            _react2.default.createElement(
 	                                Button,
-	                                { bsStyle: "link", onClick: function onClick() {
+	                                { bsStyle: "danger", onClick: function onClick() {
 	                                        return _reactRouter.browserHistory.push('/web/expenses/');
 	                                    } },
 	                                "Continue to your expenses »"
@@ -64138,7 +64138,7 @@
 	                            { xs: 12 },
 	                            _react2.default.createElement(
 	                                Button,
-	                                { bsStyle: "link", onClick: function onClick() {
+	                                { bsStyle: "danger", onClick: function onClick() {
 	                                        return _reactRouter.browserHistory.push('/web/going-out/');
 	                                    } },
 	                                "Continue to your nightlife »"
@@ -64526,7 +64526,7 @@
 	                            { xs: 12 },
 	                            _react2.default.createElement(
 	                                Button,
-	                                { bsStyle: "link", onClick: function onClick() {
+	                                { bsStyle: "danger", onClick: function onClick() {
 	                                        return _reactRouter.browserHistory.push('/web/results/');
 	                                    } },
 	                                "Show me my results!"
@@ -64841,7 +64841,7 @@
 	                                    { xs: 12, sm: 5, className: "col-footer" },
 	                                    _react2.default.createElement(
 	                                        Button,
-	                                        { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
+	                                        { bsStyle: "danger", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
 	                                        "Share with facebook"
 	                                    )
 	                                ),
@@ -64880,7 +64880,7 @@
 	                            { sm: 7, className: "text hidden-xs" },
 	                            _react2.default.createElement(
 	                                Button,
-	                                { bsStyle: "link", onClick: this.openNatWest },
+	                                { bsStyle: "danger", onClick: this.openNatWest },
 	                                "Apply for a student bank account"
 	                            )
 	                        ),
@@ -64889,7 +64889,7 @@
 	                            { xs: 12, className: "text visible-xs" },
 	                            _react2.default.createElement(
 	                                Button,
-	                                { bsStyle: "link", onClick: this.openNatWest },
+	                                { bsStyle: "danger", onClick: this.openNatWest },
 	                                "Apply for student account"
 	                            )
 	                        ),

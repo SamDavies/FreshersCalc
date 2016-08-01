@@ -127,7 +127,7 @@ class BudgetPage extends Component {
                     </Col>
 
                     <Col xs={12}>
-                        <Button bsStyle="link" onClick={() => browserHistory.push('/web/going-out/')}>
+                        <Button bsStyle="danger" onClick={() => browserHistory.push('/web/going-out/')}>
                             Continue to your nightlife »
                         </Button>
                     </Col>

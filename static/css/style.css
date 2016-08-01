@@ -103,7 +103,7 @@ body {
     margin-top: 15px;
 }
 
-.btn-link {
+.btn-danger {
     display: inline-block;
     padding: 10px 25px;
     text-transform: none;
@@ -119,12 +119,26 @@ body {
     text-decoration: none;
     -webkit-appearance: button;
     cursor: pointer;
+    border-color: transparent;
+}
+
+.btn-danger:hover {
+    background-color: #fe4a4b;
+    border-color: transparent;
 }
 
 .btn-facebook {
     background-color: #3c599d;
     float: left;
     display: inline-block;
+}
+
+.btn-facebook:hover {
+    background-color: #3c599d;
+}
+
+input[type=submit]:hover {
+     background-position: 0px;
 }
 
 .panel {

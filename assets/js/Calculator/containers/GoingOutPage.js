@@ -162,7 +162,7 @@ class GoingOutPage extends Component {
                     </Col>
 
                     <Col xs={12}>
-                        <Button bsStyle="link" onClick={() => browserHistory.push('/web/results/')}>
+                        <Button bsStyle="danger" onClick={() => browserHistory.push('/web/results/')}>
                             Show me my results!
                         </Button>
                     </Col>

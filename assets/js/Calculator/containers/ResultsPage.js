@@ -160,7 +160,7 @@ class ResultsPage extends Component {
                 <Panel footer={
                         <Row>
                             <Col xs={12} sm={5}  className="col-footer">
-                                <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
+                                <Button bsStyle="danger" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
                                     Share with facebook
                                 </Button>
                             </Col>
@@ -191,13 +191,13 @@ class ResultsPage extends Component {
                     </Col>
 
                     <Col sm={7} className="text hidden-xs">
-                        <Button bsStyle="link" onClick={this.openNatWest}>
+                        <Button bsStyle="danger" onClick={this.openNatWest}>
                             Apply for a student bank account
                         </Button>
                     </Col>
 
                     <Col xs={12} className="text visible-xs">
-                        <Button bsStyle="link" onClick={this.openNatWest}>
+                        <Button bsStyle="danger" onClick={this.openNatWest}>
                             Apply for student account
                         </Button>
                     </Col>
