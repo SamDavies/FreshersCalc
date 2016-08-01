@@ -103,7 +103,7 @@ class GoingOutPage extends Component {
         }
 
         return <div>
-            <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
+            <Col className="no-padding" xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
                 <Panel>
 
                     <BreadcrumbBar activeName="going-out"/>

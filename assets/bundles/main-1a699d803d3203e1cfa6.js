@@ -59653,7 +59653,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    Col,
-	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
 	                        Panel,
 	                        null,
@@ -64078,7 +64078,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    Col,
-	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
 	                        Panel,
 	                        null,
@@ -64461,7 +64461,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    Col,
-	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
 	                        Panel,
 	                        null,
@@ -64830,7 +64830,7 @@
 	                null,
 	                _react2.default.createElement(
 	                    Col,
-	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
 	                        Panel,
 	                        { footer: _react2.default.createElement(
