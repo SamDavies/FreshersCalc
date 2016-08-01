@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 
-from django.db.models import Model, CharField, FloatField
+from django.db.models import Model, CharField, FloatField, IntegerField
 
 
 class University(Model):
@@ -16,6 +16,7 @@ class University(Model):
 class AbstractChoice(Model):
     name = CharField(max_length=2048)
     value = FloatField()
+    order = IntegerField(default=0)
 
     def __unicode__(self):
         return self.name

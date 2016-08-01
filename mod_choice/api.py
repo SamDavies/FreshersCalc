@@ -8,60 +8,60 @@ from mod_choice.serialisers import UniversitySerializer, AccommodationSerializer
 
 
 class UniversityList(generics.ListAPIView):
-    queryset = University.objects.all()
+    queryset = University.objects.all().order_by('id')
     serializer_class = UniversitySerializer
 
 
 class AccommodationList(generics.ListAPIView):
-    queryset = Accommodation.objects.all()
+    queryset = Accommodation.objects.all().order_by('order')
     serializer_class = AccommodationSerializer
 
 
 class CateringList(generics.ListAPIView):
-    queryset = Catering.objects.all()
+    queryset = Catering.objects.all().order_by('order')
     serializer_class = CateringSerializer
 
 
 class ItemList(generics.ListAPIView):
-    queryset = Item.objects.all()
+    queryset = Item.objects.all().order_by('order')
     serializer_class = ItemSerializer
 
 
 class HomeTripsList(generics.ListAPIView):
-    queryset = HomeTrip.objects.all()
+    queryset = HomeTrip.objects.all().order_by('order')
     serializer_class = HomeTripsSerializer
 
 
 class GymMembershipList(generics.ListAPIView):
-    queryset = GymMembership.objects.all()
+    queryset = GymMembership.objects.all().order_by('order')
     serializer_class = GymMembershipSerializer
 
 
 class HaircutList(generics.ListAPIView):
-    queryset = Haircut.objects.all()
+    queryset = Haircut.objects.all().order_by('order')
     serializer_class = HaircutSerializer
 
 
 class ShoppingList(generics.ListAPIView):
-    queryset = Shopping.objects.all()
+    queryset = Shopping.objects.all().order_by('order')
     serializer_class = ShoppingSerializer
 
 
 class DrinksList(generics.ListAPIView):
-    queryset = Drink.objects.all()
+    queryset = Drink.objects.all().order_by('order')
     serializer_class = DrinksSerializer
 
 
 class RoundsForFriendsList(generics.ListAPIView):
-    queryset = RoundsForFriend.objects.all()
+    queryset = RoundsForFriend.objects.all().order_by('order')
     serializer_class = RoundsForFriendsSerializer
 
 
 class PostNightMealList(generics.ListAPIView):
-    queryset = PostNightMeal.objects.all()
+    queryset = PostNightMeal.objects.all().order_by('order')
     serializer_class = PostNightMealSerializer
 
 
 class TaxiList(generics.ListAPIView):
-    queryset = Taxi.objects.all()
+    queryset = Taxi.objects.all().order_by('order')
     serializer_class = TaxiSerializer
