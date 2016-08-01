@@ -68,16 +68,16 @@ body {
 
 .footer-container {
     width: 100%;
-    float:left;
-    overflow:hidden; /* instead of clearfix div */
+    float: left;
+    overflow: hidden; /* instead of clearfix div */
 }
 
-.footer-right{
-    float:right;
+.footer-right {
+    float: right;
 }
 
-.footer-left{
-    float:left;
+.footer-left {
+    float: left;
 }
 
 .natwest-text {
@@ -132,6 +132,10 @@ body {
 }
 
 .breadcrumb {
+    padding: 8px 15px;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 4px;
     margin-bottom: 0.3em;
 }
 
@@ -163,10 +167,10 @@ body {
     font-size: 2vh;
 }
 
-.no-padding{
+.no-padding {
     padding: 0;
 }
 
 .form-control {
-   font-size: 16px;
+    font-size: 16px;
 }
