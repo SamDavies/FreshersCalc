@@ -59491,15 +59491,11 @@
 	    render: function render() {
 	        return React.createElement(
 	            'div',
-	            null,
+	            { className: 'container no-padding', style: { width: "100%" } },
 	            React.createElement(
-	                'div',
-	                { className: 'container no-padding' },
-	                React.createElement(
-	                    Col,
-	                    { className: 'no-padding', xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
-	                    this.props.children
-	                )
+	                Col,
+	                { className: 'no-padding', xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                this.props.children
 	            )
 	        );
 	    }
@@ -64616,7 +64612,7 @@
 	        key: "openFacebookShare",
 	        value: function openFacebookShare(amount) {
 	            if (amount < 0) {
-	                window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspend%20by%20%C2%A3" + this.numberWithCommas(-amount) + "%20at%20freshers." + "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
+	                window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20overspend%20by%20%C2%A3" + this.numberWithCommas(-amount) + "%20this%20freshers." + "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
 	            } else {
 	                window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" + "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" + "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" + "n=I%20will%20have%20by%20%C2%A3" + this.numberWithCommas(amount) + "%20left%20in%20my%20" + "account%20after%20freshers.&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F");
 	            }

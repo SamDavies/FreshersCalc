@@ -29,7 +29,7 @@ class ResultsPage extends Component {
             window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
                 "Ffreshers-calc.herokuapp.com%2Fweb%2Fexpenses%2F&picture=http%3A%2F%2Fwww.insert-image" +
                 "-share-url-here.jpg&name=Freshers%20Calculator%20by%20the%20Tab&caption=%20&descriptio" +
-                "n=I%20will%20overspend%20by%20%C2%A3" + this.numberWithCommas(-amount) + "%20at%20freshers." +
+                "n=I%20will%20overspend%20by%20%C2%A3" + this.numberWithCommas(-amount) + "%20this%20freshers." +
                 "&redirect_uri=http%3A%2F%2Fwww.facebook.com%2F")
         } else {
             window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
