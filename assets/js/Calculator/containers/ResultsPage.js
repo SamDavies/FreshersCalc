@@ -159,12 +159,12 @@ class ResultsPage extends Component {
             <Col className="no-padding" xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
                 <Panel footer={
                         <Row>
-                            <Col xs={12} sm={5}  className="col-footer">
+                            <Col xs={12} sm={6}  className="col-footer">
                                 <Button bsStyle="danger" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
-                                    Share with facebook
+                                    <i style={{marginRight: "0.5em"}} className="fa fa-facebook" aria-hidden="true"/> Share with your friends
                                 </Button>
                             </Col>
-                            <Col sm={7} className="text text-footer hidden-xs">
+                            <Col sm={6} className="text text-footer hidden-xs">
                                 and see who is going to spend the most this freshers
                             </Col>
                             <Col xs={12} className="col-footer text text-footer visible-xs">

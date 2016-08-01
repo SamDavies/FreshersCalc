@@ -64838,16 +64838,17 @@
 	                                null,
 	                                _react2.default.createElement(
 	                                    Col,
-	                                    { xs: 12, sm: 5, className: "col-footer" },
+	                                    { xs: 12, sm: 6, className: "col-footer" },
 	                                    _react2.default.createElement(
 	                                        Button,
 	                                        { bsStyle: "danger", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
-	                                        "Share with facebook"
+	                                        _react2.default.createElement("i", { style: { marginRight: "0.5em" }, className: "fa fa-facebook", "aria-hidden": "true" }),
+	                                        " Share with your friends"
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
 	                                    Col,
-	                                    { sm: 7, className: "text text-footer hidden-xs" },
+	                                    { sm: 6, className: "text text-footer hidden-xs" },
 	                                    "and see who is going to spend the most this freshers"
 	                                ),
 	                                _react2.default.createElement(
