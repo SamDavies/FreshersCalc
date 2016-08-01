@@ -125,7 +125,7 @@ class ResultsPage extends Component {
         let breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
         // only allow 1000, 100 or 1 sweets
-        let sweetSpending = (spending > 10000) ? 1000000 : (spending > 10) ? 1000 : (spending > 1) ? 100 : spending*100;
+        let sweetSpending = (spending > 10000) ? 1000000 : (spending > 10) ? 1000 : (spending > 1) ? 100 : spending * 100;
         var sweetsText;
         if (sweetSpending >= 100) {
             sweetsText = this.affordCalculator(sweetSpending, 1, "", "'s of 1p sweets");
@@ -156,9 +156,8 @@ class ResultsPage extends Component {
         }
 
         return <div>
-            <div className="container">
-                <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-                    <Panel footer={
+            <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
+                <Panel footer={
                         <Row>
                             <Col xs={12} sm={5}  className="col-footer">
                                 <Button bsStyle="link" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
@@ -173,52 +172,51 @@ class ResultsPage extends Component {
                             </Col>
                         </Row>
                     }>
-                        <BreadcrumbBar activeName="results"/>
+                    <BreadcrumbBar activeName="results"/>
 
 
-                        <Col xs={12} className="question">
-                            {content.part1}
-                            <p/>
-                        </Col>
+                    <Col xs={12} className="question">
+                        {content.part1}
+                        <p/>
+                    </Col>
 
-                        <Col xs={12} className="text">
-                            {content.part2}
-                            <p/>
-                        </Col>
+                    <Col xs={12} className="text">
+                        {content.part2}
+                        <p/>
+                    </Col>
 
-                        <Col xs={12} className="text">
-                            {content.part3}
-                            <p/>
-                        </Col>
+                    <Col xs={12} className="text">
+                        {content.part3}
+                        <p/>
+                    </Col>
 
-                        <Col sm={7} className="text hidden-xs">
-                            <Button bsStyle="link" onClick={this.openNatWest}>
-                                Apply for a student bank account
-                            </Button>
-                        </Col>
+                    <Col sm={7} className="text hidden-xs">
+                        <Button bsStyle="link" onClick={this.openNatWest}>
+                            Apply for a student bank account
+                        </Button>
+                    </Col>
 
-                        <Col xs={12} className="text visible-xs">
-                            <Button bsStyle="link" onClick={this.openNatWest}>
-                                Apply for student account
-                            </Button>
-                        </Col>
+                    <Col xs={12} className="text visible-xs">
+                        <Button bsStyle="link" onClick={this.openNatWest}>
+                            Apply for student account
+                        </Button>
+                    </Col>
 
-                        <Col xs={6} sm={5} className="text">
-                            <Image className="natwest-logo" src="/static/natwest-logo.png" responsive/>
-                        </Col>
+                    <Col xs={6} sm={5} className="text">
+                        <Image className="natwest-logo" src="/static/natwest-logo.png" responsive/>
+                    </Col>
 
 
-                        <Col xs={12}>
-                            <hr className="breadcrumb-hr"/>
-                        </Col>
+                    <Col xs={12}>
+                        <hr className="breadcrumb-hr"/>
+                    </Col>
 
-                        <Col xs={12} className="text">
-                            {content.part4}
-                        </Col>
+                    <Col xs={12} className="text">
+                        {content.part4}
+                    </Col>
 
-                    </Panel>
-                </Col>
-            </div>
+                </Panel>
+            </Col>
         </div>;
     }
 }

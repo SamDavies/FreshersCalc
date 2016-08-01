@@ -5,6 +5,7 @@ body {
     line-height: 1;
     letter-spacing: -0.2px;
     color: rgba(18, 18, 18, .9);
+    background: white;
 }
 
 .breadcrumb-hr {
@@ -160,4 +161,8 @@ body {
 
 .responsive-width {
     font-size: 2vh;
+}
+
+.no-padding{
+    padding: 0;
 }

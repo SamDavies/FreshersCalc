@@ -103,73 +103,71 @@ class GoingOutPage extends Component {
         }
 
         return <div>
-            <div className="container">
-                <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-                    <Panel>
+            <Col xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
+                <Panel>
 
-                        <BreadcrumbBar activeName="going-out"/>
+                    <BreadcrumbBar activeName="going-out"/>
 
-                        <Col xs={12}>
-                            <CheckBoxList
-                                innerCols={4}
-                                outerCols={9}
-                                header="Which nights do you plan on going out?"
-                                name="catering"
-                                options={this.props.days}
-                                selectedOptions={this.props.selectedNightIds}
-                                onSelectOption={this.onIncreaseNightCount}
-                                onDeselectOption={this.onDecreaseNightCount}
-                            />
+                    <Col xs={12}>
+                        <CheckBoxList
+                            innerCols={4}
+                            outerCols={9}
+                            header="Which nights do you plan on going out?"
+                            name="catering"
+                            options={this.props.days}
+                            selectedOptions={this.props.selectedNightIds}
+                            onSelectOption={this.onIncreaseNightCount}
+                            onDeselectOption={this.onDecreaseNightCount}
+                        />
 
-                            <Row>
-                                <Col xs={12}>
-                                    <h3 className="question">
-                                        How man drinks do you plan on having on an average night out?
-                                    </h3>
-                                </Col>
-                            </Row>
+                        <Row>
+                            <Col xs={12}>
+                                <h3 className="question">
+                                    How man drinks do you plan on having on an average night out?
+                                </h3>
+                            </Col>
+                        </Row>
 
-                            {drinkSelectionLists}
+                        {drinkSelectionLists}
 
-                            <RadioGroupList
-                                innerCols={6}
-                                outerCols={9}
-                                header="Do you buy rounds for friends?"
-                                name="rounds"
-                                options={this.props.rounds}
-                                selectedOption={this.props.selectedRoundId}
-                                onSelectOption={this.onSelectRound}
-                            />
+                        <RadioGroupList
+                            innerCols={6}
+                            outerCols={9}
+                            header="Do you buy rounds for friends?"
+                            name="rounds"
+                            options={this.props.rounds}
+                            selectedOption={this.props.selectedRoundId}
+                            onSelectOption={this.onSelectRound}
+                        />
 
-                            <RadioGroupList
-                                innerCols={3}
-                                outerCols={12}
-                                header="Do you have a post-night snack?"
-                                name="meals"
-                                options={this.props.meals}
-                                selectedOption={this.props.selectedMealId}
-                                onSelectOption={this.onSelectMeal}
-                            />
+                        <RadioGroupList
+                            innerCols={3}
+                            outerCols={12}
+                            header="Do you have a post-night snack?"
+                            name="meals"
+                            options={this.props.meals}
+                            selectedOption={this.props.selectedMealId}
+                            onSelectOption={this.onSelectMeal}
+                        />
 
-                            <RadioGroupList
-                                innerCols={2}
-                                outerCols={12}
-                                header="Do you get a taxi back after a night out?"
-                                name="taxis"
-                                options={this.props.taxis}
-                                selectedOption={this.props.selectedTaxiId}
-                                onSelectOption={this.onSelectTaxi}
-                            />
-                        </Col>
+                        <RadioGroupList
+                            innerCols={2}
+                            outerCols={12}
+                            header="Do you get a taxi back after a night out?"
+                            name="taxis"
+                            options={this.props.taxis}
+                            selectedOption={this.props.selectedTaxiId}
+                            onSelectOption={this.onSelectTaxi}
+                        />
+                    </Col>
 
-                        <Col xs={12}>
-                            <Button bsStyle="link" onClick={() => browserHistory.push('/web/results/')}>
-                                Show me my results!
-                            </Button>
-                        </Col>
-                    </Panel>
-                </Col>
-            </div>
+                    <Col xs={12}>
+                        <Button bsStyle="link" onClick={() => browserHistory.push('/web/results/')}>
+                            Show me my results!
+                        </Button>
+                    </Col>
+                </Panel>
+            </Col>
         </div>;
     }
 }

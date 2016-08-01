@@ -59481,17 +59481,26 @@
 /* 916 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(298);
 
 	var App = React.createClass({
-	    displayName: 'App',
+	    displayName: "App",
 	    render: function render() {
 	        return React.createElement(
-	            'div',
+	            "div",
 	            null,
-	            this.props.children
+	            React.createElement(
+	                "div",
+	                { className: "container hidden-xs" },
+	                this.props.children
+	            ),
+	            React.createElement(
+	                "div",
+	                { className: "container visible-xs no-padding" },
+	                this.props.children
+	            )
 	        );
 	    }
 	});
@@ -59638,67 +59647,64 @@
 	    }, {
 	        key: "render",
 	        value: function render() {
+
 	            return _react2.default.createElement(
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
+	                    Col,
+	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                        Panel,
+	                        null,
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "budget" }),
 	                        _react2.default.createElement(
-	                            Panel,
-	                            null,
-	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "budget" }),
+	                            Col,
+	                            { xs: 12 },
+	                            _react2.default.createElement(_SelectionList2.default, {
+	                                xsCols: 12,
+	                                smCols: 6,
+	                                header: "What university do you go to?",
+	                                placeholder: "Please choose...",
+	                                options: this.props.universities,
+	                                selectedOption: this.props.selectedUniversityId,
+	                                onSelectOption: this.onSelectUniversity
+	                            }),
+	                            _react2.default.createElement(_MoneyInput2.default, {
+	                                header: "What’s your total maintenance loan?",
+	                                controlId: "budget",
+	                                value: this.props.budget ? "£" + this.props.budget : null,
+	                                onChange: this.onSetBudget,
+	                                placeholder: "£ per semester"
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 4,
+	                                outerCols: 12,
+	                                header: "What type of accommodation are you living in?",
+	                                name: "accommodation",
+	                                options: this.props.accommodation,
+	                                selectedOption: this.props.selectedAccommodationId,
+	                                onSelectOption: this.onSelectAccommodation
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 12,
+	                                outerCols: 12,
+	                                header: "Are you catered or self-catered?",
+	                                name: "catering",
+	                                options: this.props.catering,
+	                                selectedOption: this.props.selectedCateringId,
+	                                onSelectOption: this.onSelectCatering
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12 },
 	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(_SelectionList2.default, {
-	                                    xsCols: 12,
-	                                    smCols: 6,
-	                                    header: "What university do you go to?",
-	                                    placeholder: "Please choose...",
-	                                    options: this.props.universities,
-	                                    selectedOption: this.props.selectedUniversityId,
-	                                    onSelectOption: this.onSelectUniversity
-	                                }),
-	                                _react2.default.createElement(_MoneyInput2.default, {
-	                                    header: "What’s your total maintenance loan?",
-	                                    controlId: "budget",
-	                                    value: this.props.budget ? "£" + this.props.budget : null,
-	                                    onChange: this.onSetBudget,
-	                                    placeholder: "£ per semester"
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 4,
-	                                    outerCols: 12,
-	                                    header: "What type of accommodation are you living in?",
-	                                    name: "accommodation",
-	                                    options: this.props.accommodation,
-	                                    selectedOption: this.props.selectedAccommodationId,
-	                                    onSelectOption: this.onSelectAccommodation
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 12,
-	                                    outerCols: 12,
-	                                    header: "Are you catered or self-catered?",
-	                                    name: "catering",
-	                                    options: this.props.catering,
-	                                    selectedOption: this.props.selectedCateringId,
-	                                    onSelectOption: this.onSelectCatering
-	                                })
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(
-	                                    Button,
-	                                    { bsStyle: "link", onClick: function onClick() {
-	                                            return _reactRouter.browserHistory.push('/web/expenses/');
-	                                        } },
-	                                    "Continue to your expenses »"
-	                                )
+	                                Button,
+	                                { bsStyle: "link", onClick: function onClick() {
+	                                        return _reactRouter.browserHistory.push('/web/expenses/');
+	                                    } },
+	                                "Continue to your expenses »"
 	                            )
 	                        )
 	                    )
@@ -64071,75 +64077,71 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
+	                    Col,
+	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                        Panel,
+	                        null,
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "expenses" }),
 	                        _react2.default.createElement(
-	                            Panel,
-	                            null,
-	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "expenses" }),
+	                            Col,
+	                            { xs: 12 },
+	                            _react2.default.createElement(_CheckBoxList2.default, {
+	                                innerCols: 6,
+	                                outerCols: 8,
+	                                header: "Do you need any of the following items?",
+	                                name: "catering",
+	                                options: this.props.items,
+	                                selectedOptions: this.props.selectedItemIds,
+	                                onSelectOption: this.onSelectItem,
+	                                onDeselectOption: this.onDeselectItem
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 6,
+	                                outerCols: 12,
+	                                header: "How regularly do you plan on going home?",
+	                                name: "homeTrips",
+	                                options: this.props.homeTrips,
+	                                selectedOption: this.props.selectedHomeTripId,
+	                                onSelectOption: this.onSelectHomeTrip
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 2,
+	                                outerCols: 12,
+	                                header: "Are you going to get a gym membership?",
+	                                name: "gyms",
+	                                options: this.props.gyms,
+	                                selectedOption: this.props.selectedGymId,
+	                                onSelectOption: this.onSelectGym
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 6,
+	                                outerCols: 12,
+	                                header: "How regularly do you get your haircut?",
+	                                name: "haircuts",
+	                                options: this.props.haircuts,
+	                                selectedOption: this.props.selectedHaircutId,
+	                                onSelectOption: this.onSelectHaircut
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 4,
+	                                outerCols: 12,
+	                                header: "How much do you spend shopping online per month?",
+	                                name: "shopping",
+	                                options: this.props.shoppings,
+	                                selectedOption: this.props.selectedShoppingId,
+	                                onSelectOption: this.onSelectShopping
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12 },
 	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(_CheckBoxList2.default, {
-	                                    innerCols: 6,
-	                                    outerCols: 8,
-	                                    header: "Do you need any of the following items?",
-	                                    name: "catering",
-	                                    options: this.props.items,
-	                                    selectedOptions: this.props.selectedItemIds,
-	                                    onSelectOption: this.onSelectItem,
-	                                    onDeselectOption: this.onDeselectItem
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 6,
-	                                    outerCols: 12,
-	                                    header: "How regularly do you plan on going home?",
-	                                    name: "homeTrips",
-	                                    options: this.props.homeTrips,
-	                                    selectedOption: this.props.selectedHomeTripId,
-	                                    onSelectOption: this.onSelectHomeTrip
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 2,
-	                                    outerCols: 12,
-	                                    header: "Are you going to get a gym membership?",
-	                                    name: "gyms",
-	                                    options: this.props.gyms,
-	                                    selectedOption: this.props.selectedGymId,
-	                                    onSelectOption: this.onSelectGym
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 6,
-	                                    outerCols: 12,
-	                                    header: "How regularly do you get your haircut?",
-	                                    name: "haircuts",
-	                                    options: this.props.haircuts,
-	                                    selectedOption: this.props.selectedHaircutId,
-	                                    onSelectOption: this.onSelectHaircut
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 4,
-	                                    outerCols: 12,
-	                                    header: "How much do you spend shopping online per month?",
-	                                    name: "shopping",
-	                                    options: this.props.shoppings,
-	                                    selectedOption: this.props.selectedShoppingId,
-	                                    onSelectOption: this.onSelectShopping
-	                                })
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(
-	                                    Button,
-	                                    { bsStyle: "link", onClick: function onClick() {
-	                                            return _reactRouter.browserHistory.push('/web/going-out/');
-	                                        } },
-	                                    "Continue to your nightlife »"
-	                                )
+	                                Button,
+	                                { bsStyle: "link", onClick: function onClick() {
+	                                        return _reactRouter.browserHistory.push('/web/going-out/');
+	                                    } },
+	                                "Continue to your nightlife »"
 	                            )
 	                        )
 	                    )
@@ -64458,80 +64460,76 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
+	                    Col,
+	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                        Panel,
+	                        null,
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "going-out" }),
 	                        _react2.default.createElement(
-	                            Panel,
-	                            null,
-	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "going-out" }),
+	                            Col,
+	                            { xs: 12 },
+	                            _react2.default.createElement(_CheckBoxList2.default, {
+	                                innerCols: 4,
+	                                outerCols: 9,
+	                                header: "Which nights do you plan on going out?",
+	                                name: "catering",
+	                                options: this.props.days,
+	                                selectedOptions: this.props.selectedNightIds,
+	                                onSelectOption: this.onIncreaseNightCount,
+	                                onDeselectOption: this.onDecreaseNightCount
+	                            }),
 	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(_CheckBoxList2.default, {
-	                                    innerCols: 4,
-	                                    outerCols: 9,
-	                                    header: "Which nights do you plan on going out?",
-	                                    name: "catering",
-	                                    options: this.props.days,
-	                                    selectedOptions: this.props.selectedNightIds,
-	                                    onSelectOption: this.onIncreaseNightCount,
-	                                    onDeselectOption: this.onDecreaseNightCount
-	                                }),
+	                                Row,
+	                                null,
 	                                _react2.default.createElement(
-	                                    Row,
-	                                    null,
+	                                    Col,
+	                                    { xs: 12 },
 	                                    _react2.default.createElement(
-	                                        Col,
-	                                        { xs: 12 },
-	                                        _react2.default.createElement(
-	                                            "h3",
-	                                            { className: "question" },
-	                                            "How man drinks do you plan on having on an average night out?"
-	                                        )
+	                                        "h3",
+	                                        { className: "question" },
+	                                        "How man drinks do you plan on having on an average night out?"
 	                                    )
-	                                ),
-	                                drinkSelectionLists,
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 6,
-	                                    outerCols: 9,
-	                                    header: "Do you buy rounds for friends?",
-	                                    name: "rounds",
-	                                    options: this.props.rounds,
-	                                    selectedOption: this.props.selectedRoundId,
-	                                    onSelectOption: this.onSelectRound
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 3,
-	                                    outerCols: 12,
-	                                    header: "Do you have a post-night snack?",
-	                                    name: "meals",
-	                                    options: this.props.meals,
-	                                    selectedOption: this.props.selectedMealId,
-	                                    onSelectOption: this.onSelectMeal
-	                                }),
-	                                _react2.default.createElement(_RadioGroupList2.default, {
-	                                    innerCols: 2,
-	                                    outerCols: 12,
-	                                    header: "Do you get a taxi back after a night out?",
-	                                    name: "taxis",
-	                                    options: this.props.taxis,
-	                                    selectedOption: this.props.selectedTaxiId,
-	                                    onSelectOption: this.onSelectTaxi
-	                                })
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement(
-	                                    Button,
-	                                    { bsStyle: "link", onClick: function onClick() {
-	                                            return _reactRouter.browserHistory.push('/web/results/');
-	                                        } },
-	                                    "Show me my results!"
 	                                )
+	                            ),
+	                            drinkSelectionLists,
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 6,
+	                                outerCols: 9,
+	                                header: "Do you buy rounds for friends?",
+	                                name: "rounds",
+	                                options: this.props.rounds,
+	                                selectedOption: this.props.selectedRoundId,
+	                                onSelectOption: this.onSelectRound
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 3,
+	                                outerCols: 12,
+	                                header: "Do you have a post-night snack?",
+	                                name: "meals",
+	                                options: this.props.meals,
+	                                selectedOption: this.props.selectedMealId,
+	                                onSelectOption: this.onSelectMeal
+	                            }),
+	                            _react2.default.createElement(_RadioGroupList2.default, {
+	                                innerCols: 2,
+	                                outerCols: 12,
+	                                header: "Do you get a taxi back after a night out?",
+	                                name: "taxis",
+	                                options: this.props.taxis,
+	                                selectedOption: this.props.selectedTaxiId,
+	                                onSelectOption: this.onSelectTaxi
+	                            })
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12 },
+	                            _react2.default.createElement(
+	                                Button,
+	                                { bsStyle: "link", onClick: function onClick() {
+	                                        return _reactRouter.browserHistory.push('/web/results/');
+	                                    } },
+	                                "Show me my results!"
 	                            )
 	                        )
 	                    )
@@ -64831,88 +64829,84 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    "div",
-	                    { className: "container" },
+	                    Col,
+	                    { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
-	                        _react2.default.createElement(
-	                            Panel,
-	                            { footer: _react2.default.createElement(
-	                                    Row,
-	                                    null,
+	                        Panel,
+	                        { footer: _react2.default.createElement(
+	                                Row,
+	                                null,
+	                                _react2.default.createElement(
+	                                    Col,
+	                                    { xs: 12, sm: 5, className: "col-footer" },
 	                                    _react2.default.createElement(
-	                                        Col,
-	                                        { xs: 12, sm: 5, className: "col-footer" },
-	                                        _react2.default.createElement(
-	                                            Button,
-	                                            { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
-	                                            "Share with facebook"
-	                                        )
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        Col,
-	                                        { sm: 7, className: "text text-footer hidden-xs" },
-	                                        "and see who is going to spend the most this freshers"
-	                                    ),
-	                                    _react2.default.createElement(
-	                                        Col,
-	                                        { xs: 12, className: "col-footer text text-footer visible-xs" },
-	                                        "and see who is going to spend the most this freshers"
+	                                        Button,
+	                                        { bsStyle: "link", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
+	                                        "Share with facebook"
 	                                    )
-	                                ) },
-	                            _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12, className: "question" },
-	                                content.part1,
-	                                _react2.default.createElement("p", null)
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12, className: "text" },
-	                                content.part2,
-	                                _react2.default.createElement("p", null)
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12, className: "text" },
-	                                content.part3,
-	                                _react2.default.createElement("p", null)
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { sm: 7, className: "text hidden-xs" },
+	                                ),
 	                                _react2.default.createElement(
-	                                    Button,
-	                                    { bsStyle: "link", onClick: this.openNatWest },
-	                                    "Apply for a student bank account"
-	                                )
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12, className: "text visible-xs" },
+	                                    Col,
+	                                    { sm: 7, className: "text text-footer hidden-xs" },
+	                                    "and see who is going to spend the most this freshers"
+	                                ),
 	                                _react2.default.createElement(
-	                                    Button,
-	                                    { bsStyle: "link", onClick: this.openNatWest },
-	                                    "Apply for student account"
+	                                    Col,
+	                                    { xs: 12, className: "col-footer text text-footer visible-xs" },
+	                                    "and see who is going to spend the most this freshers"
 	                                )
-	                            ),
+	                            ) },
+	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12, className: "question" },
+	                            content.part1,
+	                            _react2.default.createElement("p", null)
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12, className: "text" },
+	                            content.part2,
+	                            _react2.default.createElement("p", null)
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12, className: "text" },
+	                            content.part3,
+	                            _react2.default.createElement("p", null)
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { sm: 7, className: "text hidden-xs" },
 	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 6, sm: 5, className: "text" },
-	                                _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12 },
-	                                _react2.default.createElement("hr", { className: "breadcrumb-hr" })
-	                            ),
-	                            _react2.default.createElement(
-	                                Col,
-	                                { xs: 12, className: "text" },
-	                                content.part4
+	                                Button,
+	                                { bsStyle: "link", onClick: this.openNatWest },
+	                                "Apply for a student bank account"
 	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12, className: "text visible-xs" },
+	                            _react2.default.createElement(
+	                                Button,
+	                                { bsStyle: "link", onClick: this.openNatWest },
+	                                "Apply for student account"
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 6, sm: 5, className: "text" },
+	                            _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12 },
+	                            _react2.default.createElement("hr", { className: "breadcrumb-hr" })
+	                        ),
+	                        _react2.default.createElement(
+	                            Col,
+	                            { xs: 12, className: "text" },
+	                            content.part4
 	                        )
 	                    )
 	                )
