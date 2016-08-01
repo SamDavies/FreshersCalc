@@ -1,13 +1,18 @@
 var React = require('react');
+var Col = require('react-bootstrap/lib/Col');
 
 const App = React.createClass({
     render() {
         return (<div>
                 <div className="container hidden-xs">
-                    {this.props.children}
+                    <Col sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
+                        {this.props.children}
+                    </Col>
                 </div>
                 <div className="container visible-xs no-padding">
-                    {this.props.children}
+                    <Col className="no-padding" xs={12}>
+                        {this.props.children}
+                    </Col>
                 </div>
             </div>
         )

@@ -75,57 +75,55 @@ class BudgetPage extends Component {
     render() {
 
         return <div>
-            <Col className="no-padding" xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-                <Panel>
-                    <BreadcrumbBar activeName="budget"/>
+            <Panel>
+                <BreadcrumbBar activeName="budget"/>
 
-                    <Col xs={12}>
-                        <SelectionList
-                            xsCols={12}
-                            smCols={6}
-                            header="What university do you go to?"
-                            placeholder="Please choose..."
-                            options={this.props.universities}
-                            selectedOption={this.props.selectedUniversityId}
-                            onSelectOption={this.onSelectUniversity}
-                        />
+                <Col xs={12}>
+                    <SelectionList
+                        xsCols={12}
+                        smCols={6}
+                        header="What university do you go to?"
+                        placeholder="Please choose..."
+                        options={this.props.universities}
+                        selectedOption={this.props.selectedUniversityId}
+                        onSelectOption={this.onSelectUniversity}
+                    />
 
-                        <MoneyInput
-                            header="What’s your total maintenance loan?"
-                            controlId="budget"
-                            value={this.props.budget ? "£" + this.props.budget : null}
-                            onChange={this.onSetBudget}
-                            placeholder="£ per semester"
-                        />
+                    <MoneyInput
+                        header="What’s your total maintenance loan?"
+                        controlId="budget"
+                        value={this.props.budget ? "£" + this.props.budget : null}
+                        onChange={this.onSetBudget}
+                        placeholder="£ per semester"
+                    />
 
-                        <RadioGroupList
-                            innerCols={4}
-                            outerCols={12}
-                            header="What type of accommodation are you living in?"
-                            name="accommodation"
-                            options={this.props.accommodation}
-                            selectedOption={this.props.selectedAccommodationId}
-                            onSelectOption={this.onSelectAccommodation}
-                        />
+                    <RadioGroupList
+                        innerCols={4}
+                        outerCols={12}
+                        header="What type of accommodation are you living in?"
+                        name="accommodation"
+                        options={this.props.accommodation}
+                        selectedOption={this.props.selectedAccommodationId}
+                        onSelectOption={this.onSelectAccommodation}
+                    />
 
-                        <RadioGroupList
-                            innerCols={12}
-                            outerCols={12}
-                            header="Are you catered or self-catered?"
-                            name="catering"
-                            options={this.props.catering}
-                            selectedOption={this.props.selectedCateringId}
-                            onSelectOption={this.onSelectCatering}
-                        />
-                    </Col>
+                    <RadioGroupList
+                        innerCols={12}
+                        outerCols={12}
+                        header="Are you catered or self-catered?"
+                        name="catering"
+                        options={this.props.catering}
+                        selectedOption={this.props.selectedCateringId}
+                        onSelectOption={this.onSelectCatering}
+                    />
+                </Col>
 
-                    <Col xs={12}>
-                        <Button bsStyle="danger" onClick={() => browserHistory.push('/web/expenses/')}>
-                            Continue to your expenses »
-                        </Button>
-                    </Col>
-                </Panel>
-            </Col>
+                <Col xs={12}>
+                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/expenses/')}>
+                        Continue to your expenses »
+                    </Button>
+                </Col>
+            </Panel>
         </div>;
     }
 }

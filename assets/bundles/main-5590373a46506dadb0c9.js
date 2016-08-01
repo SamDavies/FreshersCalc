@@ -59449,7 +59449,7 @@
 
 	var _App2 = _interopRequireDefault(_App);
 
-	var _BudgetPage = __webpack_require__(917);
+	var _BudgetPage = __webpack_require__(945);
 
 	var _BudgetPage2 = _interopRequireDefault(_BudgetPage);
 
@@ -59481,25 +59481,34 @@
 /* 916 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(298);
+	var Col = __webpack_require__(917);
 
 	var App = React.createClass({
-	    displayName: "App",
+	    displayName: 'App',
 	    render: function render() {
 	        return React.createElement(
-	            "div",
+	            'div',
 	            null,
 	            React.createElement(
-	                "div",
-	                { className: "container hidden-xs" },
-	                this.props.children
+	                'div',
+	                { className: 'container hidden-xs' },
+	                React.createElement(
+	                    Col,
+	                    { sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    this.props.children
+	                )
 	            ),
 	            React.createElement(
-	                "div",
-	                { className: "container visible-xs no-padding" },
-	                this.props.children
+	                'div',
+	                { className: 'container visible-xs no-padding' },
+	                React.createElement(
+	                    Col,
+	                    { className: 'no-padding', xs: 12 },
+	                    this.props.children
+	                )
 	            )
 	        );
 	    }
@@ -59511,361 +59520,13 @@
 /* 917 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(298);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(454);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _reactRedux = __webpack_require__(698);
-
-	var _reactRouter = __webpack_require__(455);
-
-	var _universityActions = __webpack_require__(541);
-
-	var _accommodationActions = __webpack_require__(546);
-
-	var _cateringActions = __webpack_require__(548);
-
-	var _budgetActions = __webpack_require__(544);
-
-	var _itemActions = __webpack_require__(550);
-
-	var _homeTripActions = __webpack_require__(552);
-
-	var _gymActions = __webpack_require__(554);
-
-	var _haircutActions = __webpack_require__(556);
-
-	var _shoppingActions = __webpack_require__(558);
-
-	var _drinkActions = __webpack_require__(562);
-
-	var _roundActions = __webpack_require__(564);
-
-	var _mealActions = __webpack_require__(566);
-
-	var _taxiActions = __webpack_require__(568);
-
-	var _SelectionList = __webpack_require__(918);
-
-	var _SelectionList2 = _interopRequireDefault(_SelectionList);
-
-	var _RadioGroupList = __webpack_require__(970);
-
-	var _RadioGroupList2 = _interopRequireDefault(_RadioGroupList);
-
-	var _MoneyInput = __webpack_require__(972);
-
-	var _MoneyInput2 = _interopRequireDefault(_MoneyInput);
-
-	var _BreadcrumbBar = __webpack_require__(973);
-
-	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Bootstrap Imports
-	var Col = __webpack_require__(919);
-	var Row = __webpack_require__(947);
-	var Panel = __webpack_require__(976);
-	var Button = __webpack_require__(948);
-
-	var BudgetPage = function (_Component) {
-	    _inherits(BudgetPage, _Component);
-
-	    function BudgetPage(props) {
-	        _classCallCheck(this, BudgetPage);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BudgetPage).call(this, props));
-
-	        _this.componentDidMount = _this.componentDidMount.bind(_this);
-	        _this.onSelectUniversity = _this.onSelectUniversity.bind(_this);
-	        _this.onSetBudget = _this.onSetBudget.bind(_this);
-	        _this.onSelectAccommodation = _this.onSelectAccommodation.bind(_this);
-	        _this.onSelectCatering = _this.onSelectCatering.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(BudgetPage, [{
-	        key: "componentDidMount",
-	        value: function componentDidMount() {
-	            this.props.dispatch((0, _universityActions.getUniversities)());
-	            this.props.dispatch((0, _accommodationActions.getAccommodation)());
-	            this.props.dispatch((0, _cateringActions.getCatering)());
-	            this.props.dispatch((0, _itemActions.getItems)());
-	            this.props.dispatch((0, _homeTripActions.getHomeTrips)());
-	            this.props.dispatch((0, _gymActions.getGyms)());
-	            this.props.dispatch((0, _haircutActions.getHaircuts)());
-	            this.props.dispatch((0, _shoppingActions.getShoppings)());
-	            this.props.dispatch((0, _drinkActions.getDrinks)());
-	            this.props.dispatch((0, _roundActions.getRounds)());
-	            this.props.dispatch((0, _mealActions.getMeals)());
-	            this.props.dispatch((0, _taxiActions.getTaxis)());
-	        }
-	    }, {
-	        key: "componentDidUpdate",
-	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
-	        }
-	    }, {
-	        key: "onSelectUniversity",
-	        value: function onSelectUniversity(id) {
-	            this.props.dispatch((0, _universityActions.selectUniversity)(id));
-	        }
-	    }, {
-	        key: "onSetBudget",
-	        value: function onSetBudget(budget) {
-	            this.props.dispatch((0, _budgetActions.setBudget)(budget));
-	        }
-	    }, {
-	        key: "onSelectAccommodation",
-	        value: function onSelectAccommodation(id) {
-	            this.props.dispatch((0, _accommodationActions.selectAccommodation)(id));
-	        }
-	    }, {
-	        key: "onSelectCatering",
-	        value: function onSelectCatering(id) {
-	            this.props.dispatch((0, _cateringActions.selectCatering)(id));
-	        }
-	    }, {
-	        key: "render",
-	        value: function render() {
-
-	            return _react2.default.createElement(
-	                "div",
-	                null,
-	                _react2.default.createElement(
-	                    Col,
-	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
-	                    _react2.default.createElement(
-	                        Panel,
-	                        null,
-	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "budget" }),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement(_SelectionList2.default, {
-	                                xsCols: 12,
-	                                smCols: 6,
-	                                header: "What university do you go to?",
-	                                placeholder: "Please choose...",
-	                                options: this.props.universities,
-	                                selectedOption: this.props.selectedUniversityId,
-	                                onSelectOption: this.onSelectUniversity
-	                            }),
-	                            _react2.default.createElement(_MoneyInput2.default, {
-	                                header: "What’s your total maintenance loan?",
-	                                controlId: "budget",
-	                                value: this.props.budget ? "£" + this.props.budget : null,
-	                                onChange: this.onSetBudget,
-	                                placeholder: "£ per semester"
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 4,
-	                                outerCols: 12,
-	                                header: "What type of accommodation are you living in?",
-	                                name: "accommodation",
-	                                options: this.props.accommodation,
-	                                selectedOption: this.props.selectedAccommodationId,
-	                                onSelectOption: this.onSelectAccommodation
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 12,
-	                                outerCols: 12,
-	                                header: "Are you catered or self-catered?",
-	                                name: "catering",
-	                                options: this.props.catering,
-	                                selectedOption: this.props.selectedCateringId,
-	                                onSelectOption: this.onSelectCatering
-	                            })
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement(
-	                                Button,
-	                                { bsStyle: "danger", onClick: function onClick() {
-	                                        return _reactRouter.browserHistory.push('/web/expenses/');
-	                                    } },
-	                                "Continue to your expenses »"
-	                            )
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return BudgetPage;
-	}(_react.Component);
-
-	var mapStateToProps = function mapStateToProps(state) {
-	    return {
-	        universities: state.universityReducer.universities,
-	        selectedUniversityId: state.universityReducer.selectedUniversityId,
-
-	        budget: state.budgetReducer.budget,
-
-	        accommodation: state.accommodationReducer.accommodation,
-	        selectedAccommodationId: state.accommodationReducer.selectedAccommodationId,
-
-	        catering: state.cateringReducer.catering,
-	        selectedCateringId: state.cateringReducer.selectedCateringId
-	    };
-	};
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(BudgetPage);
-
-/***/ },
-/* 918 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
+	var _extends = __webpack_require__(918)['default'];
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _Object$keys = __webpack_require__(934)['default'];
 
-	var _react = __webpack_require__(298);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Bootstrap Imports
-	var Col = __webpack_require__(919);
-	var Row = __webpack_require__(947);
-	var Button = __webpack_require__(948);
-	var FormControl = __webpack_require__(960);
-	var FormGroup = __webpack_require__(965);
-	var InputGroup = __webpack_require__(967);
-
-	var SelectionList = function (_Component) {
-	    _inherits(SelectionList, _Component);
-
-	    function SelectionList(props) {
-	        _classCallCheck(this, SelectionList);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SelectionList).call(this, props));
-
-	        _this.onSelectOption = _this.onSelectOption.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(SelectionList, [{
-	        key: 'onSelectOption',
-	        value: function onSelectOption(e) {
-	            this.props.onSelectOption(e.target.value);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            if (this.props.options) {
-	                var self = this;
-	                var options = this.props.options.map(function (option) {
-	                    var appendName = "";
-	                    if (self.props.appendName) {
-	                        appendName = option.id < 2 ? self.props.appendName : self.props.appendName + "s";
-	                    }
-	                    return _react2.default.createElement(
-	                        'option',
-	                        { key: option.id, value: option.id },
-	                        option.name,
-	                        appendName
-	                    );
-	                });
-	            }
-
-	            var selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
-
-	            var header = "";
-	            if (this.props.header) {
-	                header = _react2.default.createElement(
-	                    Row,
-	                    null,
-	                    _react2.default.createElement(
-	                        Col,
-	                        { xs: 12 },
-	                        _react2.default.createElement(
-	                            'h3',
-	                            { className: 'question' },
-	                            this.props.header
-	                        )
-	                    )
-	                );
-	            }
-
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                header,
-	                _react2.default.createElement(
-	                    Col,
-	                    { className: 'question-choices col-no-pad-left', xs: this.props.xsCols, sm: this.props.smCols },
-	                    _react2.default.createElement(
-	                        FormGroup,
-	                        { controlId: 'select' },
-	                        _react2.default.createElement(
-	                            FormControl,
-	                            {
-	                                componentClass: 'select',
-	                                value: selectedOption,
-	                                onChange: this.onSelectOption
-	                            },
-	                            _react2.default.createElement(
-	                                'option',
-	                                { disabled: true },
-	                                this.props.placeholder
-	                            ),
-	                            options
-	                        )
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return SelectionList;
-	}(_react.Component);
-
-	exports.default = SelectionList;
-
-/***/ },
-/* 919 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = __webpack_require__(920)['default'];
-
-	var _Object$keys = __webpack_require__(936)['default'];
-
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -59873,15 +59534,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _styleMaps = __webpack_require__(942);
+	var _styleMaps = __webpack_require__(940);
 
 	var _styleMaps2 = _interopRequireDefault(_styleMaps);
 
-	var _reactPropTypesLibElementType = __webpack_require__(945);
+	var _reactPropTypesLibElementType = __webpack_require__(943);
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
@@ -60109,12 +59770,12 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 920 */
+/* 918 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _Object$assign = __webpack_require__(921)["default"];
+	var _Object$assign = __webpack_require__(919)["default"];
 
 	exports["default"] = _Object$assign || function (target) {
 	  for (var i = 1; i < arguments.length; i++) {
@@ -60133,34 +59794,34 @@
 	exports.__esModule = true;
 
 /***/ },
+/* 919 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(920), __esModule: true };
+
+/***/ },
+/* 920 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(921);
+	module.exports = __webpack_require__(924).Object.assign;
+
+/***/ },
 /* 921 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(922), __esModule: true };
+	// 19.1.3.1 Object.assign(target, source)
+	var $export = __webpack_require__(922);
+
+	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(927)});
 
 /***/ },
 /* 922 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(923);
-	module.exports = __webpack_require__(926).Object.assign;
-
-/***/ },
-/* 923 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// 19.1.3.1 Object.assign(target, source)
-	var $export = __webpack_require__(924);
-
-	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(929)});
-
-/***/ },
-/* 924 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var global    = __webpack_require__(925)
-	  , core      = __webpack_require__(926)
-	  , ctx       = __webpack_require__(927)
+	var global    = __webpack_require__(923)
+	  , core      = __webpack_require__(924)
+	  , ctx       = __webpack_require__(925)
 	  , PROTOTYPE = 'prototype';
 
 	var $export = function(type, name, source){
@@ -60206,7 +59867,7 @@
 	module.exports = $export;
 
 /***/ },
-/* 925 */
+/* 923 */
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -60215,18 +59876,18 @@
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 926 */
+/* 924 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '1.2.6'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 927 */
+/* 925 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(928);
+	var aFunction = __webpack_require__(926);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -60247,7 +59908,7 @@
 	};
 
 /***/ },
-/* 928 */
+/* 926 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -60256,16 +59917,16 @@
 	};
 
 /***/ },
-/* 929 */
+/* 927 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.1 Object.assign(target, source, ...)
-	var $        = __webpack_require__(930)
-	  , toObject = __webpack_require__(931)
-	  , IObject  = __webpack_require__(933);
+	var $        = __webpack_require__(928)
+	  , toObject = __webpack_require__(929)
+	  , IObject  = __webpack_require__(931);
 
 	// should work with symbols and should have deterministic property order (V8 bug)
-	module.exports = __webpack_require__(935)(function(){
+	module.exports = __webpack_require__(933)(function(){
 	  var a = Object.assign
 	    , A = {}
 	    , B = {}
@@ -60294,7 +59955,7 @@
 	} : Object.assign;
 
 /***/ },
-/* 930 */
+/* 928 */
 /***/ function(module, exports) {
 
 	var $Object = Object;
@@ -60312,17 +59973,17 @@
 	};
 
 /***/ },
-/* 931 */
+/* 929 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(932);
+	var defined = __webpack_require__(930);
 	module.exports = function(it){
 	  return Object(defined(it));
 	};
 
 /***/ },
-/* 932 */
+/* 930 */
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -60332,17 +59993,17 @@
 	};
 
 /***/ },
-/* 933 */
+/* 931 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(934);
+	var cof = __webpack_require__(932);
 	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
 	  return cof(it) == 'String' ? it.split('') : Object(it);
 	};
 
 /***/ },
-/* 934 */
+/* 932 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -60352,7 +60013,7 @@
 	};
 
 /***/ },
-/* 935 */
+/* 933 */
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -60364,39 +60025,39 @@
 	};
 
 /***/ },
+/* 934 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(935), __esModule: true };
+
+/***/ },
+/* 935 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(936);
+	module.exports = __webpack_require__(924).Object.keys;
+
+/***/ },
 /* 936 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(937), __esModule: true };
-
-/***/ },
-/* 937 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(938);
-	module.exports = __webpack_require__(926).Object.keys;
-
-/***/ },
-/* 938 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(931);
+	var toObject = __webpack_require__(929);
 
-	__webpack_require__(939)('keys', function($keys){
+	__webpack_require__(937)('keys', function($keys){
 	  return function keys(it){
 	    return $keys(toObject(it));
 	  };
 	});
 
 /***/ },
-/* 939 */
+/* 937 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(924)
-	  , core    = __webpack_require__(926)
-	  , fails   = __webpack_require__(935);
+	var $export = __webpack_require__(922)
+	  , core    = __webpack_require__(924)
+	  , fails   = __webpack_require__(933);
 	module.exports = function(KEY, exec){
 	  var fn  = (core.Object || {})[KEY] || Object[KEY]
 	    , exp = {};
@@ -60405,7 +60066,7 @@
 	};
 
 /***/ },
-/* 940 */
+/* 938 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -60419,7 +60080,7 @@
 	exports.__esModule = true;
 
 /***/ },
-/* 941 */
+/* 939 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -60473,16 +60134,16 @@
 
 
 /***/ },
-/* 942 */
+/* 940 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Object$assign = __webpack_require__(921)['default'];
+	var _Object$assign = __webpack_require__(919)['default'];
 
-	var _Object$create = __webpack_require__(943)['default'];
+	var _Object$create = __webpack_require__(941)['default'];
 
-	var _Object$keys = __webpack_require__(936)['default'];
+	var _Object$keys = __webpack_require__(934)['default'];
 
 	exports.__esModule = true;
 
@@ -60541,22 +60202,22 @@
 	exports['default'] = styleMaps;
 
 /***/ },
-/* 943 */
+/* 941 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(944), __esModule: true };
+	module.exports = { "default": __webpack_require__(942), __esModule: true };
 
 /***/ },
-/* 944 */
+/* 942 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var $ = __webpack_require__(930);
+	var $ = __webpack_require__(928);
 	module.exports = function create(P, D){
 	  return $.create(P, D);
 	};
 
 /***/ },
-/* 945 */
+/* 943 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60569,7 +60230,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _common = __webpack_require__(946);
+	var _common = __webpack_require__(944);
 
 	/**
 	 * Checks whether a prop provides a type of element.
@@ -60602,7 +60263,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 946 */
+/* 944 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -60641,14 +60302,358 @@
 	}
 
 /***/ },
+/* 945 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(454);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRedux = __webpack_require__(698);
+
+	var _reactRouter = __webpack_require__(455);
+
+	var _universityActions = __webpack_require__(541);
+
+	var _accommodationActions = __webpack_require__(546);
+
+	var _cateringActions = __webpack_require__(548);
+
+	var _budgetActions = __webpack_require__(544);
+
+	var _itemActions = __webpack_require__(550);
+
+	var _homeTripActions = __webpack_require__(552);
+
+	var _gymActions = __webpack_require__(554);
+
+	var _haircutActions = __webpack_require__(556);
+
+	var _shoppingActions = __webpack_require__(558);
+
+	var _drinkActions = __webpack_require__(562);
+
+	var _roundActions = __webpack_require__(564);
+
+	var _mealActions = __webpack_require__(566);
+
+	var _taxiActions = __webpack_require__(568);
+
+	var _SelectionList = __webpack_require__(946);
+
+	var _SelectionList2 = _interopRequireDefault(_SelectionList);
+
+	var _RadioGroupList = __webpack_require__(970);
+
+	var _RadioGroupList2 = _interopRequireDefault(_RadioGroupList);
+
+	var _MoneyInput = __webpack_require__(972);
+
+	var _MoneyInput2 = _interopRequireDefault(_MoneyInput);
+
+	var _BreadcrumbBar = __webpack_require__(973);
+
+	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Bootstrap Imports
+	var Col = __webpack_require__(917);
+	var Row = __webpack_require__(947);
+	var Panel = __webpack_require__(976);
+	var Button = __webpack_require__(948);
+
+	var BudgetPage = function (_Component) {
+	    _inherits(BudgetPage, _Component);
+
+	    function BudgetPage(props) {
+	        _classCallCheck(this, BudgetPage);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BudgetPage).call(this, props));
+
+	        _this.componentDidMount = _this.componentDidMount.bind(_this);
+	        _this.onSelectUniversity = _this.onSelectUniversity.bind(_this);
+	        _this.onSetBudget = _this.onSetBudget.bind(_this);
+	        _this.onSelectAccommodation = _this.onSelectAccommodation.bind(_this);
+	        _this.onSelectCatering = _this.onSelectCatering.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(BudgetPage, [{
+	        key: "componentDidMount",
+	        value: function componentDidMount() {
+	            this.props.dispatch((0, _universityActions.getUniversities)());
+	            this.props.dispatch((0, _accommodationActions.getAccommodation)());
+	            this.props.dispatch((0, _cateringActions.getCatering)());
+	            this.props.dispatch((0, _itemActions.getItems)());
+	            this.props.dispatch((0, _homeTripActions.getHomeTrips)());
+	            this.props.dispatch((0, _gymActions.getGyms)());
+	            this.props.dispatch((0, _haircutActions.getHaircuts)());
+	            this.props.dispatch((0, _shoppingActions.getShoppings)());
+	            this.props.dispatch((0, _drinkActions.getDrinks)());
+	            this.props.dispatch((0, _roundActions.getRounds)());
+	            this.props.dispatch((0, _mealActions.getMeals)());
+	            this.props.dispatch((0, _taxiActions.getTaxis)());
+	        }
+	    }, {
+	        key: "componentDidUpdate",
+	        value: function componentDidUpdate() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	        }
+	    }, {
+	        key: "onSelectUniversity",
+	        value: function onSelectUniversity(id) {
+	            this.props.dispatch((0, _universityActions.selectUniversity)(id));
+	        }
+	    }, {
+	        key: "onSetBudget",
+	        value: function onSetBudget(budget) {
+	            this.props.dispatch((0, _budgetActions.setBudget)(budget));
+	        }
+	    }, {
+	        key: "onSelectAccommodation",
+	        value: function onSelectAccommodation(id) {
+	            this.props.dispatch((0, _accommodationActions.selectAccommodation)(id));
+	        }
+	    }, {
+	        key: "onSelectCatering",
+	        value: function onSelectCatering(id) {
+	            this.props.dispatch((0, _cateringActions.selectCatering)(id));
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    Panel,
+	                    null,
+	                    _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "budget" }),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(_SelectionList2.default, {
+	                            xsCols: 12,
+	                            smCols: 6,
+	                            header: "What university do you go to?",
+	                            placeholder: "Please choose...",
+	                            options: this.props.universities,
+	                            selectedOption: this.props.selectedUniversityId,
+	                            onSelectOption: this.onSelectUniversity
+	                        }),
+	                        _react2.default.createElement(_MoneyInput2.default, {
+	                            header: "What’s your total maintenance loan?",
+	                            controlId: "budget",
+	                            value: this.props.budget ? "£" + this.props.budget : null,
+	                            onChange: this.onSetBudget,
+	                            placeholder: "£ per semester"
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 4,
+	                            outerCols: 12,
+	                            header: "What type of accommodation are you living in?",
+	                            name: "accommodation",
+	                            options: this.props.accommodation,
+	                            selectedOption: this.props.selectedAccommodationId,
+	                            onSelectOption: this.onSelectAccommodation
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 12,
+	                            outerCols: 12,
+	                            header: "Are you catered or self-catered?",
+	                            name: "catering",
+	                            options: this.props.catering,
+	                            selectedOption: this.props.selectedCateringId,
+	                            onSelectOption: this.onSelectCatering
+	                        })
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            Button,
+	                            { bsStyle: "danger", onClick: function onClick() {
+	                                    return _reactRouter.browserHistory.push('/web/expenses/');
+	                                } },
+	                            "Continue to your expenses »"
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return BudgetPage;
+	}(_react.Component);
+
+	var mapStateToProps = function mapStateToProps(state) {
+	    return {
+	        universities: state.universityReducer.universities,
+	        selectedUniversityId: state.universityReducer.selectedUniversityId,
+
+	        budget: state.budgetReducer.budget,
+
+	        accommodation: state.accommodationReducer.accommodation,
+	        selectedAccommodationId: state.accommodationReducer.selectedAccommodationId,
+
+	        catering: state.cateringReducer.catering,
+	        selectedCateringId: state.cateringReducer.selectedCateringId
+	    };
+	};
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(BudgetPage);
+
+/***/ },
+/* 946 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(298);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Bootstrap Imports
+	var Col = __webpack_require__(917);
+	var Row = __webpack_require__(947);
+	var Button = __webpack_require__(948);
+	var FormControl = __webpack_require__(960);
+	var FormGroup = __webpack_require__(965);
+	var InputGroup = __webpack_require__(967);
+
+	var SelectionList = function (_Component) {
+	    _inherits(SelectionList, _Component);
+
+	    function SelectionList(props) {
+	        _classCallCheck(this, SelectionList);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SelectionList).call(this, props));
+
+	        _this.onSelectOption = _this.onSelectOption.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(SelectionList, [{
+	        key: 'onSelectOption',
+	        value: function onSelectOption(e) {
+	            this.props.onSelectOption(e.target.value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            if (this.props.options) {
+	                var self = this;
+	                var options = this.props.options.map(function (option) {
+	                    var appendName = "";
+	                    if (self.props.appendName) {
+	                        appendName = option.id < 2 ? self.props.appendName : self.props.appendName + "s";
+	                    }
+	                    return _react2.default.createElement(
+	                        'option',
+	                        { key: option.id, value: option.id },
+	                        option.name,
+	                        appendName
+	                    );
+	                });
+	            }
+
+	            var selectedOption = this.props.selectedOption ? this.props.selectedOption : this.props.placeholder;
+
+	            var header = "";
+	            if (this.props.header) {
+	                header = _react2.default.createElement(
+	                    Row,
+	                    null,
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            'h3',
+	                            { className: 'question' },
+	                            this.props.header
+	                        )
+	                    )
+	                );
+	            }
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                header,
+	                _react2.default.createElement(
+	                    Col,
+	                    { className: 'question-choices col-no-pad-left', xs: this.props.xsCols, sm: this.props.smCols },
+	                    _react2.default.createElement(
+	                        FormGroup,
+	                        { controlId: 'select' },
+	                        _react2.default.createElement(
+	                            FormControl,
+	                            {
+	                                componentClass: 'select',
+	                                value: selectedOption,
+	                                onChange: this.onSelectOption
+	                            },
+	                            _react2.default.createElement(
+	                                'option',
+	                                { disabled: true },
+	                                this.props.placeholder
+	                            ),
+	                            options
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return SelectionList;
+	}(_react.Component);
+
+	exports.default = SelectionList;
+
+/***/ },
 /* 947 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -60656,11 +60661,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _reactPropTypesLibElementType = __webpack_require__(945);
+	var _reactPropTypesLibElementType = __webpack_require__(943);
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
@@ -60704,13 +60709,13 @@
 
 	var _classCallCheck = __webpack_require__(956)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -60718,11 +60723,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactPropTypesLibElementType = __webpack_require__(945);
+	var _reactPropTypesLibElementType = __webpack_require__(943);
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
-	var _styleMaps = __webpack_require__(942);
+	var _styleMaps = __webpack_require__(940);
 
 	var _utilsBootstrapUtils = __webpack_require__(957);
 
@@ -60848,7 +60853,7 @@
 
 	"use strict";
 
-	var _Object$create = __webpack_require__(943)["default"];
+	var _Object$create = __webpack_require__(941)["default"];
 
 	var _Object$setPrototypeOf = __webpack_require__(950)["default"];
 
@@ -60881,14 +60886,14 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(952);
-	module.exports = __webpack_require__(926).Object.setPrototypeOf;
+	module.exports = __webpack_require__(924).Object.setPrototypeOf;
 
 /***/ },
 /* 952 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.3.19 Object.setPrototypeOf(O, proto)
-	var $export = __webpack_require__(924);
+	var $export = __webpack_require__(922);
 	$export($export.S, 'Object', {setPrototypeOf: __webpack_require__(953).set});
 
 /***/ },
@@ -60897,7 +60902,7 @@
 
 	// Works with __proto__ only. Old v8 can't work with null proto objects.
 	/* eslint-disable no-proto */
-	var getDesc  = __webpack_require__(930).getDesc
+	var getDesc  = __webpack_require__(928).getDesc
 	  , isObject = __webpack_require__(954)
 	  , anObject = __webpack_require__(955);
 	var check = function(O, proto){
@@ -60908,7 +60913,7 @@
 	  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
 	    function(test, buggy, set){
 	      try {
-	        set = __webpack_require__(927)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
+	        set = __webpack_require__(925)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
 	        set(test, []);
 	        buggy = !(test instanceof Array);
 	      } catch(e){ buggy = true; }
@@ -60960,9 +60965,9 @@
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 	exports.prefix = prefix;
@@ -60971,7 +60976,7 @@
 
 	var _react = __webpack_require__(298);
 
-	var _styleMaps = __webpack_require__(942);
+	var _styleMaps = __webpack_require__(940);
 
 	var _styleMaps2 = _interopRequireDefault(_styleMaps);
 
@@ -61137,11 +61142,11 @@
 
 	var _classCallCheck = __webpack_require__(956)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -61149,7 +61154,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactPropTypesLibElementType = __webpack_require__(945);
+	var _reactPropTypesLibElementType = __webpack_require__(943);
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
@@ -61278,13 +61283,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -61292,7 +61297,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactPropTypesLibElementType = __webpack_require__(945);
+	var _reactPropTypesLibElementType = __webpack_require__(943);
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
@@ -61393,15 +61398,15 @@
 
 	var _classCallCheck = __webpack_require__(956)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -61493,13 +61498,13 @@
 
 	'use strict';
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -61603,13 +61608,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -61617,7 +61622,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactPropTypesLibElementType = __webpack_require__(945);
+	var _reactPropTypesLibElementType = __webpack_require__(943);
 
 	var _reactPropTypesLibElementType2 = _interopRequireDefault(_reactPropTypesLibElementType);
 
@@ -61673,15 +61678,15 @@
 
 	var _classCallCheck = __webpack_require__(956)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -61693,7 +61698,7 @@
 
 	var _reactPropTypesLibDeprecated2 = _interopRequireDefault(_reactPropTypesLibDeprecated);
 
-	var _styleMaps = __webpack_require__(942);
+	var _styleMaps = __webpack_require__(940);
 
 	var _utilsBootstrapUtils = __webpack_require__(957);
 
@@ -61809,7 +61814,7 @@
 
 	'use strict';
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -61976,13 +61981,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -61990,7 +61995,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styleMaps = __webpack_require__(942);
+	var _styleMaps = __webpack_require__(940);
 
 	var _utilsBootstrapUtils = __webpack_require__(957);
 
@@ -62046,13 +62051,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -62102,13 +62107,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -62173,7 +62178,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Button = __webpack_require__(948);
 	var FormControl = __webpack_require__(960);
@@ -62389,7 +62394,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Button = __webpack_require__(948);
 	var FormControl = __webpack_require__(960);
@@ -62488,7 +62493,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Breadcrumb = __webpack_require__(974);
 
@@ -62577,9 +62582,9 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -62587,7 +62592,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -62650,13 +62655,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -62751,13 +62756,13 @@
 
 	var _objectWithoutProperties = __webpack_require__(959)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -62765,7 +62770,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _styleMaps = __webpack_require__(942);
+	var _styleMaps = __webpack_require__(940);
 
 	var _utilsBootstrapUtils = __webpack_require__(957);
 
@@ -63024,9 +63029,9 @@
 
 	var _classCallCheck = __webpack_require__(956)['default'];
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -63038,7 +63043,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -63477,7 +63482,7 @@
 
 	var _on2 = _interopRequireDefault(_on);
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -64003,7 +64008,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Panel = __webpack_require__(976);
 	var Button = __webpack_require__(948);
@@ -64077,72 +64082,68 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    Col,
-	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    Panel,
+	                    null,
+	                    _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "expenses" }),
 	                    _react2.default.createElement(
-	                        Panel,
-	                        null,
-	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "expenses" }),
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(_CheckBoxList2.default, {
+	                            innerCols: 6,
+	                            outerCols: 8,
+	                            header: "Do you need any of the following items?",
+	                            name: "catering",
+	                            options: this.props.items,
+	                            selectedOptions: this.props.selectedItemIds,
+	                            onSelectOption: this.onSelectItem,
+	                            onDeselectOption: this.onDeselectItem
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 6,
+	                            outerCols: 12,
+	                            header: "How regularly do you plan on going home?",
+	                            name: "homeTrips",
+	                            options: this.props.homeTrips,
+	                            selectedOption: this.props.selectedHomeTripId,
+	                            onSelectOption: this.onSelectHomeTrip
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 2,
+	                            outerCols: 12,
+	                            header: "Are you going to get a gym membership?",
+	                            name: "gyms",
+	                            options: this.props.gyms,
+	                            selectedOption: this.props.selectedGymId,
+	                            onSelectOption: this.onSelectGym
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 6,
+	                            outerCols: 12,
+	                            header: "How regularly do you get your haircut?",
+	                            name: "haircuts",
+	                            options: this.props.haircuts,
+	                            selectedOption: this.props.selectedHaircutId,
+	                            onSelectOption: this.onSelectHaircut
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 4,
+	                            outerCols: 12,
+	                            header: "How much do you spend shopping online per month?",
+	                            name: "shopping",
+	                            options: this.props.shoppings,
+	                            selectedOption: this.props.selectedShoppingId,
+	                            onSelectOption: this.onSelectShopping
+	                        })
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
 	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement(_CheckBoxList2.default, {
-	                                innerCols: 6,
-	                                outerCols: 8,
-	                                header: "Do you need any of the following items?",
-	                                name: "catering",
-	                                options: this.props.items,
-	                                selectedOptions: this.props.selectedItemIds,
-	                                onSelectOption: this.onSelectItem,
-	                                onDeselectOption: this.onDeselectItem
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 6,
-	                                outerCols: 12,
-	                                header: "How regularly do you plan on going home?",
-	                                name: "homeTrips",
-	                                options: this.props.homeTrips,
-	                                selectedOption: this.props.selectedHomeTripId,
-	                                onSelectOption: this.onSelectHomeTrip
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 2,
-	                                outerCols: 12,
-	                                header: "Are you going to get a gym membership?",
-	                                name: "gyms",
-	                                options: this.props.gyms,
-	                                selectedOption: this.props.selectedGymId,
-	                                onSelectOption: this.onSelectGym
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 6,
-	                                outerCols: 12,
-	                                header: "How regularly do you get your haircut?",
-	                                name: "haircuts",
-	                                options: this.props.haircuts,
-	                                selectedOption: this.props.selectedHaircutId,
-	                                onSelectOption: this.onSelectHaircut
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 4,
-	                                outerCols: 12,
-	                                header: "How much do you spend shopping online per month?",
-	                                name: "shopping",
-	                                options: this.props.shoppings,
-	                                selectedOption: this.props.selectedShoppingId,
-	                                onSelectOption: this.onSelectShopping
-	                            })
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement(
-	                                Button,
-	                                { bsStyle: "danger", onClick: function onClick() {
-	                                        return _reactRouter.browserHistory.push('/web/going-out/');
-	                                    } },
-	                                "Continue to your nightlife »"
-	                            )
+	                            Button,
+	                            { bsStyle: "danger", onClick: function onClick() {
+	                                    return _reactRouter.browserHistory.push('/web/going-out/');
+	                                } },
+	                            "Continue to your nightlife »"
 	                        )
 	                    )
 	                )
@@ -64199,7 +64200,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Button = __webpack_require__(948);
 	var FormControl = __webpack_require__(960);
@@ -64332,7 +64333,7 @@
 
 	var _BreadcrumbBar2 = _interopRequireDefault(_BreadcrumbBar);
 
-	var _SelectionList = __webpack_require__(918);
+	var _SelectionList = __webpack_require__(946);
 
 	var _SelectionList2 = _interopRequireDefault(_SelectionList);
 
@@ -64349,7 +64350,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Panel = __webpack_require__(976);
 	var Button = __webpack_require__(948);
@@ -64460,77 +64461,73 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    Col,
-	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
+	                    Panel,
+	                    null,
+	                    _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "going-out" }),
 	                    _react2.default.createElement(
-	                        Panel,
-	                        null,
-	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "going-out" }),
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(_CheckBoxList2.default, {
+	                            innerCols: 4,
+	                            outerCols: 9,
+	                            header: "Which nights do you plan on going out?",
+	                            name: "catering",
+	                            options: this.props.days,
+	                            selectedOptions: this.props.selectedNightIds,
+	                            onSelectOption: this.onIncreaseNightCount,
+	                            onDeselectOption: this.onDecreaseNightCount
+	                        }),
 	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement(_CheckBoxList2.default, {
-	                                innerCols: 4,
-	                                outerCols: 9,
-	                                header: "Which nights do you plan on going out?",
-	                                name: "catering",
-	                                options: this.props.days,
-	                                selectedOptions: this.props.selectedNightIds,
-	                                onSelectOption: this.onIncreaseNightCount,
-	                                onDeselectOption: this.onDecreaseNightCount
-	                            }),
+	                            Row,
+	                            null,
 	                            _react2.default.createElement(
-	                                Row,
-	                                null,
+	                                Col,
+	                                { xs: 12 },
 	                                _react2.default.createElement(
-	                                    Col,
-	                                    { xs: 12 },
-	                                    _react2.default.createElement(
-	                                        "h3",
-	                                        { className: "question" },
-	                                        "How man drinks do you plan on having on an average night out?"
-	                                    )
+	                                    "h3",
+	                                    { className: "question" },
+	                                    "How man drinks do you plan on having on an average night out?"
 	                                )
-	                            ),
-	                            drinkSelectionLists,
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 6,
-	                                outerCols: 9,
-	                                header: "Do you buy rounds for friends?",
-	                                name: "rounds",
-	                                options: this.props.rounds,
-	                                selectedOption: this.props.selectedRoundId,
-	                                onSelectOption: this.onSelectRound
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 3,
-	                                outerCols: 12,
-	                                header: "Do you have a post-night snack?",
-	                                name: "meals",
-	                                options: this.props.meals,
-	                                selectedOption: this.props.selectedMealId,
-	                                onSelectOption: this.onSelectMeal
-	                            }),
-	                            _react2.default.createElement(_RadioGroupList2.default, {
-	                                innerCols: 2,
-	                                outerCols: 12,
-	                                header: "Do you get a taxi back after a night out?",
-	                                name: "taxis",
-	                                options: this.props.taxis,
-	                                selectedOption: this.props.selectedTaxiId,
-	                                onSelectOption: this.onSelectTaxi
-	                            })
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement(
-	                                Button,
-	                                { bsStyle: "danger", onClick: function onClick() {
-	                                        return _reactRouter.browserHistory.push('/web/results/');
-	                                    } },
-	                                "Show me my results!"
 	                            )
+	                        ),
+	                        drinkSelectionLists,
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 6,
+	                            outerCols: 9,
+	                            header: "Do you buy rounds for friends?",
+	                            name: "rounds",
+	                            options: this.props.rounds,
+	                            selectedOption: this.props.selectedRoundId,
+	                            onSelectOption: this.onSelectRound
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 3,
+	                            outerCols: 12,
+	                            header: "Do you have a post-night snack?",
+	                            name: "meals",
+	                            options: this.props.meals,
+	                            selectedOption: this.props.selectedMealId,
+	                            onSelectOption: this.onSelectMeal
+	                        }),
+	                        _react2.default.createElement(_RadioGroupList2.default, {
+	                            innerCols: 2,
+	                            outerCols: 12,
+	                            header: "Do you get a taxi back after a night out?",
+	                            name: "taxis",
+	                            options: this.props.taxis,
+	                            selectedOption: this.props.selectedTaxiId,
+	                            onSelectOption: this.onSelectTaxi
+	                        })
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            Button,
+	                            { bsStyle: "danger", onClick: function onClick() {
+	                                    return _reactRouter.browserHistory.push('/web/results/');
+	                                } },
+	                            "Show me my results!"
 	                        )
 	                    )
 	                )
@@ -64599,7 +64596,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// Bootstrap Imports
-	var Col = __webpack_require__(919);
+	var Col = __webpack_require__(917);
 	var Row = __webpack_require__(947);
 	var Panel = __webpack_require__(976);
 	var Button = __webpack_require__(948);
@@ -64829,86 +64826,82 @@
 	                "div",
 	                null,
 	                _react2.default.createElement(
-	                    Col,
-	                    { className: "no-padding", xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
-	                    _react2.default.createElement(
-	                        Panel,
-	                        { footer: _react2.default.createElement(
-	                                Row,
-	                                null,
+	                    Panel,
+	                    { footer: _react2.default.createElement(
+	                            Row,
+	                            null,
+	                            _react2.default.createElement(
+	                                Col,
+	                                { xs: 12, sm: 6, className: "col-footer" },
 	                                _react2.default.createElement(
-	                                    Col,
-	                                    { xs: 12, sm: 6, className: "col-footer" },
-	                                    _react2.default.createElement(
-	                                        Button,
-	                                        { bsStyle: "danger", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
-	                                        _react2.default.createElement("i", { style: { marginRight: "0.5em" }, className: "fa fa-facebook", "aria-hidden": "true" }),
-	                                        " Share with your friends"
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    Col,
-	                                    { sm: 6, className: "text text-footer hidden-xs" },
-	                                    "and see who is going to spend the most this freshers"
-	                                ),
-	                                _react2.default.createElement(
-	                                    Col,
-	                                    { xs: 12, className: "col-footer text text-footer visible-xs" },
-	                                    "and see who is going to spend the most this freshers"
+	                                    Button,
+	                                    { bsStyle: "danger", className: "btn-facebook", onClick: this.openFacebookShare.bind(this, spending) },
+	                                    _react2.default.createElement("i", { style: { marginRight: "0.5em" }, className: "fa fa-facebook", "aria-hidden": "true" }),
+	                                    " Share with your friends"
 	                                )
-	                            ) },
-	                        _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12, className: "question" },
-	                            content.part1,
-	                            _react2.default.createElement("p", null)
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12, className: "text" },
-	                            content.part2,
-	                            _react2.default.createElement("p", null)
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12, className: "text" },
-	                            content.part3,
-	                            _react2.default.createElement("p", null)
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { sm: 7, className: "text hidden-xs" },
+	                            ),
 	                            _react2.default.createElement(
-	                                Button,
-	                                { bsStyle: "danger", onClick: this.openNatWest },
-	                                "Apply for a student bank account"
-	                            )
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12, className: "text visible-xs" },
+	                                Col,
+	                                { sm: 6, className: "text text-footer hidden-xs" },
+	                                "and see who is going to spend the most this freshers"
+	                            ),
 	                            _react2.default.createElement(
-	                                Button,
-	                                { bsStyle: "danger", onClick: this.openNatWest },
-	                                "Apply for student account"
+	                                Col,
+	                                { xs: 12, className: "col-footer text text-footer visible-xs" },
+	                                "and see who is going to spend the most this freshers"
 	                            )
-	                        ),
+	                        ) },
+	                    _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "results" }),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, className: "question" },
+	                        content.part1,
+	                        _react2.default.createElement("p", null)
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, className: "text" },
+	                        content.part2,
+	                        _react2.default.createElement("p", null)
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, className: "text" },
+	                        content.part3,
+	                        _react2.default.createElement("p", null)
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { sm: 7, className: "text hidden-xs" },
 	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 6, sm: 5, className: "text" },
-	                            _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12 },
-	                            _react2.default.createElement("hr", { className: "breadcrumb-hr" })
-	                        ),
-	                        _react2.default.createElement(
-	                            Col,
-	                            { xs: 12, className: "text" },
-	                            content.part4
+	                            Button,
+	                            { bsStyle: "danger", onClick: this.openNatWest },
+	                            "Apply for a student bank account"
 	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, className: "text visible-xs" },
+	                        _react2.default.createElement(
+	                            Button,
+	                            { bsStyle: "danger", onClick: this.openNatWest },
+	                            "Apply for student account"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 6, sm: 5, className: "text" },
+	                        _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement("hr", { className: "breadcrumb-hr" })
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12, className: "text" },
+	                        content.part4
 	                    )
 	                )
 	            );
@@ -64977,9 +64970,9 @@
 
 	'use strict';
 
-	var _extends = __webpack_require__(920)['default'];
+	var _extends = __webpack_require__(918)['default'];
 
-	var _interopRequireDefault = __webpack_require__(940)['default'];
+	var _interopRequireDefault = __webpack_require__(938)['default'];
 
 	exports.__esModule = true;
 
@@ -64987,7 +64980,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _classnames = __webpack_require__(941);
+	var _classnames = __webpack_require__(939);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 

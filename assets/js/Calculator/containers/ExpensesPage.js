@@ -68,71 +68,69 @@ class BudgetPage extends Component {
 
     render() {
         return <div>
-            <Col className="no-padding" xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-                <Panel>
+            <Panel>
 
-                    <BreadcrumbBar activeName="expenses"/>
+                <BreadcrumbBar activeName="expenses"/>
 
-                    <Col xs={12}>
-                        <CheckBoxList
-                            innerCols={6}
-                            outerCols={8}
-                            header="Do you need any of the following items?"
-                            name="catering"
-                            options={this.props.items}
-                            selectedOptions={this.props.selectedItemIds}
-                            onSelectOption={this.onSelectItem}
-                            onDeselectOption={this.onDeselectItem}
-                        />
+                <Col xs={12}>
+                    <CheckBoxList
+                        innerCols={6}
+                        outerCols={8}
+                        header="Do you need any of the following items?"
+                        name="catering"
+                        options={this.props.items}
+                        selectedOptions={this.props.selectedItemIds}
+                        onSelectOption={this.onSelectItem}
+                        onDeselectOption={this.onDeselectItem}
+                    />
 
-                        <RadioGroupList
-                            innerCols={6}
-                            outerCols={12}
-                            header="How regularly do you plan on going home?"
-                            name="homeTrips"
-                            options={this.props.homeTrips}
-                            selectedOption={this.props.selectedHomeTripId}
-                            onSelectOption={this.onSelectHomeTrip}
-                        />
+                    <RadioGroupList
+                        innerCols={6}
+                        outerCols={12}
+                        header="How regularly do you plan on going home?"
+                        name="homeTrips"
+                        options={this.props.homeTrips}
+                        selectedOption={this.props.selectedHomeTripId}
+                        onSelectOption={this.onSelectHomeTrip}
+                    />
 
-                        <RadioGroupList
-                            innerCols={2}
-                            outerCols={12}
-                            header="Are you going to get a gym membership?"
-                            name="gyms"
-                            options={this.props.gyms}
-                            selectedOption={this.props.selectedGymId}
-                            onSelectOption={this.onSelectGym}
-                        />
+                    <RadioGroupList
+                        innerCols={2}
+                        outerCols={12}
+                        header="Are you going to get a gym membership?"
+                        name="gyms"
+                        options={this.props.gyms}
+                        selectedOption={this.props.selectedGymId}
+                        onSelectOption={this.onSelectGym}
+                    />
 
-                        <RadioGroupList
-                            innerCols={6}
-                            outerCols={12}
-                            header="How regularly do you get your haircut?"
-                            name="haircuts"
-                            options={this.props.haircuts}
-                            selectedOption={this.props.selectedHaircutId}
-                            onSelectOption={this.onSelectHaircut}
-                        />
+                    <RadioGroupList
+                        innerCols={6}
+                        outerCols={12}
+                        header="How regularly do you get your haircut?"
+                        name="haircuts"
+                        options={this.props.haircuts}
+                        selectedOption={this.props.selectedHaircutId}
+                        onSelectOption={this.onSelectHaircut}
+                    />
 
-                        <RadioGroupList
-                            innerCols={4}
-                            outerCols={12}
-                            header="How much do you spend shopping online per month?"
-                            name="shopping"
-                            options={this.props.shoppings}
-                            selectedOption={this.props.selectedShoppingId}
-                            onSelectOption={this.onSelectShopping}
-                        />
-                    </Col>
+                    <RadioGroupList
+                        innerCols={4}
+                        outerCols={12}
+                        header="How much do you spend shopping online per month?"
+                        name="shopping"
+                        options={this.props.shoppings}
+                        selectedOption={this.props.selectedShoppingId}
+                        onSelectOption={this.onSelectShopping}
+                    />
+                </Col>
 
-                    <Col xs={12}>
-                        <Button bsStyle="danger" onClick={() => browserHistory.push('/web/going-out/')}>
-                            Continue to your nightlife »
-                        </Button>
-                    </Col>
-                </Panel>
-            </Col>
+                <Col xs={12}>
+                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/going-out/')}>
+                        Continue to your nightlife »
+                    </Button>
+                </Col>
+            </Panel>
         </div>;
     }
 }

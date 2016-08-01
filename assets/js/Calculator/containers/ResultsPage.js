@@ -156,8 +156,7 @@ class ResultsPage extends Component {
         }
 
         return <div>
-            <Col className="no-padding" xs={12} sm={10} smOffset={1} md={8} mdOffset={2} lg={6} lgOffset={3}>
-                <Panel footer={
+            <Panel footer={
                         <Row>
                             <Col xs={12} sm={6}  className="col-footer">
                                 <Button bsStyle="danger" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
@@ -172,51 +171,50 @@ class ResultsPage extends Component {
                             </Col>
                         </Row>
                     }>
-                    <BreadcrumbBar activeName="results"/>
+                <BreadcrumbBar activeName="results"/>
 
 
-                    <Col xs={12} className="question">
-                        {content.part1}
-                        <p/>
-                    </Col>
+                <Col xs={12} className="question">
+                    {content.part1}
+                    <p/>
+                </Col>
 
-                    <Col xs={12} className="text">
-                        {content.part2}
-                        <p/>
-                    </Col>
+                <Col xs={12} className="text">
+                    {content.part2}
+                    <p/>
+                </Col>
 
-                    <Col xs={12} className="text">
-                        {content.part3}
-                        <p/>
-                    </Col>
+                <Col xs={12} className="text">
+                    {content.part3}
+                    <p/>
+                </Col>
 
-                    <Col sm={7} className="text hidden-xs">
-                        <Button bsStyle="danger" onClick={this.openNatWest}>
-                            Apply for a student bank account
-                        </Button>
-                    </Col>
+                <Col sm={7} className="text hidden-xs">
+                    <Button bsStyle="danger" onClick={this.openNatWest}>
+                        Apply for a student bank account
+                    </Button>
+                </Col>
 
-                    <Col xs={12} className="text visible-xs">
-                        <Button bsStyle="danger" onClick={this.openNatWest}>
-                            Apply for student account
-                        </Button>
-                    </Col>
+                <Col xs={12} className="text visible-xs">
+                    <Button bsStyle="danger" onClick={this.openNatWest}>
+                        Apply for student account
+                    </Button>
+                </Col>
 
-                    <Col xs={6} sm={5} className="text">
-                        <Image className="natwest-logo" src="/static/natwest-logo.png" responsive/>
-                    </Col>
+                <Col xs={6} sm={5} className="text">
+                    <Image className="natwest-logo" src="/static/natwest-logo.png" responsive/>
+                </Col>
 
 
-                    <Col xs={12}>
-                        <hr className="breadcrumb-hr"/>
-                    </Col>
+                <Col xs={12}>
+                    <hr className="breadcrumb-hr"/>
+                </Col>
 
-                    <Col xs={12} className="text">
-                        {content.part4}
-                    </Col>
+                <Col xs={12} className="text">
+                    {content.part4}
+                </Col>
 
-                </Panel>
-            </Col>
+            </Panel>
         </div>;
     }
 }
