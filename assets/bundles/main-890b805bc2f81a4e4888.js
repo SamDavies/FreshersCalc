@@ -59494,19 +59494,10 @@
 	            null,
 	            React.createElement(
 	                'div',
-	                { className: 'container hidden-xs' },
+	                { className: 'container no-padding' },
 	                React.createElement(
 	                    Col,
-	                    { sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
-	                    this.props.children
-	                )
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'container visible-xs no-padding' },
-	                React.createElement(
-	                    Col,
-	                    { className: 'no-padding', xs: 12 },
+	                    { className: 'no-padding', xs: 12, sm: 10, smOffset: 1, md: 8, mdOffset: 2, lg: 6, lgOffset: 3 },
 	                    this.props.children
 	                )
 	            )

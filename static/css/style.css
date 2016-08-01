@@ -138,7 +138,7 @@ body {
 }
 
 input[type=submit]:hover {
-     background-position: 0px;
+    background-position: 0px;
 }
 
 .panel {
@@ -181,8 +181,10 @@ input[type=submit]:hover {
     font-size: 2vh;
 }
 
-.no-padding {
-    padding: 0;
+@media (max-width: 599px) {
+    .no-padding {
+        padding: 0;
+    }
 }
 
 .form-control {
