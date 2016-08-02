@@ -114,7 +114,7 @@ class ResultsPage extends Component {
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
                 Make sure you've got a safety net for freshers with an interest
-                free overdraft when signing up for a <span className="rbs-text">RBS</span> student bank account.
+                free overdraft when signing up for a <span className="rbs-text">Royal Bank of Scotland</span> student bank account.
             </div>,
             part4: "Sadly, your overspending means you can't really afford to treat yourself. " +
             "It might be worth taking it easy for a couple of weeks to control your spending."
@@ -139,7 +139,7 @@ class ResultsPage extends Component {
             part2: "You are watching your money carefully over freshers.",
             part3: <div>
                 Apply for a student bank account with an interest-free arranged overdraft
-                with <span className="natwest-text">NatWest</span> student bank account.
+                with <span className="rbs-text">Royal Bank of Scotland</span> student bank account.
             </div>,
             part4: <div>
                 <div className="text-light">You could afford</div>

@@ -64724,7 +64724,7 @@
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "rbs-text" },
-	                        "RBS"
+	                        "Royal Bank of Scotland"
 	                    ),
 	                    " student bank account."
 	                ),
@@ -64764,8 +64764,8 @@
 	                    "Apply for a student bank account with an interest-free arranged overdraft with ",
 	                    _react2.default.createElement(
 	                        "span",
-	                        { className: "natwest-text" },
-	                        "NatWest"
+	                        { className: "rbs-text" },
+	                        "Royal Bank of Scotland"
 	                    ),
 	                    " student bank account."
 	                ),
