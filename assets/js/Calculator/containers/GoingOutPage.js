@@ -38,7 +38,7 @@ class GoingOutPage extends Component {
     }
 
     componentDidUpdate() {
-        window.scrollTo(0, 0)
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     onIncreaseNightCount(dayId) {

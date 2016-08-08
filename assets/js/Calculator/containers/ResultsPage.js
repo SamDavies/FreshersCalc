@@ -21,7 +21,7 @@ class ResultsPage extends Component {
     }
 
     componentDidUpdate() {
-        window.scrollTo(0, 0)
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     openFacebookShare(amount) {
