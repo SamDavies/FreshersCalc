@@ -60403,7 +60403,7 @@
 	    }, {
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactDom2.default.findDOMNode(this).scrollTop = 0;
 	        }
 	    }, {
 	        key: "onSelectUniversity",
@@ -64030,7 +64030,7 @@
 	    }, {
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactDom2.default.findDOMNode(this).scrollTop = 0;
 	        }
 	    }, {
 	        key: "onSelectItem",
@@ -64370,7 +64370,7 @@
 	    }, {
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactDom2.default.findDOMNode(this).scrollTop = 0;
 	        }
 	    }, {
 	        key: "onIncreaseNightCount",
@@ -64606,7 +64606,7 @@
 	    _createClass(ResultsPage, [{
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactDom2.default.findDOMNode(this).scrollTop = 0;
 	        }
 	    }, {
 	        key: "openFacebookShare",
