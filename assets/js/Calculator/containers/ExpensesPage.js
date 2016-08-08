@@ -39,7 +39,7 @@ class BudgetPage extends Component {
     }
 
     componentDidUpdate() {
-        ReactDom.findDOMNode(this).scrollTop = 0
+        window.scrollTo(0, 0)
     }
 
     onSelectItem(itemId) {
