@@ -64473,7 +64473,7 @@
 	                                _react2.default.createElement(
 	                                    "h3",
 	                                    { className: "question" },
-	                                    "How man drinks do you plan on having on an average night out?"
+	                                    "How many drinks do you plan on having on an average night out?"
 	                                )
 	                            )
 	                        ),
@@ -64490,7 +64490,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 3,
 	                            outerCols: 12,
-	                            header: "Do you have a post-night snack?",
+	                            header: "Do you have a snack after a night out?",
 	                            name: "meals",
 	                            options: this.props.meals,
 	                            selectedOption: this.props.selectedMealId,
