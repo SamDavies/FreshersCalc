@@ -60468,7 +60468,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 12,
 	                            outerCols: 12,
-	                            header: "Will you catered or self-catered?",
+	                            header: "Will you be catered or self-catered?",
 	                            name: "catering",
 	                            options: this.props.catering,
 	                            selectedOption: this.props.selectedCateringId,
@@ -64606,7 +64606,7 @@
 	    }, {
 	        key: "openNatWest",
 	        value: function openNatWest() {
-	            window.open("http://personal.natwest.com");
+	            window.open("http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/student-account.html?extcam=R_PAR_TAB_MTA_Stdnt_CAM_1x1_LINK_");
 	        }
 	    }, {
 	        key: "getCost",
