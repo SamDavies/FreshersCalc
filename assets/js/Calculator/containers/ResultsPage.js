@@ -37,7 +37,7 @@ class ResultsPage extends Component {
     }
 
     openNatWest() {
-        window.open("http://personal.natwest.com")
+        window.open("http://personal.rbs.co.uk/personal/current-accounts/compare-current-accounts/student-account.html?extcam=R_PAR_TAB_MTA_Stdnt_CAM_1x1_LINK_")
     }
 
     getCost(collection, instanceId) {
