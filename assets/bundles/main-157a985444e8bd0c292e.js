@@ -64088,7 +64088,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 6,
 	                            outerCols: 12,
-	                            header: "How regularly will you plan on going home?",
+	                            header: "How regularly do you plan on going home?",
 	                            name: "homeTrips",
 	                            options: this.props.homeTrips,
 	                            selectedOption: this.props.selectedHomeTripId,
