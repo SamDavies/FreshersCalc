@@ -60403,7 +60403,7 @@
 	    }, {
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            window.scrollTo(0, 0);
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onSelectUniversity",
@@ -60442,14 +60442,14 @@
 	                        _react2.default.createElement(_SelectionList2.default, {
 	                            xsCols: 12,
 	                            smCols: 6,
-	                            header: "What university do you go to?",
+	                            header: "What university are you going to?",
 	                            placeholder: "Please choose...",
 	                            options: this.props.universities,
 	                            selectedOption: this.props.selectedUniversityId,
 	                            onSelectOption: this.onSelectUniversity
 	                        }),
 	                        _react2.default.createElement(_MoneyInput2.default, {
-	                            header: "What’s your total maintenance loan?",
+	                            header: "What will your total maintenance loan be?",
 	                            controlId: "budget",
 	                            value: this.props.budget ? "£" + this.props.budget : null,
 	                            onChange: this.onSetBudget,
@@ -60458,7 +60458,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 4,
 	                            outerCols: 12,
-	                            header: "What type of accommodation are you living in?",
+	                            header: "What type of accommodation will you be living in?",
 	                            name: "accommodation",
 	                            options: this.props.accommodation,
 	                            selectedOption: this.props.selectedAccommodationId,
@@ -60467,7 +60467,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 12,
 	                            outerCols: 12,
-	                            header: "Are you catered or self-catered?",
+	                            header: "Will you catered or self-catered?",
 	                            name: "catering",
 	                            options: this.props.catering,
 	                            selectedOption: this.props.selectedCateringId,
@@ -64030,7 +64030,7 @@
 	    }, {
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            window.scrollTo(0, 0);
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onSelectItem",
@@ -64078,7 +64078,7 @@
 	                        _react2.default.createElement(_CheckBoxList2.default, {
 	                            innerCols: 6,
 	                            outerCols: 8,
-	                            header: "Do you need any of the following items?",
+	                            header: "Will you need any of the following items?",
 	                            name: "catering",
 	                            options: this.props.items,
 	                            selectedOptions: this.props.selectedItemIds,
@@ -64088,7 +64088,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 6,
 	                            outerCols: 12,
-	                            header: "How regularly do you plan on going home?",
+	                            header: "How regularly will you plan on going home?",
 	                            name: "homeTrips",
 	                            options: this.props.homeTrips,
 	                            selectedOption: this.props.selectedHomeTripId,
@@ -64106,7 +64106,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 6,
 	                            outerCols: 12,
-	                            header: "How regularly do you get your haircut?",
+	                            header: "How regularly will you get your haircut?",
 	                            name: "haircuts",
 	                            options: this.props.haircuts,
 	                            selectedOption: this.props.selectedHaircutId,
@@ -64115,7 +64115,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 4,
 	                            outerCols: 12,
-	                            header: "How much do you spend shopping online per month?",
+	                            header: "How much will you spend shopping online per month?",
 	                            name: "shopping",
 	                            options: this.props.shoppings,
 	                            selectedOption: this.props.selectedShoppingId,
@@ -64370,7 +64370,7 @@
 	    }, {
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            window.scrollTo(0, 0);
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onIncreaseNightCount",
@@ -64481,7 +64481,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 6,
 	                            outerCols: 9,
-	                            header: "Do you buy rounds for friends?",
+	                            header: "Will you buy rounds for friends?",
 	                            name: "rounds",
 	                            options: this.props.rounds,
 	                            selectedOption: this.props.selectedRoundId,
@@ -64490,7 +64490,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 3,
 	                            outerCols: 12,
-	                            header: "Do you have a snack after a night out?",
+	                            header: "Will you have a snack after a night out?",
 	                            name: "meals",
 	                            options: this.props.meals,
 	                            selectedOption: this.props.selectedMealId,
@@ -64499,7 +64499,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 2,
 	                            outerCols: 12,
-	                            header: "Do you get a taxi back after a night out?",
+	                            header: "Will you get a taxi back after a night out?",
 	                            name: "taxis",
 	                            options: this.props.taxis,
 	                            selectedOption: this.props.selectedTaxiId,
@@ -64606,7 +64606,7 @@
 	    _createClass(ResultsPage, [{
 	        key: "componentDidUpdate",
 	        value: function componentDidUpdate() {
-	            window.scrollTo(0, 0);
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "openFacebookShare",
@@ -64720,7 +64720,7 @@
 	                part3: _react2.default.createElement(
 	                    "div",
 	                    null,
-	                    "Make sure you've got a safety net for freshers with an interest free overdraft when signing up for a ",
+	                    "Make sure you've got a safety net for uni with an interest free overdraft when signing up for a ",
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "natwest-text" },

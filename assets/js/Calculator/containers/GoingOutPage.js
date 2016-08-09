@@ -132,7 +132,7 @@ class GoingOutPage extends Component {
                     <RadioGroupList
                         innerCols={6}
                         outerCols={9}
-                        header="Do you buy rounds for friends?"
+                        header="Will you buy rounds for friends?"
                         name="rounds"
                         options={this.props.rounds}
                         selectedOption={this.props.selectedRoundId}
@@ -142,7 +142,7 @@ class GoingOutPage extends Component {
                     <RadioGroupList
                         innerCols={3}
                         outerCols={12}
-                        header="Do you have a snack after a night out?"
+                        header="Will you have a snack after a night out?"
                         name="meals"
                         options={this.props.meals}
                         selectedOption={this.props.selectedMealId}
@@ -152,7 +152,7 @@ class GoingOutPage extends Component {
                     <RadioGroupList
                         innerCols={2}
                         outerCols={12}
-                        header="Do you get a taxi back after a night out?"
+                        header="Will you get a taxi back after a night out?"
                         name="taxis"
                         options={this.props.taxis}
                         selectedOption={this.props.selectedTaxiId}
