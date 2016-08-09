@@ -59445,6 +59445,10 @@
 
 	var _reactRouter = __webpack_require__(455);
 
+	var _reactDom = __webpack_require__(454);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	var _App = __webpack_require__(916);
 
 	var _App2 = _interopRequireDefault(_App);
@@ -59469,7 +59473,9 @@
 
 	exports.default = _react2.default.createElement(
 	    _reactRouter.Route,
-	    { path: "/", component: _App2.default },
+	    { onUpdate: function onUpdate() {
+	            return _reactDom2.default.findDOMNode(undefined).scrollIntoView();
+	        }, path: "/", component: _App2.default },
 	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _BudgetPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: "web/budget/", component: _BudgetPage2.default }),
 	    _react2.default.createElement(_reactRouter.Route, { path: "web/expenses/", component: _ExpensesPage2.default }),
@@ -60399,11 +60405,6 @@
 	            this.props.dispatch((0, _roundActions.getRounds)());
 	            this.props.dispatch((0, _mealActions.getMeals)());
 	            this.props.dispatch((0, _taxiActions.getTaxis)());
-	        }
-	    }, {
-	        key: "componentDidUpdate",
-	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
 	        }
 	    }, {
 	        key: "onSelectUniversity",
@@ -64028,11 +64029,6 @@
 	            this.props.dispatch((0, _shoppingActions.getShoppings)());
 	        }
 	    }, {
-	        key: "componentDidUpdate",
-	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
-	        }
-	    }, {
 	        key: "onSelectItem",
 	        value: function onSelectItem(itemId) {
 	            this.props.dispatch((0, _itemActions.selectItem)(itemId));
@@ -64368,11 +64364,6 @@
 	            this.props.dispatch((0, _taxiActions.getTaxis)());
 	        }
 	    }, {
-	        key: "componentDidUpdate",
-	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
-	        }
-	    }, {
 	        key: "onIncreaseNightCount",
 	        value: function onIncreaseNightCount(dayId) {
 	            this.props.dispatch((0, _nightCountActions.increaseNightCount)(dayId));
@@ -64604,11 +64595,6 @@
 	    }
 
 	    _createClass(ResultsPage, [{
-	        key: "componentDidUpdate",
-	        value: function componentDidUpdate() {
-	            _reactDom2.default.findDOMNode(this).scrollIntoView();
-	        }
-	    }, {
 	        key: "openFacebookShare",
 	        value: function openFacebookShare(amount) {
 	            if (amount < 0) {
@@ -64723,8 +64709,8 @@
 	                    "Make sure you've got a safety net for uni with an interest free overdraft when signing up for a ",
 	                    _react2.default.createElement(
 	                        "span",
-	                        { className: "rbs-text" },
-	                        "Royal Bank of Scotland"
+	                        { className: "natwest-text" },
+	                        "NatWest"
 	                    ),
 	                    " student bank account."
 	                ),
@@ -64761,11 +64747,11 @@
 	                part3: _react2.default.createElement(
 	                    "div",
 	                    null,
-	                    "Apply for a student bank account with an interest-free arranged overdraft with ",
+	                    "Apply for a student bank account with an interest-free arranged overdraft with a ",
 	                    _react2.default.createElement(
 	                        "span",
-	                        { className: "rbs-text" },
-	                        "Royal Bank of Scotland"
+	                        { className: "natwest-text" },
+	                        "NatWest"
 	                    ),
 	                    " student bank account."
 	                ),
@@ -64878,7 +64864,7 @@
 	                    _react2.default.createElement(
 	                        Col,
 	                        { xs: 6, sm: 5, className: "text" },
-	                        _react2.default.createElement(Image, { className: "rbs-logo", src: "/static/rbs-logo.png", responsive: true })
+	                        _react2.default.createElement(Image, { className: "natwest-logo", src: "/static/natwest-logo.png", responsive: true })
 	                    ),
 	                    _react2.default.createElement(
 	                        Col,

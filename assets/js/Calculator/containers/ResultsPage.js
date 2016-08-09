@@ -135,7 +135,7 @@ class ResultsPage extends Component {
             part2: "You are watching your money carefully over freshers.",
             part3: <div>
                 Apply for a student bank account with an interest-free arranged overdraft
-                with <span className="rbs-text">Royal Bank of Scotland</span> student bank account.
+                with a <span className="rbs-text">Royal Bank of Scotland</span> student bank account.
             </div>,
             part4: <div>
                 <div className="text-light">You could afford</div>
