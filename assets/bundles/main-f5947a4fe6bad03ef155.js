@@ -60468,7 +60468,7 @@
 	                        _react2.default.createElement(_RadioGroupList2.default, {
 	                            innerCols: 12,
 	                            outerCols: 12,
-	                            header: "Will you catered or self-catered?",
+	                            header: "Will you be catered or self-catered?",
 	                            name: "catering",
 	                            options: this.props.catering,
 	                            selectedOption: this.props.selectedCateringId,
@@ -64606,7 +64606,7 @@
 	    }, {
 	        key: "openNatWest",
 	        value: function openNatWest() {
-	            window.open("http://personal.natwest.com");
+	            window.open("http://personal.natwest.com/personal/current-accounts/compare-current-accounts/student-account.html?extcam=N_PAR_TAB_MTA_Stdnt_CAM_1x1_LINK_");
 	        }
 	    }, {
 	        key: "getCost",
@@ -64747,7 +64747,7 @@
 	                part3: _react2.default.createElement(
 	                    "div",
 	                    null,
-	                    "Apply for a student bank account with an interest-free arranged overdraft with ",
+	                    "Apply for a student bank account with an interest-free arranged overdraft with a ",
 	                    _react2.default.createElement(
 	                        "span",
 	                        { className: "natwest-text" },

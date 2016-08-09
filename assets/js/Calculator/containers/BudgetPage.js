@@ -106,7 +106,7 @@ class BudgetPage extends Component {
                     <RadioGroupList
                         innerCols={12}
                         outerCols={12}
-                        header="Will you catered or self-catered?"
+                        header="Will you be catered or self-catered?"
                         name="catering"
                         options={this.props.catering}
                         selectedOption={this.props.selectedCateringId}
