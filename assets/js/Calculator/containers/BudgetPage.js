@@ -53,7 +53,7 @@ class BudgetPage extends Component {
     }
 
     componentDidUpdate() {
-        window.scrollTo(0, 0)
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     onSelectUniversity(id) {
@@ -82,7 +82,7 @@ class BudgetPage extends Component {
                     <SelectionList
                         xsCols={12}
                         smCols={6}
-                        header="What university do you go to?"
+                        header="What university are you going to?"
                         placeholder="Please choose..."
                         options={this.props.universities}
                         selectedOption={this.props.selectedUniversityId}
@@ -90,7 +90,7 @@ class BudgetPage extends Component {
                     />
 
                     <MoneyInput
-                        header="What’s your total maintenance loan?"
+                        header="What will your total maintenance loan be?"
                         controlId="budget"
                         value={this.props.budget ? "£" + this.props.budget : null}
                         onChange={this.onSetBudget}
@@ -100,7 +100,7 @@ class BudgetPage extends Component {
                     <RadioGroupList
                         innerCols={4}
                         outerCols={12}
-                        header="What type of accommodation are you living in?"
+                        header="What type of accommodation will you be living in?"
                         name="accommodation"
                         options={this.props.accommodation}
                         selectedOption={this.props.selectedAccommodationId}
@@ -110,7 +110,7 @@ class BudgetPage extends Component {
                     <RadioGroupList
                         innerCols={12}
                         outerCols={12}
-                        header="Are you catered or self-catered?"
+                        header="Will you catered or self-catered?"
                         name="catering"
                         options={this.props.catering}
                         selectedOption={this.props.selectedCateringId}

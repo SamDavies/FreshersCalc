@@ -21,7 +21,7 @@ class ResultsPage extends Component {
     }
 
     componentDidUpdate() {
-        window.scrollTo(0, 0)
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     openFacebookShare(amount) {
@@ -113,7 +113,7 @@ class ResultsPage extends Component {
                 className="text-cost">£{this.numberWithCommas(-spending.toFixed())}</span> over freshers</div>,
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
-                Make sure you've got a safety net for freshers with an interest
+                Make sure you've got a safety net for uni with an interest
                 free overdraft when signing up for a <span className="rbs-text">Royal Bank of Scotland</span> student bank account.
             </div>,
             part4: "Sadly, your overspending means you can't really afford to treat yourself. " +

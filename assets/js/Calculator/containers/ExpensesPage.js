@@ -39,7 +39,7 @@ class BudgetPage extends Component {
     }
 
     componentDidUpdate() {
-        window.scrollTo(0, 0)
+        ReactDom.findDOMNode(this).scrollIntoView();
     }
 
     onSelectItem(itemId) {
@@ -76,7 +76,7 @@ class BudgetPage extends Component {
                     <CheckBoxList
                         innerCols={6}
                         outerCols={8}
-                        header="Do you need any of the following items?"
+                        header="Will you need any of the following items?"
                         name="catering"
                         options={this.props.items}
                         selectedOptions={this.props.selectedItemIds}
@@ -87,7 +87,7 @@ class BudgetPage extends Component {
                     <RadioGroupList
                         innerCols={6}
                         outerCols={12}
-                        header="How regularly do you plan on going home?"
+                        header="How regularly will you plan on going home?"
                         name="homeTrips"
                         options={this.props.homeTrips}
                         selectedOption={this.props.selectedHomeTripId}
@@ -107,7 +107,7 @@ class BudgetPage extends Component {
                     <RadioGroupList
                         innerCols={6}
                         outerCols={12}
-                        header="How regularly do you get your haircut?"
+                        header="How regularly will you get your haircut?"
                         name="haircuts"
                         options={this.props.haircuts}
                         selectedOption={this.props.selectedHaircutId}
@@ -117,7 +117,7 @@ class BudgetPage extends Component {
                     <RadioGroupList
                         innerCols={4}
                         outerCols={12}
-                        header="How much do you spend shopping online per month?"
+                        header="How much will you spend shopping online per month?"
                         name="shopping"
                         options={this.props.shoppings}
                         selectedOption={this.props.selectedShoppingId}
