@@ -20,10 +20,6 @@ class ResultsPage extends Component {
         this.affordCalculator = this.affordCalculator.bind(this);
     }
 
-    componentDidUpdate() {
-        ReactDom.findDOMNode(this).scrollIntoView();
-    }
-
     openFacebookShare(amount) {
         if (amount < 0) {
             window.open("https://www.facebook.com/dialog/feed?app_id=184683071273&link=https%3A%2F%2" +
