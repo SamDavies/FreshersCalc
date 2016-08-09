@@ -37,10 +37,6 @@ class GoingOutPage extends Component {
         this.props.dispatch(getTaxis());
     }
 
-    componentDidUpdate() {
-        ReactDom.findDOMNode(this).scrollIntoView();
-    }
-
     onIncreaseNightCount(dayId) {
         this.props.dispatch(increaseNightCount(dayId))
     }

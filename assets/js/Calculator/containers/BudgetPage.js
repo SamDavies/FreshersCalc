@@ -52,10 +52,6 @@ class BudgetPage extends Component {
         this.props.dispatch(getTaxis());
     }
 
-    componentDidUpdate() {
-        ReactDom.findDOMNode(this).scrollIntoView();
-    }
-
     onSelectUniversity(id) {
         this.props.dispatch(selectUniversity(id))
     }

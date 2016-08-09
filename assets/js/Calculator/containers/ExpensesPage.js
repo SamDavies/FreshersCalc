@@ -38,10 +38,6 @@ class BudgetPage extends Component {
         this.props.dispatch(getShoppings());
     }
 
-    componentDidUpdate() {
-        ReactDom.findDOMNode(this).scrollIntoView();
-    }
-
     onSelectItem(itemId) {
         this.props.dispatch(selectItem(itemId))
     }
