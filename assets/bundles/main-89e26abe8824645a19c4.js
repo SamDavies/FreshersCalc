@@ -64553,10 +64553,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(454);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
 	var _reactRedux = __webpack_require__(698);
 
 	var _BreadcrumbBar = __webpack_require__(973);
@@ -64876,6 +64872,12 @@
 	                        { xs: 12, className: "text" },
 	                        content.part4
 	                    )
+	                ),
+	                _react2.default.createElement(
+	                    Col,
+	                    { xs: 12, className: "text-muted text" },
+	                    "Subject to account eligibility criteria (including course and residency requirements). You'll need to be aged 17 or older to apply for the account, a permanent UK resident (ordinarily resident in the UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years; completing a full time post graduate course; or training as a nurse, at a UK university or college at higher education.",
+	                    _react2.default.createElement("p", null)
 	                )
 	            );
 	        }

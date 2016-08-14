@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from "react";
-import ReactDom from "react-dom";
 import {connect} from "react-redux";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import {Link, browserHistory} from "react-router";
@@ -211,6 +210,15 @@ class ResultsPage extends Component {
                 </Col>
 
             </Panel>
+
+            <Col xs={12} className="text-muted text">
+                Subject to account eligibility criteria (including course and residency requirements). You'll need
+                to be aged 17 or older to apply for the account, a permanent UK resident (ordinarily resident in the
+                UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years;
+                completing a full time post graduate course; or training as a nurse, at a UK university or college
+                at higher education.
+                <p/>
+            </Col>
         </div>;
     }
 }

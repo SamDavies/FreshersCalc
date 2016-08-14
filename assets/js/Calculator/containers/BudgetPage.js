@@ -78,7 +78,7 @@ class BudgetPage extends Component {
                     <SelectionList
                         xsCols={12}
                         smCols={6}
-                        header="What university are you going to?"
+                        header="Which university are you going to?"
                         placeholder="Please choose..."
                         options={this.props.universities}
                         selectedOption={this.props.selectedUniversityId}
