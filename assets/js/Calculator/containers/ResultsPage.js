@@ -213,14 +213,30 @@ class ResultsPage extends Component {
             </Panel>
 
             <Col xs={12} className="text-muted text">
-                Subject to account eligibility criteria (including course and residency requirements). You'll need
-                to be aged 17 or older to apply for the account, a permanent UK resident (ordinarily resident in the
-                UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years;
-                completing a full time post graduate course; or training as a nurse, at a UK university or college
-                at higher education.
+                <i className="text-muted-header">
+                    Overdraft eligibility criteria:
+                </i>
+                <p/>
+                <i>
+                    Overdraft applications are subject to approval and you need to be 18 over or above to apply.
+                    (Ordinarily resident in the UK for 3 years or more).
+                </i>
+                <p/>
+                <i className="text-muted-header">
+                    Student Account eligibility criteria:
+                </i>
+                <p/>
+                <i>
+                    Subject to account eligibility criteria (including course and residency requirements). You'll need
+                    to be aged 17 or older to apply for the account, a permanent UK resident (ordinarily resident in the
+                    UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years;
+                    completing a full time post graduate course; or training as a nurse, at a UK university or college
+                    at higher education.
+                </i>
                 <p/>
             </Col>
-        </div>;
+        </div>
+            ;
     }
 }
 
