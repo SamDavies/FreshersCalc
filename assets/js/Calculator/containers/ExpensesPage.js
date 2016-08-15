@@ -62,6 +62,12 @@ class BudgetPage extends Component {
         this.props.dispatch(selectShopping(shoppingId))
     }
 
+    onNextPage() {
+        ReactDom.findDOMNode(this).scrollIntoView();
+        browserHistory.push('/web/going-out/');
+    }
+
+
     render() {
         return <div>
             <Panel>
@@ -122,7 +128,7 @@ class BudgetPage extends Component {
                 </Col>
 
                 <Col xs={12}>
-                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/going-out/')}>
+                    <Button bsStyle="danger" onClick={this.onNextPage.bind(this)}>
                         Continue to your nightlife »
                     </Button>
                 </Col>

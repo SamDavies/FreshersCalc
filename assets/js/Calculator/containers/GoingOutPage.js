@@ -61,6 +61,12 @@ class GoingOutPage extends Component {
         this.props.dispatch(selectTaxi(taxiId))
     }
 
+    onNextPage() {
+        ReactDom.findDOMNode(this).scrollIntoView();
+        browserHistory.push('/web/results/');
+    }
+
+
     render() {
         var drinkSelectionLists = [];
 
@@ -157,7 +163,7 @@ class GoingOutPage extends Component {
                 </Col>
 
                 <Col xs={12}>
-                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/results/')}>
+                    <Button bsStyle="danger" onClick={this.onNextPage.bind(this)}>
                         Show me my results!
                     </Button>
                 </Col>

@@ -60427,6 +60427,12 @@
 	            this.props.dispatch((0, _cateringActions.selectCatering)(id));
 	        }
 	    }, {
+	        key: "onNextPage",
+	        value: function onNextPage() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactRouter.browserHistory.push('/web/expenses/');
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 
@@ -60480,9 +60486,7 @@
 	                        { xs: 12 },
 	                        _react2.default.createElement(
 	                            Button,
-	                            { bsStyle: "danger", onClick: function onClick() {
-	                                    return _reactRouter.browserHistory.push('/web/expenses/');
-	                                } },
+	                            { bsStyle: "danger", onClick: this.onNextPage.bind(this) },
 	                            "Continue to your expenses »"
 	                        )
 	                    )
@@ -64059,6 +64063,12 @@
 	            this.props.dispatch((0, _shoppingActions.selectShopping)(shoppingId));
 	        }
 	    }, {
+	        key: "onNextPage",
+	        value: function onNextPage() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactRouter.browserHistory.push('/web/going-out/');
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -64123,9 +64133,7 @@
 	                        { xs: 12 },
 	                        _react2.default.createElement(
 	                            Button,
-	                            { bsStyle: "danger", onClick: function onClick() {
-	                                    return _reactRouter.browserHistory.push('/web/going-out/');
-	                                } },
+	                            { bsStyle: "danger", onClick: this.onNextPage.bind(this) },
 	                            "Continue to your nightlife »"
 	                        )
 	                    )
@@ -64394,6 +64402,12 @@
 	            this.props.dispatch((0, _taxiActions.selectTaxi)(taxiId));
 	        }
 	    }, {
+	        key: "onNextPage",
+	        value: function onNextPage() {
+	            _reactDom2.default.findDOMNode(this).scrollIntoView();
+	            _reactRouter.browserHistory.push('/web/results/');
+	        }
+	    }, {
 	        key: "render",
 	        value: function render() {
 	            var _this2 = this;
@@ -64502,9 +64516,7 @@
 	                        { xs: 12 },
 	                        _react2.default.createElement(
 	                            Button,
-	                            { bsStyle: "danger", onClick: function onClick() {
-	                                    return _reactRouter.browserHistory.push('/web/results/');
-	                                } },
+	                            { bsStyle: "danger", onClick: this.onNextPage.bind(this) },
 	                            "Show me my results!"
 	                        )
 	                    )

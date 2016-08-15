@@ -68,6 +68,11 @@ class BudgetPage extends Component {
         this.props.dispatch(selectCatering(id))
     }
 
+    onNextPage() {
+        ReactDom.findDOMNode(this).scrollIntoView();
+        browserHistory.push('/web/expenses/');
+    }
+
     render() {
 
         return <div>
@@ -115,7 +120,7 @@ class BudgetPage extends Component {
                 </Col>
 
                 <Col xs={12}>
-                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/expenses/')}>
+                    <Button bsStyle="danger" onClick={this.onNextPage.bind(this)}>
                         Continue to your expenses »
                     </Button>
                 </Col>
