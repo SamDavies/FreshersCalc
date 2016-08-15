@@ -67,7 +67,6 @@ class BudgetPage extends Component {
         browserHistory.push('/web/going-out/');
     }
 
-
     render() {
         return <div>
             <Panel>
@@ -76,7 +75,7 @@ class BudgetPage extends Component {
 
                 <Col xs={12}>
                     <div className="text-muted">
-                        All costs are calculated per academic year
+                        All costs are calculated per academic year.
                     </div>
                 </Col>
 

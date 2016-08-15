@@ -111,7 +111,7 @@ class GoingOutPage extends Component {
 
                 <Col xs={12}>
                     <div className="text-muted">
-                        Assuming that you go out every week of the year
+                        Assuming that you go out every week of the year.
                     </div>
                 </Col>
 
