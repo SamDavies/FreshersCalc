@@ -62,7 +62,7 @@ class GoingOutPage extends Component {
     }
 
     onNextPage() {
-        document.body.scrollTop = document.documentElement.scrollTop = -50;
+        ReactDOM.findDOMNode(this).scrollTop = -50;
         browserHistory.push('/web/results/');
     }
 
