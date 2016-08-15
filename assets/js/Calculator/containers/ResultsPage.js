@@ -75,6 +75,7 @@ class ResultsPage extends Component {
         goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
         goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
         goingOut *= this.props.selectedNightIds.length;
+        goingOut = 38.0 * goingOut;
 
         balance -= goingOut;
 

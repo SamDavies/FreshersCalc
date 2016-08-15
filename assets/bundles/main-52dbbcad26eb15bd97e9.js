@@ -60443,7 +60443,7 @@
 	                        _react2.default.createElement(_SelectionList2.default, {
 	                            xsCols: 12,
 	                            smCols: 6,
-	                            header: "What university are you going to?",
+	                            header: "Which university are you going to?",
 	                            placeholder: "Please choose...",
 	                            options: this.props.universities,
 	                            selectedOption: this.props.selectedUniversityId,
@@ -64654,6 +64654,7 @@
 	            goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
 	            goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
 	            goingOut *= this.props.selectedNightIds.length;
+	            goingOut = 38.0 * goingOut;
 
 	            balance -= goingOut;
 

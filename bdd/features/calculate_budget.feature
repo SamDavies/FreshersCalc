@@ -52,7 +52,7 @@ Feature: Calculate the budget for a student
     And I select option "Yes" for the question "After a night out, do you get a post night out snack?"
     And I select option "Yes Taxi" for the question "Do you get a taxi back after a night out?"
     And I click the "Results" link
-    Then I have "101" left
+    Then I have "3,830" left
 
 #  Scenario: Calculate spending for overspend
 #    When I visit the "budget" page
