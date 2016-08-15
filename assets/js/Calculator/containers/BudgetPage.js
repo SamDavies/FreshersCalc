@@ -69,7 +69,7 @@ class BudgetPage extends Component {
     }
 
     onNextPage() {
-        ReactDom.findDOMNode(this).scrollIntoView();
+        document.body.scrollTop = document.documentElement.scrollTop = -50;
         browserHistory.push('/web/expenses/');
     }
 
