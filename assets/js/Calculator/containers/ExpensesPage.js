@@ -62,11 +62,22 @@ class BudgetPage extends Component {
         this.props.dispatch(selectShopping(shoppingId))
     }
 
+    onNextPage() {
+        document.body.scrollTop = document.documentElement.scrollTop = -50;
+        browserHistory.push('/web/going-out/');
+    }
+
     render() {
         return <div>
             <Panel>
 
                 <BreadcrumbBar activeName="expenses"/>
+
+                <Col xs={12}>
+                    <div className="text-muted">
+                        All costs are calculated per academic year.
+                    </div>
+                </Col>
 
                 <Col xs={12}>
                     <CheckBoxList
@@ -122,7 +133,7 @@ class BudgetPage extends Component {
                 </Col>
 
                 <Col xs={12}>
-                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/going-out/')}>
+                    <Button bsStyle="danger" onClick={this.onNextPage.bind(this)}>
                         Continue to your nightlife »
                     </Button>
                 </Col>

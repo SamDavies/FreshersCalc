@@ -1,9 +1,11 @@
 import os
 
+import sys
 from django.core import management
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'FreshersCalc.settings'
 import django
+
 django.setup()
 
 from django.test.runner import DiscoverRunner
@@ -29,8 +31,10 @@ def before_all(context):
     context.test = MockAPITestCase()
     context.auth = ClientAuth(context.test.client_class())
 
-    context.browser = Browser('phantomjs')
-    # context.browser = Browser('chrome')
+    if sys.gettrace() is not None:
+        context.browser = Browser('chrome')
+    else:
+        context.browser = Browser('phantomjs')
 
     # When we're running with PhantomJS we need to specify the window size.
     # This is a workaround for an issue where PhantomJS cannot find elements

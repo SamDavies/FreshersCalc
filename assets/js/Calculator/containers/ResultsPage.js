@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from "react";
-import ReactDom from "react-dom";
 import {connect} from "react-redux";
 import BreadcrumbBar from "../components/BreadcrumbBar";
 import {Link, browserHistory} from "react-router";
@@ -76,6 +75,7 @@ class ResultsPage extends Component {
         goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
         goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
         goingOut *= this.props.selectedNightIds.length;
+        goingOut = 38.0 * goingOut;
 
         balance -= goingOut;
 
@@ -106,7 +106,7 @@ class ResultsPage extends Component {
 
         var overspend = {
             part1: <div>You have overspent by <span
-                className="text-cost">£{this.numberWithCommas(-spending.toFixed())}</span> over freshers</div>,
+                className="text-cost">£{this.numberWithCommas(-spending.toFixed())}</span> this year</div>,
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
                 Make sure you've got a safety net for uni with an interest
@@ -132,7 +132,7 @@ class ResultsPage extends Component {
         var underspend = {
             part1: <div>You have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in
                 your account</div>,
-            part2: "You are watching your money carefully over freshers.",
+            part2: "You are watching your money carefully this year.",
             part3: <div>
                 Apply for a student bank account with an interest-free arranged overdraft
                 with a <span className="rbs-text">Royal Bank of Scotland</span> student bank account.
@@ -211,7 +211,32 @@ class ResultsPage extends Component {
                 </Col>
 
             </Panel>
-        </div>;
+
+            <Col xs={12} className="text-muted text">
+                <div className="text-muted-header">
+                    Overdraft eligibility criteria:
+                </div>
+                <p/>
+                <div>
+                    Overdraft applications are subject to approval and you need to be 18 over or above to apply.
+                    (Ordinarily resident in the UK for 3 years or more).
+                </div>
+                <p/>
+                <div className="text-muted-header">
+                    Student Account eligibility criteria:
+                </div>
+                <p/>
+                <div>
+                    Subject to account eligibility criteria (including course and residency requirements). You'll need
+                    to be aged 17 or older to apply for the account, a permanent UK resident (ordinarily resident in the
+                    UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years;
+                    completing a full time post graduate course; or training as a nurse, at a UK university or college
+                    at higher education.
+                </div>
+                <p/>
+            </Col>
+        </div>
+            ;
     }
 }
 

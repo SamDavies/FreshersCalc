@@ -61,6 +61,12 @@ class GoingOutPage extends Component {
         this.props.dispatch(selectTaxi(taxiId))
     }
 
+    onNextPage() {
+        document.body.scrollTop = document.documentElement.scrollTop = -50;
+        browserHistory.push('/web/results/');
+    }
+
+
     render() {
         var drinkSelectionLists = [];
 
@@ -102,6 +108,12 @@ class GoingOutPage extends Component {
             <Panel>
 
                 <BreadcrumbBar activeName="going-out"/>
+
+                <Col xs={12}>
+                    <div className="text-muted">
+                        Assuming that you go out every week of the year.
+                    </div>
+                </Col>
 
                 <Col xs={12}>
                     <CheckBoxList
@@ -157,7 +169,7 @@ class GoingOutPage extends Component {
                 </Col>
 
                 <Col xs={12}>
-                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/results/')}>
+                    <Button bsStyle="danger" onClick={this.onNextPage.bind(this)}>
                         Show me my results!
                     </Button>
                 </Col>

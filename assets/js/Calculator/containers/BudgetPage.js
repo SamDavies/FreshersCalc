@@ -68,6 +68,11 @@ class BudgetPage extends Component {
         this.props.dispatch(selectCatering(id))
     }
 
+    onNextPage() {
+        document.body.scrollTop = document.documentElement.scrollTop = -50;
+        browserHistory.push('/web/expenses/');
+    }
+
     render() {
 
         return <div>
@@ -75,10 +80,16 @@ class BudgetPage extends Component {
                 <BreadcrumbBar activeName="budget"/>
 
                 <Col xs={12}>
+                    <div className="text-muted">
+                        All costs are calculated per academic year.
+                    </div>
+                </Col>
+
+                <Col xs={12}>
                     <SelectionList
                         xsCols={12}
                         smCols={6}
-                        header="What university are you going to?"
+                        header="Which university are you going to?"
                         placeholder="Please choose..."
                         options={this.props.universities}
                         selectedOption={this.props.selectedUniversityId}
@@ -115,7 +126,7 @@ class BudgetPage extends Component {
                 </Col>
 
                 <Col xs={12}>
-                    <Button bsStyle="danger" onClick={() => browserHistory.push('/web/expenses/')}>
+                    <Button bsStyle="danger" onClick={this.onNextPage.bind(this)}>
                         Continue to your expenses »
                     </Button>
                 </Col>

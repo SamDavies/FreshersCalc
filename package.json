@@ -12,7 +12,8 @@
     "react-router-redux": "^4.0.5",
     "redux": "^3.5.2",
     "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "webpack-s3-plugin": "^0.9.0"
   },
   "devDependencies": {
     "babel-core": "^6.7.4",
@@ -29,6 +30,8 @@
     "webpack-bundle-tracker": "0.0.93"
   },
   "scripts": {
+    "build": "./node_modules/.bin/webpack --config webpack.config.js",
+    "build-prod": "./node_modules/.bin/webpack -p --config webpack.config.prod.js --define process.env.NODE_ENV='\"production\"' --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
