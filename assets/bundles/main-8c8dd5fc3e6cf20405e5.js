@@ -64736,7 +64736,7 @@
 	                        "£",
 	                        this.numberWithCommas(-spending.toFixed())
 	                    ),
-	                    " over freshers"
+	                    " this year"
 	                ),
 	                part2: "Fair enough, you plan on letting loose when you get to uni.",
 	                part3: _react2.default.createElement(
@@ -64779,7 +64779,7 @@
 	                    ),
 	                    " left in your account"
 	                ),
-	                part2: "You are watching your money carefully over freshers.",
+	                part2: "You are watching your money carefully this year.",
 	                part3: _react2.default.createElement(
 	                    "div",
 	                    null,
