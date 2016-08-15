@@ -60446,6 +60446,15 @@
 	                    _react2.default.createElement(
 	                        Col,
 	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "text-muted" },
+	                            "All costs are calculated per academic year"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
 	                        _react2.default.createElement(_SelectionList2.default, {
 	                            xsCols: 12,
 	                            smCols: 6,
@@ -64081,6 +64090,15 @@
 	                    _react2.default.createElement(
 	                        Col,
 	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "text-muted" },
+	                            "All costs are calculated per academic year"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
 	                        _react2.default.createElement(_CheckBoxList2.default, {
 	                            innerCols: 6,
 	                            outerCols: 8,
@@ -64456,6 +64474,15 @@
 	                    Panel,
 	                    null,
 	                    _react2.default.createElement(_BreadcrumbBar2.default, { activeName: "going-out" }),
+	                    _react2.default.createElement(
+	                        Col,
+	                        { xs: 12 },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "text-muted" },
+	                            "Assuming that you go out every week of the year"
+	                        )
+	                    ),
 	                    _react2.default.createElement(
 	                        Col,
 	                        { xs: 12 },
@@ -64890,25 +64917,25 @@
 	                    Col,
 	                    { xs: 12, className: "text-muted text" },
 	                    _react2.default.createElement(
-	                        "i",
+	                        "div",
 	                        { className: "text-muted-header" },
 	                        "Overdraft eligibility criteria:"
 	                    ),
 	                    _react2.default.createElement("p", null),
 	                    _react2.default.createElement(
-	                        "i",
+	                        "div",
 	                        null,
 	                        "Overdraft applications are subject to approval and you need to be 18 over or above to apply. (Ordinarily resident in the UK for 3 years or more)."
 	                    ),
 	                    _react2.default.createElement("p", null),
 	                    _react2.default.createElement(
-	                        "i",
+	                        "div",
 	                        { className: "text-muted-header" },
 	                        "Student Account eligibility criteria:"
 	                    ),
 	                    _react2.default.createElement("p", null),
 	                    _react2.default.createElement(
-	                        "i",
+	                        "div",
 	                        null,
 	                        "Subject to account eligibility criteria (including course and residency requirements). You'll need to be aged 17 or older to apply for the account, a permanent UK resident (ordinarily resident in the UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years; completing a full time post graduate course; or training as a nurse, at a UK university or college at higher education."
 	                    ),

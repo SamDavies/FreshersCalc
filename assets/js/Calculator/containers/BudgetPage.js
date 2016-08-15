@@ -80,6 +80,12 @@ class BudgetPage extends Component {
                 <BreadcrumbBar activeName="budget"/>
 
                 <Col xs={12}>
+                    <div className="text-muted">
+                        All costs are calculated per academic year
+                    </div>
+                </Col>
+
+                <Col xs={12}>
                     <SelectionList
                         xsCols={12}
                         smCols={6}

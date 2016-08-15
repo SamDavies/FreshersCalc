@@ -110,6 +110,12 @@ class GoingOutPage extends Component {
                 <BreadcrumbBar activeName="going-out"/>
 
                 <Col xs={12}>
+                    <div className="text-muted">
+                        Assuming that you go out every week of the year
+                    </div>
+                </Col>
+
+                <Col xs={12}>
                     <CheckBoxList
                         innerCols={4}
                         outerCols={9}
