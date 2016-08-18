@@ -214,7 +214,7 @@ class ResultsPage extends Component {
 
             <Col xs={12} className="text-muted text">
                 <div className="text-muted-header">
-                    Royal Bank of Scotland Student Account eligibility criteria:
+                    NatWest Student Account eligibility criteria:
                 </div>
                 <p/>
                 <div>
@@ -226,7 +226,7 @@ class ResultsPage extends Component {
                 </div>
                 <p/>
                 <div className="text-muted-header">
-                    Royal Bank of Scotland overdraft eligibility criteria:
+                    NatWest overdraft eligibility criteria:
                 </div>
                 <p/>
                 <div>
