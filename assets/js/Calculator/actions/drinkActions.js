@@ -6,11 +6,10 @@ export const RECEIVE_DRINKS = 'RECEIVE_DRINKS';
 
 /// action creators
 
-export function selectDrinkCount(drinkId, count) {
+export function selectDrinkCount(drinkId) {
     return {
         type: SELECT_DRINK_COUNT,
-        drinkId: drinkId,
-        count: count
+        drinkId: drinkId
     }
 }
 

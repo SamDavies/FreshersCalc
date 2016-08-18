@@ -4,15 +4,12 @@ import {REQUEST_DRINKS, RECEIVE_DRINKS, SELECT_DRINK_COUNT} from "../actions/dri
 function drinkReducer(state = {
     isFetching: false,
     drinks: [],
-    selectedDrinkCounts: []
+    selectedDrinkId: null
 }, action) {
     switch (action.type) {
         case SELECT_DRINK_COUNT:
             return Object.assign({}, state, {
-                selectedDrinkCounts: [
-                    ...state.selectedDrinkCounts.filter(t => (t.id != action.drinkId)),
-                    {id: action.drinkId, count: action.count}
-                ]
+                selectedDrinkId: action.drinkId
             });
         case REQUEST_DRINKS:
             return Object.assign({}, state, {
