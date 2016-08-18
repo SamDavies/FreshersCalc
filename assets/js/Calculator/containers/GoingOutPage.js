@@ -114,7 +114,7 @@ class GoingOutPage extends Component {
                     <RadioGroupList
                         innerCols={3}
                         outerCols={12}
-                        header="Will you have a snack after a night out?"
+                        header="Will you have a takeaway after a night out?"
                         name="meals"
                         options={this.props.meals}
                         selectedOption={this.props.selectedMealId}

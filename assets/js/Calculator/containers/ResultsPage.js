@@ -100,8 +100,10 @@ class ResultsPage extends Component {
         var spending = this.getSpending();
 
         var overspend = {
-            part1: <div>You have overspent by <span
-                className="text-cost">£{this.numberWithCommas(-spending.toFixed())}</span> this year</div>,
+            part1: <div>You will have overspent by
+                <span className="text-cost">
+                    £{this.numberWithCommas(-spending.toFixed())}
+                </span> this year</div>,
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
                 Make sure you've got a safety net for uni with an interest
@@ -125,12 +127,12 @@ class ResultsPage extends Component {
         }
 
         var underspend = {
-            part1: <div>You have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in
+            part1: <div>You will have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in
                 your account</div>,
             part2: "You are watching your money carefully this year.",
             part3: <div>
-                Apply for a student bank account with an interest-free arranged overdraft
-                with a <span className="natwest-text">NatWest</span> student bank account.
+                Make sure you've got a safety net for uni with an interest
+                free overdraft when applying for a <span className="natwest-text">NatWest</span> student bank account.
             </div>,
             part4: <div>
                 <div className="text-light">You could afford</div>

@@ -101,7 +101,7 @@ class BudgetPage extends Component {
                         controlId="budget"
                         value={this.props.budget ? "£" + this.props.budget : null}
                         onChange={this.onSetBudget}
-                        placeholder="£ per semester"
+                        placeholder="£ per academic year"
                     />
 
                     <RadioGroupList
