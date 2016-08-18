@@ -214,16 +214,7 @@ class ResultsPage extends Component {
 
             <Col xs={12} className="text-muted text">
                 <div className="text-muted-header">
-                    Overdraft eligibility criteria:
-                </div>
-                <p/>
-                <div>
-                    Overdraft applications are subject to approval and you need to be 18 over or above to apply.
-                    (Ordinarily resident in the UK for 3 years or more).
-                </div>
-                <p/>
-                <div className="text-muted-header">
-                    Student Account eligibility criteria:
+                    Royal Bank of Scotland Student Account eligibility criteria:
                 </div>
                 <p/>
                 <div>
@@ -232,6 +223,15 @@ class ResultsPage extends Component {
                     UK for 3 years or more) and completing a full time undergraduate course that lasts at least 2 years;
                     completing a full time post graduate course; or training as a nurse, at a UK university or college
                     at higher education.
+                </div>
+                <p/>
+                <div className="text-muted-header">
+                    Royal Bank of Scotland overdraft eligibility criteria:
+                </div>
+                <p/>
+                <div>
+                    Overdraft applications are subject to approval and you need to be 18 over or above to apply.
+                    (Ordinarily resident in the UK for 3 years or more).
                 </div>
                 <p/>
             </Col>
