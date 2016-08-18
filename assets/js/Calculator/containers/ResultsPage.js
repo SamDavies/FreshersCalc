@@ -65,12 +65,7 @@ class ResultsPage extends Component {
 
         //going out
         var goingOut = 0;
-        let selectedDrinkCountLength = this.props.selectedDrinkCounts.length;
-        for (var j = 0; j < selectedDrinkCountLength; j++) {
-            let drinkCount = this.props.selectedDrinkCounts[j];
-            let drink = this.props.drinks.filter(t => (t.id == drinkCount.id));
-            goingOut += drink[0].value * drinkCount.count;
-        }
+        goingOut += this.getCost(this.props.drinks, this.props.selectedDrinkId);
         goingOut += this.getCost(this.props.rounds, this.props.selectedRoundId);
         goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
         goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
@@ -279,7 +274,7 @@ const mapStateToProps = (state) => {
         selectedNightIds: state.nightCountReducer.selectedNightIds,
 
         drinks: state.drinkReducer.drinks,
-        selectedDrinkCounts: state.drinkReducer.selectedDrinkCounts,
+        selectedDrinkId: state.drinkReducer.selectedDrinkId,
 
         rounds: state.roundReducer.rounds,
         selectedRoundId: state.roundReducer.selectedRoundId,

@@ -45,8 +45,8 @@ class GoingOutPage extends Component {
         this.props.dispatch(decreaseNightCount(dayId))
     }
 
-    onSelectDrinkCount(drinkId, count) {
-        this.props.dispatch(selectDrinkCount(drinkId, count))
+    onSelectDrink(drinkId) {
+        this.props.dispatch(selectDrinkCount(drinkId))
     }
 
     onSelectRound(roundId) {
@@ -68,42 +68,6 @@ class GoingOutPage extends Component {
 
 
     render() {
-        var drinkSelectionLists = [];
-
-        // for each drink, create a selection list where the
-        // number of that kind of drink can be selected
-        let drinkCount = this.props.drinks.length;
-        for (var i = 0; i < drinkCount; i++) {
-            let drink = this.props.drinks[i];
-            let selectedDrinkCounts = this.props.selectedDrinkCounts.filter(t => (t.id == drink.id));
-            var count = null;
-            if (selectedDrinkCounts.length != 0) {
-                count = selectedDrinkCounts[0].count
-            }
-            drinkSelectionLists.push(<div key={drink.id}>
-                <SelectionList
-                    xsCols={8}
-                    smCols={4}
-                    appendName={" " + drink.name}
-                    placeholder={drink.name}
-                    options={[
-                        {id: 1, name: "1", value: 0},
-                        {id: 2, name: "2", value: 0},
-                        {id: 3, name: "3", value: 0},
-                        {id: 4, name: "4", value: 0},
-                        {id: 5, name: "5", value: 0},
-                        {id: 6, name: "6", value: 0},
-                        {id: 7, name: "7", value: 0},
-                        {id: 8, name: "8", value: 0},
-                        {id: 9, name: "9", value: 0},
-                        {id: 10, name: "10", value: 0}
-                    ]}
-                    selectedOption={count}
-                    onSelectOption={this.onSelectDrinkCount.bind(this, drink.id)}
-                />
-            </div>);
-        }
-
         return <div>
             <Panel>
 
@@ -127,15 +91,15 @@ class GoingOutPage extends Component {
                         onDeselectOption={this.onDecreaseNightCount}
                     />
 
-                    <Row>
-                        <Col xs={12}>
-                            <h3 className="question">
-                                How many drinks do you plan on having on an average night out?
-                            </h3>
-                        </Col>
-                    </Row>
-
-                    {drinkSelectionLists}
+                    <RadioGroupList
+                        innerCols={6}
+                        outerCols={9}
+                        header="How much will you spend on drinks on an average night out?"
+                        name="drinks"
+                        options={this.props.drinks}
+                        selectedOption={this.props.selectedDrinkId}
+                        onSelectOption={this.onSelectDrink.bind(this)}
+                    />
 
                     <RadioGroupList
                         innerCols={6}
@@ -185,7 +149,7 @@ const mapStateToProps = (state) => {
         selectedNightIds: state.nightCountReducer.selectedNightIds,
 
         drinks: state.drinkReducer.drinks,
-        selectedDrinkCounts: state.drinkReducer.selectedDrinkCounts,
+        selectedDrinkId: state.drinkReducer.selectedDrinkId,
 
         rounds: state.roundReducer.rounds,
         selectedRoundId: state.roundReducer.selectedRoundId,
