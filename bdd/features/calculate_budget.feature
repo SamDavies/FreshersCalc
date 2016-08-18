@@ -16,8 +16,7 @@ Feature: Calculate the budget for a student
       | GymMembership   | Yes               | 150   |
       | Haircut         | Twice a semester  | 120   |
       | Shopping        | £200 - £300       | 250   |
-      | Drink           | beer              | 3.2   |
-      | Drink           | wine              | 3     |
+      | Drink           | £0-£14            | 14    |
       | RoundsForFriend | 1 round per night | 20    |
       | PostNightMeal   | Yes               | 6     |
       | Taxi            | Yes Taxi          | 15    |
@@ -44,15 +43,14 @@ Feature: Calculate the budget for a student
 
   Scenario: Calculate spending on the Going Out Page
     When I visit the "going-out" page
-    And I select option "Monday" for the question "How many drinks you plan on having on an average night out?"
-    And I select option "Tuesday" for the question "How many drinks you plan on having on an average night out?"
-    And I select option "2 beers" for the question "How many drinks do you plan on having on an average night out?"
-    And I select option "1 wine" for the question "How many drinks do you plan on having on an average night out?"
+    And I select option "Monday" for the question "Which nights do you plan on going out?"
+    And I select option "Tuesday" for the question "Which nights do you plan on going out?"
+    And I select option "£0-£14" for the question "How many drinks do you plan on having on an average night out?"
     And I select option "1 round per night" for the question "Do you buy rounds for friends?"
     And I select option "Yes" for the question "After a night out, do you get a post night out snack?"
     And I select option "Yes Taxi" for the question "Do you get a taxi back after a night out?"
     And I click the "Results" link
-    Then I have "3,830" left
+    Then I have "4,180" left
 
 #  Scenario: Calculate spending for overspend
 #    When I visit the "budget" page
