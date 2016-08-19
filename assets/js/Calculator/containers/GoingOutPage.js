@@ -74,7 +74,7 @@ class GoingOutPage extends Component {
                 <BreadcrumbBar activeName="going-out"/>
 
                 <Col xs={12}>
-                    <div className="text-muted">
+                    <div className="text-light">
                         Assuming that you go out every week of the year.
                     </div>
                 </Col>

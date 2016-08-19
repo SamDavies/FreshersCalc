@@ -15,7 +15,6 @@ class ResultsPage extends Component {
     constructor(props) {
         super(props);
         this.getCost = this.getCost.bind(this);
-        this.getSpending = this.getSpending.bind(this);
         this.affordCalculator = this.affordCalculator.bind(this);
     }
 
@@ -47,36 +46,6 @@ class ResultsPage extends Component {
         return 0;
     }
 
-    getSpending() {
-        var balance = this.props.budget;
-
-        // budget
-        balance -= this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
-        balance -= this.getCost(this.props.catering, this.props.selectedCateringId);
-
-        // expenses
-        for (var i = 0; i < this.props.items.length; i++) {
-            balance -= this.getCost(this.props.items, this.props.selectedItemIds[i]);
-        }
-        balance -= this.getCost(this.props.homeTrips, this.props.selectedHomeTripId);
-        balance -= this.getCost(this.props.gyms, this.props.selectedGymId);
-        balance -= this.getCost(this.props.haircuts, this.props.selectedHaircutId);
-        balance -= this.getCost(this.props.shoppings, this.props.selectedShoppingId);
-
-        //going out
-        var goingOut = 0;
-        goingOut += this.getCost(this.props.drinks, this.props.selectedDrinkId);
-        goingOut += this.getCost(this.props.rounds, this.props.selectedRoundId);
-        goingOut += this.getCost(this.props.meals, this.props.selectedMealId);
-        goingOut += this.getCost(this.props.taxis, this.props.selectedTaxiId);
-        goingOut *= this.props.selectedNightIds.length;
-        goingOut = 38.0 * goingOut;
-
-        balance -= goingOut;
-
-        return balance
-    }
-
     numberWithCommas(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
@@ -96,13 +65,47 @@ class ResultsPage extends Component {
     }
 
     render() {
+        var balance = this.props.budget;
 
-        var spending = this.getSpending();
+        // budget
+        let costAccommodation = this.getCost(this.props.accommodation, this.props.selectedAccommodationId);
+        let costCatering = this.getCost(this.props.catering, this.props.selectedCateringId);
+
+        // expenses
+        var costItems = 0;
+        for (var i = 0; i < this.props.items.length; i++) {
+            costItems += this.getCost(this.props.items, this.props.selectedItemIds[i]);
+        }
+        let costHomeTrips = this.getCost(this.props.homeTrips, this.props.selectedHomeTripId);
+        let costGyms = this.getCost(this.props.gyms, this.props.selectedGymId);
+        let costHaircuts = this.getCost(this.props.haircuts, this.props.selectedHaircutId);
+        let costShoppings = this.getCost(this.props.shoppings, this.props.selectedShoppingId);
+
+        //going out
+        let nightsPerYear = this.props.selectedNightIds.length * 38;
+        let costDrinks = this.getCost(this.props.drinks, this.props.selectedDrinkId) * nightsPerYear;
+        let costRounds = this.getCost(this.props.rounds, this.props.selectedRoundId) * nightsPerYear;
+        let costMeals = this.getCost(this.props.meals, this.props.selectedMealId) * nightsPerYear;
+        let costTaxis = this.getCost(this.props.taxis, this.props.selectedTaxiId) * nightsPerYear;
+        let costGoingOut = costDrinks + costRounds + costMeals + costTaxis;
+
+        // budget
+        balance -= costAccommodation;
+        balance -= costCatering;
+
+        // expenses
+        balance -= costItems;
+        balance -= costHomeTrips;
+        balance -= costGyms;
+        balance -= costHaircuts;
+        balance -= costShoppings;
+
+        //going out
+        balance -= costGoingOut;
 
         var overspend = {
-            part1: <div>You will have overspent by
-                <span className="text-cost">
-                    £{this.numberWithCommas(-spending.toFixed())}
+            part1: <div>You will have overspent by <span className="text-cost">
+                    £{this.numberWithCommas(-balance.toFixed())}
                 </span> this year</div>,
             part2: "Fair enough, you plan on letting loose when you get to uni.",
             part3: <div>
@@ -113,12 +116,12 @@ class ResultsPage extends Component {
             "It might be worth taking it easy for a couple of weeks to control your spending."
         };
 
-        let worldTripsText = this.affordCalculator(spending, 2700, " round the world trip", " round the world trips");
-        let aleText = this.affordCalculator(spending, 3.5, " pint of nice ale", " pints of nice ale");
-        let breakfastText = this.affordCalculator(spending, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
+        let worldTripsText = this.affordCalculator(balance, 2700, " round the world trip", " round the world trips");
+        let aleText = this.affordCalculator(balance, 3.5, " pint of nice ale", " pints of nice ale");
+        let breakfastText = this.affordCalculator(balance, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
         // only allow 1000, 100 or 1 sweets
-        let sweetSpending = (spending > 10000) ? 1000000 : (spending > 10) ? 1000 : (spending > 1) ? 100 : spending * 100;
+        let sweetSpending = (balance > 10000) ? 1000000 : (balance > 10) ? 1000 : (balance > 1) ? 100 : balance * 100;
         var sweetsText;
         if (sweetSpending >= 100) {
             sweetsText = this.affordCalculator(sweetSpending, 1, "", "'s of 1p sweets");
@@ -127,8 +130,9 @@ class ResultsPage extends Component {
         }
 
         var underspend = {
-            part1: <div>You will have <span className="text-cost">£{this.numberWithCommas(spending.toFixed())}</span> left in
-                your account</div>,
+            part1: <div>You will have <span className="text-cost">
+                    £{this.numberWithCommas(balance.toFixed())}
+                </span> left in your account</div>,
             part2: "You are watching your money carefully this year.",
             part3: <div>
                 Make sure you've got a safety net for uni with an interest
@@ -144,7 +148,7 @@ class ResultsPage extends Component {
             </div>
         };
         var content = underspend;
-        if (spending <= 0) {
+        if (balance <= 0) {
             content = overspend;
         }
 
@@ -152,7 +156,7 @@ class ResultsPage extends Component {
             <Panel footer={
                         <Row>
                             <Col xs={12} sm={6}  className="col-footer">
-                                <Button bsStyle="danger" className="btn-facebook" onClick={this.openFacebookShare.bind(this, spending)}>
+                                <Button bsStyle="danger" className="btn-facebook" onClick={this.openFacebookShare.bind(this, balance)}>
                                     <i style={{marginRight: "0.5em"}} className="fa fa-facebook" aria-hidden="true"/> Share with your friends
                                 </Button>
                             </Col>
@@ -172,7 +176,7 @@ class ResultsPage extends Component {
                     <p/>
                 </Col>
 
-                <Col xs={12} className="text">
+                <Col xs={12} className="text small-gap">
                     {content.part2}
                     <p/>
                 </Col>
@@ -200,11 +204,27 @@ class ResultsPage extends Component {
 
 
                 <Col xs={12}>
-                    <hr className="breadcrumb-hr"/>
+                    <hr className="middle-hr"/>
                 </Col>
 
                 <Col xs={12} className="text">
                     {content.part4}
+                </Col>
+
+                <Col xs={12}>
+                    <hr className="middle-hr"/>
+                </Col>
+
+                <Col xs={12} className="text gap-footer">
+                    <Col className="no-padding text-light">Average spending per month:</Col>
+                    <Col sm={6} className="no-padding">£{costAccommodation} on accommodation</Col>
+                    <Col sm={6} className="no-padding">£{costShoppings} on online shopping</Col>
+                    <Col sm={6} className="no-padding">£{costHomeTrips} on travelling home</Col>
+                    <Col sm={6} className="no-padding">£{costDrinks + costRounds} on on drinks</Col>
+                    <Col sm={6} className="no-padding">£{costGyms} on gym membership</Col>
+                    <Col sm={6} className="no-padding">£{costMeals} on post-night food</Col>
+                    <Col sm={6} className="no-padding">£{costHaircuts} on haircut</Col>
+                    <Col sm={6} className="no-padding">£{costTaxis} on taxis</Col>
                 </Col>
 
             </Panel>
