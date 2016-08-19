@@ -216,15 +216,15 @@ class ResultsPage extends Component {
                 </Col>
 
                 <Col xs={12} className="text gap-footer">
-                    <Col className="no-padding text-light">Average spending per month:</Col>
-                    <Col sm={6} className="no-padding">£{costAccommodation} on accommodation</Col>
-                    <Col sm={6} className="no-padding">£{costShoppings} on online shopping</Col>
-                    <Col sm={6} className="no-padding">£{costHomeTrips} on travelling home</Col>
-                    <Col sm={6} className="no-padding">£{costDrinks + costRounds} on on drinks</Col>
-                    <Col sm={6} className="no-padding">£{costGyms} on gym membership</Col>
-                    <Col sm={6} className="no-padding">£{costMeals} on post-night food</Col>
-                    <Col sm={6} className="no-padding">£{costHaircuts} on haircut</Col>
-                    <Col sm={6} className="no-padding">£{costTaxis} on taxis</Col>
+                    <Col className="no-padding text-light small-gap">Average spending per month:</Col>
+                    <Col sm={6} className="no-padding text">£{costAccommodation} on accommodation</Col>
+                    <Col sm={6} className="no-padding text">£{costShoppings} on online shopping</Col>
+                    <Col sm={6} className="no-padding text">£{costHomeTrips} on travelling home</Col>
+                    <Col sm={6} className="no-padding text">£{costDrinks + costRounds} on on drinks</Col>
+                    <Col sm={6} className="no-padding text">£{costGyms} on gym membership</Col>
+                    <Col sm={6} className="no-padding text">£{costMeals} on post-night food</Col>
+                    <Col sm={6} className="no-padding text">£{costHaircuts} on haircut</Col>
+                    <Col sm={6} className="no-padding text">£{costTaxis} on taxis</Col>
                 </Col>
 
             </Panel>
