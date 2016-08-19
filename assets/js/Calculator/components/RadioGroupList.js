@@ -27,12 +27,25 @@ class RadioGroupList extends Component {
         if (this.props.options) {
             var self = this;
             var options = this.props.options.map(function (option) {
-                return <Col xs={self.props.xsInnerCols} sm={self.props.innerCols} key={option.id}>
+                return <Col className="no-padding" key={option.id}>
                     <label>
                         <Radio value={option.id}/><span className="choice-text">{option.name}</span>
                     </label>
                 </Col>;
-            })
+            });
+
+            // separate the options into columns
+            let rowsPerCol = Math.ceil(this.props.options.length * (self.props.innerCols / 12));
+            let numCols = 12 / self.props.innerCols;
+            var content = new Array(numCols);
+            for (var i = 0; i < numCols; i++) {
+                // get the portion of options for this column
+                // making sure not to index options beyond the number of options
+                let rows = options.slice(rowsPerCol * i, Math.min(rowsPerCol * (i + 1), this.props.options.length));
+                content[i] = <Col xs={self.props.xsInnerCols} sm={self.props.innerCols} key={i}>
+                    {rows}
+                </Col>;
+            }
         }
         return <div>
             <Row>
@@ -44,7 +57,7 @@ class RadioGroupList extends Component {
                 <Col xs={this.props.outerCols} style={{padding: "0"}}>
                     <RadioGroup name={this.props.name} selectedValue={this.props.selectedOption}
                                 onChange={this.onSelectOption}>
-                        {options}
+                        {content}
                     </RadioGroup>
                 </Col>
             </Row>

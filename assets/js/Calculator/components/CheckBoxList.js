@@ -28,17 +28,30 @@ class CheckBoxList extends Component {
     render() {
         if (this.props.options) {
             var self = this;
-            var options = this.props.options.map(function (option) {
+            var options = this.props.options.map(function (option, index) {
                 let checked = (self.props.selectedOptions.filter(id => (id == option.id)).length != 0);
-                return <Col xs={self.props.xsInnerCols} sm={self.props.innerCols} key={option.id}>
-                    <label className="checkbox-inline" >
+                return <Col className="no-padding" key={option.id}>
+                    <label className="checkbox-inline">
                         <input type="checkbox"
                                checked={checked}
                                onChange={self.onSelectOption.bind(self, option.id, checked)}
                         /> {option.name}
                     </label>
                 </Col>;
-            })
+            });
+
+            // separate the options into columns
+            let rowsPerCol = Math.ceil(this.props.options.length * (self.props.innerCols / 12));
+            let numCols = 12 / self.props.innerCols;
+            var content = new Array(numCols);
+            for (var i = 0; i < numCols; i++) {
+                // get the portion of options for this column
+                // making sure not to index options beyond the number of options
+                let rows = options.slice(rowsPerCol * i, Math.min(rowsPerCol * (i + 1), this.props.options.length));
+                content[i] = <Col xs={self.props.xsInnerCols} sm={self.props.innerCols} key={i}>
+                    {rows}
+                </Col>;
+            }
         }
         return <div>
             <Row>
@@ -48,7 +61,7 @@ class CheckBoxList extends Component {
             </Row>
             <Row className="question-choices">
                 <Col xs={this.props.outerCols} style={{padding: "0"}}>
-                    {options}
+                    {content}
                 </Col>
             </Row>
         </div>;
