@@ -117,7 +117,7 @@ class ResultsPage extends Component {
         };
 
         let worldTripsText = this.affordCalculator(balance, 2700, " round the world trip", " round the world trips");
-        let aleText = this.affordCalculator(balance, 3.5, " pint of nice ale", " pints of nice ale");
+        let aleText = this.affordCalculator(balance, 3.5, " latte", " lattes");
         let breakfastText = this.affordCalculator(balance, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
 
         // only allow 1000, 100 or 1 sweets
@@ -161,10 +161,10 @@ class ResultsPage extends Component {
                                 </Button>
                             </Col>
                             <Col sm={6} className="text text-footer hidden-xs">
-                                and see who is going to spend the most this freshers
+                                and help them get set for freshers
                             </Col>
                             <Col xs={12} className="col-footer text text-footer visible-xs">
-                                and see who is going to spend the most this freshers
+                                and help them get set for freshers
                             </Col>
                         </Row>
                     }>
