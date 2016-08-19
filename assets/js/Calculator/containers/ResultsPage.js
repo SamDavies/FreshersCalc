@@ -247,7 +247,7 @@ class ResultsPage extends Component {
                 </div>
                 <p/>
                 <div>
-                    Overdraft applications are subject to approval and you need to be 18 over or above to apply.
+                    Overdraft applications are subject to approval and you need to be 18 or over above to apply.
                     (Ordinarily resident in the UK for 3 years or more).
                 </div>
                 <p/>
