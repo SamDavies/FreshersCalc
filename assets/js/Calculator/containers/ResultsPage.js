@@ -118,7 +118,7 @@ class ResultsPage extends Component {
 
         let worldTripsText = this.affordCalculator(balance, 2700, " round the world trip", " round the world trips");
         let aleText = this.affordCalculator(balance, 3.5, " pint of nice ale", " pints of nice ale");
-        let breakfastText = this.affordCalculator(balance, 2.99, " Wetherspoon's English breakfast", " Wetherspoon's English breakfasts");
+        let breakfastText = this.affordCalculator(balance, 2.99, " greasy spoon English breakfast", " greasy spoon English breakfasts");
 
         // only allow 1000, 100 or 1 sweets
         let sweetSpending = (balance > 10000) ? 1000000 : (balance > 10) ? 1000 : (balance > 1) ? 100 : balance * 100;
