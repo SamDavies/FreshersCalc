@@ -80,7 +80,7 @@ class BudgetPage extends Component {
                 <BreadcrumbBar activeName="budget"/>
 
                 <Col xs={12}>
-                    <div className="text-muted">
+                    <div className="text-light">
                         All costs are calculated per academic year.
                     </div>
                 </Col>
@@ -101,7 +101,7 @@ class BudgetPage extends Component {
                         controlId="budget"
                         value={this.props.budget ? "£" + this.props.budget : null}
                         onChange={this.onSetBudget}
-                        placeholder="£ per semester"
+                        placeholder="£ per academic year"
                     />
 
                     <RadioGroupList
