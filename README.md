@@ -1,6 +1,9 @@
 # FreshersCalc
 Freshers Calculator for the Tab
 
+https://freshers-calc.herokuapp.com
+http://freshers-calc-rbs.herokuapp.com
+
 ## Env Vars
 ```
 DJANGO_SETTINGS_MODULE=FreshersCalc.settings  
